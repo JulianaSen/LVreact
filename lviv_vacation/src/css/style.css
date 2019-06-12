@@ -63,6 +63,7 @@
 }
 .filter-button {
   margin: 0 auto;
+  font-size: 100%;
   width: 150px;
   padding: 8px;
   text-align: center;
