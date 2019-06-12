@@ -15,9 +15,7 @@ export default class MainBlock extends React.Component {
                     submit="Submit"
                     activity="Choose your activity:" />
 
-<Router>
                 <MainIcons />
-                </Router>
             </section>  
         )
     }
