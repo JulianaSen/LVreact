@@ -5,7 +5,7 @@ import ItemOfCatalog from './itemOfCatalog';
 export default class Catalog extends React.Component {
     render() {
         return (
-            <div class="hotels-offers">
+            <div className="hotels-offers">
                 <ItemOfCatalog />
                 <ItemOfCatalog />
                 <ItemOfCatalog />

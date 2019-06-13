@@ -5,12 +5,12 @@ import Catalog from '../Catalog/Catalog'
 export default class CatalogWithFilter extends React.Component{
   render() {
     return (
-      <body class="mainContent">
-        <div class="nav-container">
-          <label class="burger-cont">
+      <div className="mainContent">
+        <div className="nav-container">
+          <label className="burger-cont">
             <span></span>
-            <input type="checkbox" class="hamburger" />
-            <div class="nav-icon">
+            <input type="checkbox" className="hamburger" />
+            <div className="nav-icon">
               <div></div>
             </div>
           </label>
@@ -23,7 +23,7 @@ export default class CatalogWithFilter extends React.Component{
             <Catalog />
           </div>
         </main>
-      </body>
+      </div>
         
     )
   }
