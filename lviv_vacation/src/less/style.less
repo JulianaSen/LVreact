@@ -1,4 +1,7 @@
-.index, .about, .rst, .mainContent {
+@import url('https://fonts.googleapis.com/css?family=Acme|Lobster&display=swap');
+   
+// .index, .about, .rst, .mainContent {
+#root {
     font-family: 'Acme', sans-serif;
     background-repeat: no-repeat;
     width: 100%;
@@ -52,7 +55,7 @@
     justify-content: center;
 }
 
-.input {
+.budget_form {
     opacity: 0.7;
     font-size: 30px;
 }
@@ -61,6 +64,7 @@
     border-radius: 8px;
     padding: 10px;
     background-color: white;
+    margin-left: 10px;
 }
 
 .btn:hover, .filter-button:hover {
@@ -330,10 +334,14 @@ a.changeLink:hover {
     }
 }
 
+.tourists:hover {
+    height: 70%;
+}
+
 .inform {
     padding: 5px;
     font-size: 20px;
-    visibility: collapse;
+    visibility: hidden;
 }
 
 // user page
@@ -490,7 +498,8 @@ a.changeLink:hover {
 }
 
 @media screen and (max-width: 700px), screen and (max-height: 500px) {
-    .index, .about, .rst {
+    //.index, .about, .rst {
+    #root {
         overflow: scroll;
         overflow-x: hidden;
     }
@@ -562,7 +571,7 @@ a.changeLink:hover {
         margin-top: 10px;
     }
 
-    .input{
+    .budget_form{
         font-size: 25px;
     }
 
