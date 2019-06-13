@@ -106,9 +106,6 @@
 .navbar .navbarLi {
   float: left;
 }
-.navbarLi {
-  float: left;
-}
 .navbarLi a {
   color: black;
   text-align: center;
@@ -181,7 +178,7 @@
   width: 400px;
   border-radius: 8px;
 }
-#crt {
+.active {
   background-color: #9da6b5;
 }
 #btn {
