@@ -16,7 +16,7 @@ export default class App extends Component{
             <>
                 <Route exact path="/" component={MainBlock}  />
                 <Route exact path="/about" component={AboutBlock} />
-                <Route exact path='/about' component={AboutBlock} />
+                
             </>
         );
       }
