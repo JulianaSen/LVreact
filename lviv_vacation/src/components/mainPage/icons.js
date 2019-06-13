@@ -9,7 +9,7 @@ export default class MainIcons extends React.Component {
     render() {
         return (
             <div className="icons">
-                <Link className="images" to="/about">
+                <Link className="images" to="/hotels">
                     <img src={sleep} alt="Sleep" />
                 </Link>
                 <Link className="images"  to="/about">
