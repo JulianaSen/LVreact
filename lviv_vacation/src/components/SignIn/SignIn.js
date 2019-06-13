@@ -2,24 +2,16 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import Btn from '../Forms/Btn';
 import Input from '../Forms/Input';
-import Navbar from  "../Navbar/Navbar";
+import Navbar from "../Navbar/Navbar";
 
-class SignUp extends Component{
+class SignIn extends Component{
     render(){
 
         return (
             <div className="rst">
                 <Navbar />
                 <section className="rgt">
-                <p className = "createText">Create new account:</p>
-                        <Input
-                             csform="rgt-form"
-                             csdiv="input-rgt"
-                             tp="text"
-                             nm="username"
-                             pdr="username"
-                        />
-
+                <p className = "createText">Sign in:</p>
                         <Input
                              csform="rgt-form"
                              csdiv="input-rgt"
@@ -36,26 +28,21 @@ class SignUp extends Component{
                              pdr="password"
                         />
 
-                        <Input
-                             csform="rgt-form"
-                             csdiv="input-rgt"
-                             tp="password"
-                             nm="rptPassword"
-                             pdr="repeat password"
-                        />
-
                         <Btn
                              csform="rgt-form"
                              csdiv="input-rgt"
                              idt="btn"
                              tp="submit"
-                             vl="Register"
+                             vl="Submit"
                         />
-            
+
+                        <p className="changeLink">Don't have an account?</p>
+                        <Link className="changeLink" to='/sign_up'>Create one!</Link>
                 </section>
             </div>
         )
     }
 }
 
-export default SignUp;
+export default SignIn;
+
