@@ -37,7 +37,7 @@
   justify-content: center;
   line-height: 2;
   letter-spacing: 4px;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .textBudget {
   color: black;
@@ -56,7 +56,6 @@
   flex-direction: row;
   justify-content: center;
 }
-
 .budget_form {
   opacity: 0.7;
   font-size: 30px;
@@ -119,15 +118,10 @@
 .navbar .navbarLi {
   float: left;
 }
-
-.navbarLi {
-  float: left;
-}
-  
 .navbarLi a {
   color: black;
   text-align: center;
-  padding: 29px 16px;
+  padding: 55px 16px;
   text-decoration: none;
 }
 .nav-cng {
@@ -196,9 +190,7 @@
   width: 400px;
   border-radius: 8px;
 }
-
-#crt {
-.active {
+.actives {
   background-color: #9da6b5;
 }
 #btn {
@@ -309,16 +301,11 @@ a.changeLink:hover {
 .contacts:hover .inform {
   visibility: visible;
 }
-  
-.tourists:hover {
-  height: 70%;
-}
 .inform {
   padding: 5px;
   font-size: 20px;
-  visibility: hidden;
+  visibility: collapse;
 }
-  
 .basket {
   font-size: 40px;
   display: flex;
@@ -467,7 +454,6 @@ a.changeLink:hover {
   }
 }
 @media screen and (max-width: 700px), screen and (max-height: 500px) {
-
   #root {
     overflow: scroll;
     overflow-x: hidden;
@@ -532,7 +518,6 @@ a.changeLink:hover {
     font-size: 40px;
     margin-top: 10px;
   }
-
   .budget_form {
     font-size: 25px;
   }
@@ -699,11 +684,6 @@ fieldset {
   justify-content: space-between;
   margin: 5px 20px 5px 20px;
   user-select: none;
-}
-.check-item ~ div:hover {
-  background-color: rgba(216, 216, 218, 0.6);
-  border-radius: 5px;
-  transition: background-color 0.5s;
 }
 .checkbox {
   display: none;
@@ -879,8 +859,10 @@ i.fa-star:hover {
   .nav-icon {
     margin: 1em;
     width: 35px;
-    position: relative;
-    left: 75vw;
+  }
+  .burger-cont {
+    display: flex;
+    justify-content: space-between;
   }
   .nav-icon:after,
   .nav-icon:before,
@@ -917,7 +899,7 @@ i.fa-star:hover {
     max-width: 60%;
   }
   .main-container {
-    margin-top: 320px;
+    margin-top: 370px;
   }
 }
 @media screen and (max-width: 977px) {
@@ -954,5 +936,110 @@ i.fa-star:hover {
   }
   .choose-pref {
     font-size: 1.6rem;
+  }
+}
+@media screen and (max-width: 977px) {
+  .preferences {
+    min-width: 230px;
+  }
+}
+@media screen and (max-height: 740px) and (max-width: 1000px) and (min-width: 800px) {
+  .choice {
+    margin-top: 60px;
+  }
+  .textBudget {
+    font-size: 40px;
+  }
+  .input_budget {
+    margin-top: 50px;
+    padding: 7px;
+  }
+  .btn {
+    padding: 7px;
+  }
+  .input {
+    font-size: 25px;
+  }
+  .textAct {
+    font-size: 60px;
+  }
+  .images {
+    padding: 20px;
+    margin: 15px;
+    margin-left: 50px;
+  }
+}
+@media screen and (width: 768px) and (height: 1024px) {
+  .input {
+    margin-top: 90px;
+  }
+  .textAct {
+    padding: 15px;
+    line-height: 1.5;
+    text-align: center;
+  }
+  .textBudget {
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+    line-height: 1.2;
+  }
+}
+@media screen and (width: 1024px) and (height: 1366px) {
+  .video-container {
+    min-height: 100%;
+  }
+  .textBudget {
+    font-size: 80px;
+    text-align: center;
+  }
+  .input {
+    font-size: 50px;
+    margin-top: 90px;
+  }
+  .choice {
+    line-height: 1.7;
+  }
+  .textAct {
+    font-size: 100px;
+    margin-top: 100px;
+  }
+  .images {
+    padding: 70px;
+    margin-top: 90px;
+  }
+  .images img {
+    height: 100px;
+    width: 100px;
+  }
+  .navbar {
+    font-size: 30px;
+  }
+  .logo {
+    height: 70px;
+    width: 70px;
+  }
+  .nav-cng {
+    margin-top: 35px;
+  }
+}
+@media screen and (max-height: 610px) and (max-width: 1000px) and (min-width: 800px) {
+  .choice {
+    margin-top: 10px;
+  }
+  .input {
+    font-size: 15px;
+  }
+  .input_budget {
+    width: 250px;
+  }
+  .textBudget {
+    font-size: 30px;
+  }
+  .textAct {
+    font-size: 40px;
+  }
+  .images {
+    padding: 10px;
   }
 }

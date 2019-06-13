@@ -13,10 +13,11 @@ import '../../css/normalize.css';
 export default class App extends Component{
     render() {
         return (
-            <Router>
-                <Route path="/" component={MainBlock} exact />
-                <Route path="/about" component={AboutBlock} />
-             </Router>
+            <>
+                <Route exact path="/" component={MainBlock}  />
+                <Route exact path="/about" component={AboutBlock} />
+                <Route exact path='/about' component={AboutBlock} />
+            </>
         );
       }
 }
@@ -25,7 +26,7 @@ export default class App extends Component{
 
 
 //                 <Switch>
-//                     <Route exact path='/about' component={About} />
+//                     
 //                     <Route exact path='/sign_in' component={SignIn} />
 //                     <Route exact path='/sig_up' component={SignUp}/>
 //                     <FilterMenu />

@@ -10,9 +10,10 @@ class Navbar extends Component{
             <div>
                 <header className="header">
                 <ul className="navbar">
-                    <li className="navbarLi"><NavLink to='/main'>
-                        <img className="logo" src={favicon} alt="logo" />
-                    </NavLink></li>
+                    <li className="navbarLi">
+                        <NavLink to='/'>
+                            <img className="logo" src={favicon} alt="logo" />
+                        </NavLink></li>
                     <div className="nav-cng">
                         <li className="navbarLi">
                             <NavLink activeClassName="active" to='/about'>
