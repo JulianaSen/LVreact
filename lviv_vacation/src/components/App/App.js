@@ -1,12 +1,24 @@
 import React, {Component} from 'react';
 import FilterMenu from '../FilterMenu/filterMenu';
+import {Route, Switch} from 'react-router-dom';
+import Navbar from '../Navbar/Navbar'
 import  '../../css/style.css';
 
 
-export default class App extends Component{
+class App extends Component{
     render() {
         return (
-            <FilterMenu />
+            <div>
+                <Switch>
+                    <Route exact path='/about' component={About} />
+                    <Route exact path='/sign_in' component={SignIn} />
+                    <Route exact path='/sig_up' component={SignUp}/>
+                    <FilterMenu />
+                </Switch>
+            </div>
         );
       }
 }
+
+
+export default App;
