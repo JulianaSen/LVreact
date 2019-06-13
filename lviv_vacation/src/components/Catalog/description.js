@@ -2,10 +2,11 @@ import React from 'react';
 
 export default class Description extends React.Component {
     render() {
+
         return (
             <div className="description ">
                 <div className="name-hotel">
-                  <p>restaurant 1</p>
+                  <p>hotel</p>
                 </div>
                 <div className="servises">
                   <div>

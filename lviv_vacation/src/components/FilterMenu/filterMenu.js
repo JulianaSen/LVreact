@@ -4,8 +4,14 @@ import ButtonFilter from './buttonFilter';
 
 export default class FilterMenu extends React.Component {
   render() {
+    let smallScreenClass = `preferences`;
+
+    if(this.props.smallscreen) {
+      smallScreenClass = `preferences ${this.props.smallscreen}`;
+    }
+    
     return (
-      <div className="preferences">
+      <div className={smallScreenClass} >
         <div className="form-preferences">
           <form className="form" action="">
             <div className="form-container">

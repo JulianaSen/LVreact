@@ -1,12 +1,12 @@
 import React from 'react';
-import Rating from './rating';
+import RatingStar from './rating';
 import Description from './description';
 
 export default class ItemOfCatalog extends React.Component {
   render() {
     return (
         <div className="hotel-container">
-           <Rating />
+           <RatingStar />
             <div className="hotel">
               <div className="container-img container-img-hotels">
                 <div className="additional-information">
@@ -14,8 +14,8 @@ export default class ItemOfCatalog extends React.Component {
                 </div>
               </div>
               <Description />
-            </div>
           </div>
+        </div>
     )
   }
 }
