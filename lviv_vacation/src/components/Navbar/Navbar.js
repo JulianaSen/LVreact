@@ -17,7 +17,7 @@ class Navbar extends Component{
                     <div className="nav-cng">
                         <li className="navbarLi">
                             <NavLink activeClassName="active" to='/about'>
-                                About
+                                About 
                             </NavLink>
                         </li>
 
