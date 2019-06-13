@@ -251,6 +251,7 @@ a.changeLink:hover {
   margin: 0 auto;
   height: 95%;
   width: 75%;
+  opacity: 0.9;
 }
 .history,
 .tourists,
