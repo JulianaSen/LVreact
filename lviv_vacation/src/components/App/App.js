@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import AboutBlock from '../about/about';
 import MainBlock from '../mainPage/mainPage';
 import FilterMenu from '../FilterMenu/filterMenu';
-import Navbar from '../Navbar/Navbar'
+import SignUp from '../SignIn';
 import  '../../css/style.css';
 import '../../css/normalize.css';
 
@@ -16,7 +16,8 @@ export default class App extends Component{
             <>
                 <Route exact path="/" component={MainBlock}  />
                 <Route exact path="/about" component={AboutBlock} />
-                <Route exact path='/about' component={AboutBlock} />
+                <Route exact path='/sign_in' component={SignIn} />
+//               <Route exact path='/sign_up' component={SignUp}/>
             </>
         );
       }
