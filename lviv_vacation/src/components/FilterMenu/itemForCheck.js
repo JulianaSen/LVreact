@@ -4,25 +4,35 @@ export default class ItemForCheck extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      checked: true,
-      establish: this.props.content
+      [this.props.content]: true,
+      
     };
 
   }
   
   isChecked() {
     this.setState({
-      checked: !this.state.checked
+      [this.props.content]: !this.state[this.props.content]
     });
+    
+    if(this.state['Choose all']) {
+      this.state.checkedAll = true;
+    } else {
+      this.state.checkedAll = false;
+    }
+    this.props.update(this.state, this.state.checkedAll);
 
-    // console.log(this.state.checked, this.state.establish);
   }
 
   render() {
+    // console.log(this.props.checkedAll)
+    console.log(this.props.name);
+    
     return (
+      
       <div>
         <label className="check-item">
-        <input type="checkbox" onChange={() => {this.isChecked(); this.props.update(this.state)}} className="checkbox" id="checkbox" />
+        <input type="checkbox" onChange={() => {this.isChecked() }} className="checkbox"  defaultChecked={this.props.name} id="checkbox" />
         <span className="styled-checkbox"></span>
         <span className="selection-point">{this.props.content}</span>
         </label>
