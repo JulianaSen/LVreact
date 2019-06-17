@@ -28,6 +28,22 @@ class SignUp extends Component{
                              pdr="email"
                         />
 
+                        <Input
+                             csform="rgt-form"
+                             csdiv="input-rgt"
+                             tp="password"
+                             nm="password"
+                             pdr="password"
+                        />
+
+                        <Input
+                             csform="rgt-form"
+                             csdiv="input-rgt"
+                             tp="password"
+                             nm="password"
+                             pdr="confirm password"
+                        />
+
                         <Btn
                              csform="rgt-form"
                              csdiv="input-rgt"
