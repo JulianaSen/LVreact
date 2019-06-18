@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-//import Btn from '../Forms/Btn';
-//import Input from '../Forms/Input';
 import Navbar from  "../Navbar/Navbar";
 
 const initialState = {
@@ -95,10 +93,10 @@ class SignUp extends Component{
                                 onChange={this.handleChange}
                             />
                             <br />
-                            <div style={{fontSize: "30px", backgroundColor: "white", borderRadius: "5px", marginTop: "5px"}}>
+                            <input id ="btn" type="submit" value="Register" />
+                            <div style={{fontSize: "30px", backgroundColor: "white", borderRadius: "5px", marginTop: "45px", paddingLeft: "70px"}}>
                                 {this.state.error}
                             </div>
-                            <input id ="btn" type="submit" value="Register" />
                         </div>
                     </form>
                 </section>

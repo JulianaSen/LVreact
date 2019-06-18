@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { createStore } from 'redux';
 
 const initialState = {
     budget: "",
@@ -15,6 +16,15 @@ class MainContent extends Component {
             ? event.target.checked
             : event.target.value
         });
+    };
+
+    handleSubmit = event => {
+        event.preventDefault();
+        const isValid = this.validate();
+        if(isValid) {
+            console.log(this.state);
+            this.setState(initialState);
+        }
     };
 
     validate = () => {
@@ -34,15 +44,6 @@ class MainContent extends Component {
         return true;
     };
 
-    handleSubmit = event => {
-        event.preventDefault();
-        const isValid = this.validate();
-        if(isValid) {
-            console.log(this.state);
-            this.setState(initialState);
-        }
-    };
-
     render() {
         return (
             <div className="choice">
@@ -59,12 +60,12 @@ class MainContent extends Component {
                             value={this.state.budget}
                             onChange={this.handleChange}
                         />
-                        <div>
-                            {this.state.error}
-                        </div>
                         <button className="btn">
                             {this.props.submit}
                         </button>
+                        <div style={{ paddingLeft: "25px" }}>
+                            {this.state.error}
+                        </div>
                     </form>
                 </div>
                 <br />
