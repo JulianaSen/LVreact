@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
 import Btn from '../Forms/Btn';
 import Input from '../Forms/Input';
 import Navbar from  "../Navbar/Navbar";
@@ -12,8 +11,9 @@ class SignUp extends Component{
                 <Navbar />
                 <section className="rgt">
                 <p className = "createText">Create new account:</p>
+                <form className="rgt-form">
                         <Input
-                             csform="rgt-form"
+                             //csform="rgt-form"
                              csdiv="input-rgt"
                              tp="text"
                              nm="username"
@@ -21,7 +21,7 @@ class SignUp extends Component{
                         />
 
                         <Input
-                             csform="rgt-form"
+                             //csform="rgt-form"
                              csdiv="input-rgt"
                              tp="email"
                              nm="email"
@@ -29,7 +29,7 @@ class SignUp extends Component{
                         />
 
                         <Input
-                             csform="rgt-form"
+                             //csform="rgt-form"
                              csdiv="input-rgt"
                              tp="password"
                              nm="password"
@@ -37,7 +37,7 @@ class SignUp extends Component{
                         />
 
                         <Input
-                             csform="rgt-form"
+                             //csform="rgt-form"
                              csdiv="input-rgt"
                              tp="password"
                              nm="password"
@@ -45,13 +45,13 @@ class SignUp extends Component{
                         />
 
                         <Btn
-                             csform="rgt-form"
+                            // csform="rgt-form"
                              csdiv="input-rgt"
                              idt="btn"
                              tp="submit"
                              vl="Register"
                         />
-
+</form>
                 </section>
             </div>
         )

@@ -4,9 +4,7 @@ import MainContent from '../mainPage/mainInform';
 import MainIcons from '../mainPage/icons';
 import Navbar from '../Navbar/Navbar';
 
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-
-class MainBlock extends React.Component {
+class MainBlock extends Component {
     render() {
         return (
             <>

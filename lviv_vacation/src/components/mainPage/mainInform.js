@@ -1,4 +1,3 @@
-    
 import React, {Component} from 'react';
 
 const initialState = {
@@ -6,7 +5,7 @@ const initialState = {
     error: ""
 }
 
-class MainContent extends React.Component {
+class MainContent extends Component {
     state = initialState;
 
     handleChange = event => {
