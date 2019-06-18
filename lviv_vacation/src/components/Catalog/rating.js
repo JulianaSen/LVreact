@@ -93,3 +93,61 @@ export default class RatingStar extends React.Component {
         )
     }
 }
+
+
+
+
+
+  // let checkifAllChecked = (state) => {
+      //   for(let key in state) {
+      //     if(state[key] == false && key != "all") {
+      //       return false;
+      //     } 
+      //   }
+      //   return true;
+      // }
+
+
+
+    //   if(value == "all" && state[value] == false) {
+    //     let newState = Object.assign({}, state);
+    //     for(let key in newState) {
+    //       newState[key] = true;
+    //     }
+    //     return newState;
+    //   }
+
+
+
+
+//   isChecked = (value) => {
+//     // console.log(value);
+//     this.setState(function(state, props) {
+      
+    
+    
+
+//       // console.log(value);
+     
+      
+//       return {
+//         [value]: !state[value]
+//       }
+    
+//     })
+
+  
+// }
+
+
+
+// let checkifAllChecked = (state) => {
+//     for(let key in state) {
+//       if(state[key] == false && key != "all") {
+//         // console.log(false);
+//         return false;
+//       } 
+//     }
+//     return true;
+//     // console.log(state);
+//   }
