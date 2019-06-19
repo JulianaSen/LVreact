@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-export default class AboutContent extends React.Component {
+export default class AboutContent extends Component {
     render() {
         return (
             <div className={this.props.className}>
@@ -10,7 +10,7 @@ export default class AboutContent extends React.Component {
                     {this.props.content2}
                 </span>
                 <span className="titleInform">{this.props.title}</span>
-                </div>
+            </div>
         )
     }
 }

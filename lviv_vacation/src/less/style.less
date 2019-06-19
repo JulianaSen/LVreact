@@ -15,7 +15,6 @@
     overflow: scroll;
 }
 
-
 .rst{
     background-image: url(../img/rst-background.jpg);
     background-size: cover;
@@ -76,6 +75,7 @@
 
 .filter-button {
     margin: 0 auto;
+    font-size: 100%;
     width: 150px;
     padding: 8px;
     text-align: center;
@@ -496,8 +496,7 @@ a.changeLink:hover {
 
 @media screen and (max-width: 700px), screen and (max-height: 500px) {
     #root {
-        overflow: scroll;
-        overflow-x: hidden;
+        overflow-y: scroll;
     }
 
     .history, .tourists, .contacts {
@@ -508,8 +507,7 @@ a.changeLink:hover {
         margin-top: 100px;
         margin-bottom: 50px;
         font-size: 15px;
-        overflow: scroll;
-        overflow-x: hidden;
+        overflow-y: scroll;
     }
 
     .history:hover, .tourists:hover, .contacts:hover {
@@ -883,10 +881,19 @@ i.fa-star:hover  {
 .fa-check-circle {
    color: #28a745;
 }
-
+.fa-times-circle {
+    color: red;
+}
 .nav-container {
     display: none;
 }
+
+.Star {
+ 
+    color: #cfd8dc;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
 
 .container-img {
     align-self: center;
@@ -1054,6 +1061,7 @@ i.fa-star:hover  {
         width: 100%;
         top: 0;
         background-color: black;
+        z-index: 3;
     }
 
     .small-screen {
@@ -1249,7 +1257,5 @@ i.fa-star:hover  {
 
     .images{
         padding: 10px;
-
-
     }
 }

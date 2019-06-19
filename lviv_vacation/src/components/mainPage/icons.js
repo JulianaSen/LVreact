@@ -5,11 +5,11 @@ import cinema from '../../img/cinema.svg';
 
 import {Link} from 'react-router-dom';
 
-export default class MainIcons extends React.Component {
+export default class MainIcons extends Component {
     render() {
         return (
             <div className="icons">
-                <Link className="images" to="/about">
+                <Link className="images" to="/hotels">
                     <img src={sleep} alt="Sleep" />
                 </Link>
                 <Link className="images"  to="/about">

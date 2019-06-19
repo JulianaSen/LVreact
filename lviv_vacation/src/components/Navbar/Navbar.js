@@ -4,8 +4,6 @@ import { NavLink } from 'react-router-dom';
 
 class Navbar extends Component{
     render() {
-
-        const {links} = this.props;
         return (
             <div>
                 <header className="header">
@@ -17,7 +15,7 @@ class Navbar extends Component{
                     <div className="nav-cng">
                         <li className="navbarLi">
                             <NavLink activeClassName="active" to='/about'>
-                                About
+                                About 
                             </NavLink>
                         </li>
 

@@ -11,6 +11,7 @@ import  '../../css/style.css';
 import '../../css/normalize.css';
 import { connect } from 'react-redux';
 import { fetchData } from '../../actions/actionsData';
+import CatalogWithFilter from '../CatalogWithFilter/CatalogWithFilter';
 
 class App extends Component{
     
@@ -21,6 +22,9 @@ class App extends Component{
         // }
     }
 
+
+
+
     render() {
         return (
             <>  
@@ -28,6 +32,7 @@ class App extends Component{
                 <Route exact path="/about" component={AboutBlock} />
                 <Route exact path='/sign_in' component={SignIn} />
                 <Route exact path='/sign_up' component={SignUp}/>
+                <Route exact path='/hotels' component={CatalogWithFilter}/>
             </>
         );
       }
@@ -42,10 +47,4 @@ const mapStateToProps = state => ({
   
   export default connect(mapStateToProps)(App);
 
-//                 <Switch>
-//                     
-//                     
-//                     
-//                     <FilterMenu />
-//                 </Switch>
 
