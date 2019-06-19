@@ -3,7 +3,7 @@ import VideoContainer from '../video/video';
 import AboutContent from '../about/content';
 import Navbar from '../Navbar/Navbar'
 
-export default class AboutBlock extends React.Component {
+export default class AboutBlock extends Component {
     render() {
         return (
             <>

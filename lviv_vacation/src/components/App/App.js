@@ -17,15 +17,12 @@ import CatalogWithFilter from '../CatalogWithFilter/CatalogWithFilter'
 export default class App extends Component{
     render() {
         return (
-
             <>
                 <Route exact path="/" component={MainBlock}  />
                 <Route exact path="/about" component={AboutBlock} />
                 <Route exact path='/sign_in' component={SignIn} />
                 <Route exact path='/sign_up' component={SignUp}/>
                 <Route exact path='/hotels' component={CatalogWithFilter}/>
-
-                
             </>
         );
       }

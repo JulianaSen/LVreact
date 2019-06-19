@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css?family=Acme|Lobster&display=swap');
 
 #root {
@@ -15,7 +14,6 @@
     background-attachment: fixed;
     overflow: scroll;
 }
-
 
 .rst{
     background-image: url(../img/rst-background.jpg);
@@ -498,8 +496,7 @@ a.changeLink:hover {
 
 @media screen and (max-width: 700px), screen and (max-height: 500px) {
     #root {
-        overflow: scroll;
-        overflow-x: hidden;
+        overflow-y: scroll;
     }
 
     .history, .tourists, .contacts {
@@ -510,8 +507,7 @@ a.changeLink:hover {
         margin-top: 100px;
         margin-bottom: 50px;
         font-size: 15px;
-        overflow: scroll;
-        overflow-x: hidden;
+        overflow-y: scroll;
     }
 
     .history:hover, .tourists:hover, .contacts:hover {
@@ -1261,7 +1257,5 @@ i.fa-star:hover  {
 
     .images{
         padding: 10px;
-
-
     }
 }
