@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 
+
+class MainContent extends Component {
+    
 const initialState = {
     budget: "",
     error: ""
@@ -50,6 +54,9 @@ class MainContent extends Component {
                     {this.props.enter}
                 </span> 
                 <div className="bdg-ipt">
+                    <form className="budget_form">
+                        <input className="input_budget" type="text" name="Budget" placeholder="100$" />
+                        <button className="btn" >
                     <form className="budget_form" onSubmit={this.handleSubmit}>
                         <input 
                             className="input_budget" 
@@ -75,5 +82,22 @@ class MainContent extends Component {
         )
     }
 }
+
+// const mapStateToProps = state => {
+//     return{
+//         loading: state.data.loading
+//     };
+//   };
+
+// const mapDispatchToProps = dispatch => {
+//     return{
+//         handleLoading: (evt) => {
+//             evt.preventDefault();
+//             dispatch({type: 'FETCH_DATA_BEGIN', loading: true})
+//         }
+//     };
+// };
+
+// export default connect(mapStateToProps, mapDispatchToProps)(MainContent);
 
 export default MainContent;
