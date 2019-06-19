@@ -1,18 +1,7 @@
 import React from 'react';
 
 export default class ItemForCheck extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.state = {
-      // [this.props.content]: true,
-      
-      //  [this.props.check]: false,
-      
-    // };  
-
-  }
-  
-
+ 
   render() {
     
 
