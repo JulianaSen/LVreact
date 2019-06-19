@@ -58,6 +58,7 @@ class SignUp extends Component{
             <div className="rst">
                 <Navbar />
                 <section className="rgt">
+
                     <p className = "createText">Create new account:</p>
                     <form className="rgt-form" onSubmit={this.handleSubmit}>
                         <div className="input-rgt">
@@ -99,6 +100,7 @@ class SignUp extends Component{
                             </div>
                         </div>
                     </form>
+
                 </section>
             </div>
         )
