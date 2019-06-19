@@ -20,6 +20,11 @@ class SignIn extends Component{
             ? event.target.checked
             : event.target.value
         });
+
+        // console.log(this.state);
+         //console.log(`email ${this.props.email}`);
+        // console.log(`password ${this.props.password}`);
+        // console.log(`target ${event.target.value}`);
     };
 
     render(){
@@ -28,14 +33,15 @@ class SignIn extends Component{
                 <Navbar />
                 <section className="rgt">
                     <p className = "createText">Sign in:</p>
-                    <form className="rgt-form" onSubmit={this.handleSubmit}>
-                        <div className="input-rgt">
+                    <form className="rgt-form" >
+                        <div className="input-rgt" >
                             <input 
                                 type="email" 
                                 name="email" 
-                                placeholder="e-mail" 
-                                defaultValue={this.props.email}
-                                onChange={this.handleChange}
+                                placeholder="email" 
+                                value={this.props.email}
+                                onChange={this.props.setEmail}
+                                //onChange={this.handleChange}
                                 onClick={this.props.setEmail}
                             />
                             <br />
@@ -44,10 +50,15 @@ class SignIn extends Component{
                                 name="password" 
                                 placeholder="password" 
                                 defaultValue={this.props.password}
-                                onChange={this.handleChange}
+                                onChange={this.props.setPassword}
+                                //onChange={this.handleChange}
+                               // onClick={this.props.setPassword}
                             />
-                            <br />
-                            <input id="btn" type="submit" value="Submit" />
+                            <br /><br />
+                            <button id="btn">
+                                Submit
+                            </button>
+                            {/* <input id="btn" type="submit" value="Submit" onClick={this.props.setEmail}/> */}
                         </div>
                     </form>
 

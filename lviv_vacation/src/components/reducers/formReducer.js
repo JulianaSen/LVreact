@@ -1,8 +1,8 @@
 const initialState = {
     budget: "",
-    userName: "",
-    email: "",
-    password: ""
+    userName: null,
+    email: null,
+    password: null
 };
 
 export default function formReducer(state=initialState, action) {
