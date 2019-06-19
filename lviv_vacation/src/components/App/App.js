@@ -22,9 +22,6 @@ class App extends Component{
         // }
     }
 
-
-
-
     render() {
         return (
             <>  
@@ -42,9 +39,13 @@ class App extends Component{
 const mapStateToProps = state => ({
     items: state.data.items,
     loading: state.data.loading,
-    error: state.data.error
-  });
+    error: state.data.error, 
+    budget: state.forms.budget,
+    userName: state.forms.userName,
+    email: state.forms.email,
+    password: state.forms.password
+});
   
-  export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(App);
 
 

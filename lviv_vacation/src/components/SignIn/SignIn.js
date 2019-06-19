@@ -1,19 +1,16 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-//import Btn from '../Forms/Btn';
-//import Input from '../Forms/Input';
 import Navbar from "../Navbar/Navbar";
-//import { tsThisType } from '@babel/types';
+import { connect } from 'react-redux';
 
 class SignIn extends Component{
-    state = {
-        email: "",
-        password: ""
-    };
-
     handleSubmit = event => {
         event.preventDefault();
         console.log(this.state);
+        console.log(this.props);
+        console.log(`email ${this.props.email}`);
+        console.log(`password ${this.props.password}`);
+        console.log(`budget ${this.props.budget}`);
     };
 
     handleChange = event => {
@@ -37,15 +34,16 @@ class SignIn extends Component{
                                 type="email" 
                                 name="email" 
                                 placeholder="e-mail" 
-                                value={this.state.email}
+                                defaultValue={this.props.email}
                                 onChange={this.handleChange}
+                                onClick={this.props.setEmail}
                             />
                             <br />
                             <input 
                                 type="password" 
                                 name="password" 
                                 placeholder="password" 
-                                value={this.state.password}
+                                defaultValue={this.props.password}
                                 onChange={this.handleChange}
                             />
                             <br />
@@ -61,4 +59,26 @@ class SignIn extends Component{
     }
 }
 
-export default SignIn;
+const mapStateToProps = state => {
+    return {
+        email: state.forms.email,
+        password: state.forms.password,
+        budget: state.forms.budget
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        setEmail: (event) => {
+            event.preventDefault();
+            dispatch({ type: 'SET_EMAIL', email: event.target.value })
+        },
+        setPassword: (event) => {
+            event.preventDefault();
+            dispatch({ type: 'SET_PASSWORD', password: event.target.value })
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+//export default SignIn;

@@ -1,8 +1,7 @@
-// import data from '../dt.json';
-// import axios from 'axios'; 
+import data from '../dt.json';
+import axios from 'axios'; 
 export function fetchData() {
     return dispatch => {
-        dispatch(fetchDataBegin());
         return  fetch("http://localhost:3001/op/posts")
         .then(res => res.json())
         .then(json => {
@@ -14,18 +13,12 @@ export function fetchData() {
     };
 }
 
-
 function handleErrors(responce) {
     if(!responce.ok){
         throw Error(responce.statusText)
     }
-
     return responce;
 }
-
-export const fetchDataBegin = () => ({
-    type: 'FETCH_DATA_BEGIN'
-});
 
 export const fetchDataSuccess = posts => ({
     type: 'FETCH_DATA_SUCCESS',
@@ -36,4 +29,3 @@ export const fetchDataFailure = error => ({
     type: 'FETCH_DATA_FAILURE',
     payload: {error}
 });
-

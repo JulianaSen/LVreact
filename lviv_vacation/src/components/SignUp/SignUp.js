@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import Navbar from  "../Navbar/Navbar";
+import { connect } from 'react-redux';
 
 const initialState = {
-    userName: "",
-    email: "",
-    password: "",
     confirm: "", 
     error: ""
 }
@@ -66,7 +64,7 @@ class SignUp extends Component{
                                 type="text" 
                                 name="userName" 
                                 placeholder="username" 
-                                value={this.state.userName}
+                                defaultValue={this.props.userName}
                                 onChange={this.handleChange}
                             />
                             <br />
@@ -74,7 +72,7 @@ class SignUp extends Component{
                                 type="email" 
                                 name="email" 
                                 placeholder="email" 
-                                value={this.state.email}
+                                defaultValue={this.props.email}
                                 onChange={this.handleChange}
                             />
                             <br />
@@ -82,7 +80,7 @@ class SignUp extends Component{
                                 type="password" 
                                 name="password" 
                                 placeholder="password" 
-                                value={this.state.password}
+                                defaultValue={this.props.password}
                                 onChange={this.handleChange}
                             />
                             <br />
@@ -90,7 +88,7 @@ class SignUp extends Component{
                                 type="password" 
                                 name="confirm" 
                                 placeholder="repeat password" 
-                                value={this.state.confirm}
+                                defaultValue={this.state.confirm}
                                 onChange={this.handleChange}
                             />
                             <br />
@@ -107,4 +105,31 @@ class SignUp extends Component{
     }
 }
 
-export default SignUp;
+const mapStateToProps = state => {
+    return {
+        userName: state.forms.userName,
+        email: state.forms.email,
+        password: state.forms.password
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        setName: (event) => {
+            event.preventDefault();
+            dispatch({ type: 'SET_USERNAME', userName: event.target.value })
+        },
+        setEmail: (event) => {
+            event.preventDefault();
+            dispatch({ type: 'SET_EMAIL', email: event.target.value })
+        },
+        setPassword: (event) => {
+            event.preventDefault();
+            dispatch({ type: 'SET_PASSWORD', password: event.target.value })
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+
+//export default SignUp;

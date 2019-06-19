@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
     
 const initialState = {
-    budget: "",
     error: ""
 }
 
@@ -25,6 +24,8 @@ class MainContent extends Component {
             console.log(this.state);
             this.setState(initialState);
         }
+        console.log(this.props);
+        console.log(`budget ${this.props.budget}`);
     };
 
     validate = () => {
@@ -51,13 +52,14 @@ class MainContent extends Component {
                     {this.props.enter}
                 </span> 
                 <div className="bdg-ipt">
-                    <form className="budget_form" onSubmit={this.handleSubmit}>
+                    <form className="budget_form" onClick={this.props.setBudget}>
+                         {/* onSubmit={this.handleSubmit}> */}
                         <input 
                             className="input_budget" 
                             type="text"
                             name="budget" 
                             placeholder="100$" 
-                            value={this.state.budget}
+                            value={this.props.budget}
                             onChange={this.handleChange}
                         />
                         <button className="btn">
@@ -77,21 +79,25 @@ class MainContent extends Component {
     }
 }
 
-// const mapStateToProps = state => {
-//     return{
-//         loading: state.data.loading
-//     };
-//   };
+const mapStateToProps = state => {
+    return {
+        budget: state.forms.budget
+    }
+}
 
-// const mapDispatchToProps = dispatch => {
-//     return{
-//         handleLoading: (evt) => {
-//             evt.preventDefault();
-//             dispatch({type: 'FETCH_DATA_BEGIN', loading: true})
-//         }
-//     };
-// };
+const mapDispatchToProps = dispatch => {
+    return {
+        setBudget: (event) => {
+            event.preventDefault();
+            dispatch({type: 'SET_BUDGET', budget: event.target.value});
+        }
+        // clear: (event) => {
+        //     event.preventDefault();
+        //     dispatch({type: 'CLEAR'})
+        // }
+    }
+}
 
-// export default connect(mapStateToProps, mapDispatchToProps)(MainContent);
+export default connect(mapStateToProps, mapDispatchToProps)(MainContent);
 
-export default MainContent;
+//export default MainContent;
