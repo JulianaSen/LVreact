@@ -32,7 +32,7 @@ class SignUp extends Component{
 
     validate = () => {
         let error = "";
-        if(this.state.password != this.state.confirm) {
+        if(this.state.password !== this.state.confirm) {
             error = "Passwords aren't equal!";
         }
 
