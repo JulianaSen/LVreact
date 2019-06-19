@@ -8,7 +8,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './components/reducers/rootReducer';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
-import '../node_modules/font-awesome/css/font-awesome.min.css'; 
+//import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 
 ReactDOM.render(
     <Provider store = { store }>
