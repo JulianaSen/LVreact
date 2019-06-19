@@ -4,9 +4,7 @@ import MainContent from '../mainPage/mainInform';
 import MainIcons from '../mainPage/icons';
 import Navbar from '../Navbar/Navbar';
 
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-
-export default class MainBlock extends React.Component {
+class MainBlock extends Component {
     render() {
         return (
             <>
@@ -17,10 +15,11 @@ export default class MainBlock extends React.Component {
                     <MainContent enter="Enter your budget for one day:"
                         submit="Submit"
                         activity="Choose your activity:" />
-
                     <MainIcons />
                 </section>  
             </>
         )
     }
 }
+
+export default MainBlock;

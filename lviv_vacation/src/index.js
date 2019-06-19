@@ -2,12 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
 import App from '../src/components/App/App.js';
-import '../node_modules/font-awesome/css/font-awesome.min.css'; 
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './components/reducers/rootReducer';
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
+//import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 
 ReactDOM.render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>, 
+    <Provider store = { store }>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </Provider>, 
     document.getElementById('root')
 );
 

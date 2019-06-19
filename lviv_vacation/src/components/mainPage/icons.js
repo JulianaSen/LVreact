@@ -5,7 +5,7 @@ import cinema from '../../img/cinema.svg';
 
 import {Link} from 'react-router-dom';
 
-export default class MainIcons extends React.Component {
+export default class MainIcons extends Component {
     render() {
         return (
             <div className="icons">

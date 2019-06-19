@@ -3,21 +3,24 @@ import React from 'react';
 export default class ItemForCheck extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isChecked: false
-    };
-    this.isChecked = this.isChecked.bind(this)
+    // this.state = {
+      // [this.props.content]: true,
+      
+      //  [this.props.check]: false,
+      
+    // };  
+
   }
   
-  isChecked() {
-    console.log(this);
-  }
 
   render() {
+    
+
     return (
+      
       <div>
         <label className="check-item">
-        <input type="checkbox" onChange={this.isChecked} className="checkbox" id="checkbox" />
+        <input type="checkbox" className="checkbox" onChange={() => { this.props.isChecked(this.props.check) }}  id="checkbox" checked={this.props.checked}/>
         <span className="styled-checkbox"></span>
         <span className="selection-point">{this.props.content}</span>
         </label>
@@ -25,3 +28,4 @@ export default class ItemForCheck extends React.Component {
     )
   }
 }
+
