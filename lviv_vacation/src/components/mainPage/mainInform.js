@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { createStore } from 'redux';
 
 const initialState = {
     budget: "",
@@ -29,18 +28,18 @@ class MainContent extends Component {
 
     validate = () => {
         let error = "";
-
+    
         if(isNaN(this.state.budget)) {
             error = "Budget must be a number!";
         } else if(!this.state.budget) {
             error = "Budget can't be blank!";
         }
-
+    
         if(error) {
             this.setState({ error });
             return false;
         }
-
+    
         return true;
     };
 
