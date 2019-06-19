@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 
-export default class MainContent extends React.Component {
+
+class MainContent extends Component {
+    
     render() {
         return (
             <div className="choice">
@@ -10,7 +13,7 @@ export default class MainContent extends React.Component {
                 <div className="bdg-ipt">
                     <form className="budget_form">
                         <input className="input_budget" type="text" name="Budget" placeholder="100$" />
-                        <button className="btn">
+                        <button className="btn" >
                             {this.props.submit}
                         </button>
                     </form>
@@ -23,3 +26,21 @@ export default class MainContent extends React.Component {
         )
     }
 }
+
+// const mapStateToProps = state => {
+//     return{
+//         loading: state.data.loading
+//     };
+//   };
+
+// const mapDispatchToProps = dispatch => {
+//     return{
+//         handleLoading: (evt) => {
+//             evt.preventDefault();
+//             dispatch({type: 'FETCH_DATA_BEGIN', loading: true})
+//         }
+//     };
+// };
+
+// export default connect(mapStateToProps, mapDispatchToProps)(MainContent);
+export default MainContent;
