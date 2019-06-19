@@ -12,25 +12,9 @@ export default class ItemForCheck extends React.Component {
 
   }
   
- 
-
-    // this.setState({
-      // [this.props.content]: !this.state[this.props.content]
-    // });
-    
-    // if(this.state['Choose all']) {
-    //   this.state.checkedAll = true;
-    // } else {
-    //   this.state.checkedAll = false;
-    // }
-    // this.props.update(this.state, this.state.checkedAll);
-
-  
 
   render() {
-    // console.log(this.state);
-    // console.log(this.props.checkedAll)
-    // console.log(this.props.name);
+    
 
     return (
       

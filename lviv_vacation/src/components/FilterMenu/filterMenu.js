@@ -15,25 +15,7 @@ export default class FilterMenu extends React.Component {
       }
   }
 
-  // updateInfo = (value) => {
-  //   if(value) {
-  //     this.setState({all: true});
-  //   } else {
-  //     this.setState({all: false});
-  //   }
-    // console.log(value);
-    // console.log(checkedAll);
-    // this.setState(function(state, props) {
-    //   state.chooise[Object.keys(value)[0]] = value[Object.keys(value)[0]];
-      
-    //   state.checkedAll = checkedAll;
 
-    //   return state;
-
-      
-      
-    // });
-  // }
 
   isChecked = (value) => {
     // console.log(value);
@@ -42,18 +24,7 @@ export default class FilterMenu extends React.Component {
 
     this.setState(function(state, props) {
       
-      // let checkifAllChecked = (state) => {
-      //   for(let key in state) {
-      //     if(state[key] == false && key != "all") {
-      //       // console.log(false);
-      //       return false;
-      //     } 
-      //   }
-      //   return true;
-      //   // console.log(state);
-      // }
-
-      // console.log(value);
+      
       if(value == "all" && state[value] == false) {
         let newState = Object.assign({}, state);
         for(let key in newState) {
