@@ -41,12 +41,14 @@ class Rating extends Component {
       this.handleMouseEnter = this.handleMouseEnter.bind(this);
       this.handleMouseLeave = this.handleMouseLeave.bind(this);
     }
+    
     handleClick(newValue) {
       this.setState({
         value: newValue,
         dynamicValue: newValue
       });
     }
+
     handleMouseEnter(newValue) {
       this.setState({ dynamicValue: newValue });
     }
@@ -56,8 +58,7 @@ class Rating extends Component {
     }
   
     render() {
-      console.log(this.props.max)
-      const { dynamicValue, value } = this.state;
+      const { dynamicValue} = this.state;
       const starSpans = [];
       const max = this.props.max;
       let count = 0;
@@ -66,6 +67,8 @@ class Rating extends Component {
           count++;
         }
       }
+      console.log(count);
+
       for (let v = 1; v <= max; v++) {
         starSpans.push(
           <Star
@@ -84,7 +87,7 @@ class Rating extends Component {
     }
   }
   
-export default class RatingStar extends React.Component {
+class RatingStar extends Component {
     render() {
         return (
             <div className="rating">
@@ -93,3 +96,5 @@ export default class RatingStar extends React.Component {
         )
     }
 }
+
+export default RatingStar;
