@@ -42,5 +42,5 @@ const mapStateToProps = state => ({
     email: state.forms.email,
     password: state.forms.password
 });
-  
+
 export default connect(mapStateToProps)(App);
