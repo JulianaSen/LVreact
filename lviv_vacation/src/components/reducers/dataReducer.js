@@ -25,9 +25,10 @@ export default function dataReducer(state=initialState, action) {
         case 'FETCH_DATA_SUCCESS':
             return {
                 ...state,
-                loading: true,
+                loading: false,
                 items: action.payload.posts
             }
+
         default:
             return state;
     }
