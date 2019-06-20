@@ -1,13 +1,15 @@
-import data from '../dt.json';
-import axios from 'axios'; 
-export function fetchData() {
+
+
+
+export function fetchData(route) {
     return dispatch => {
-        return  fetch("http://localhost:3001/op/posts")
+        return  fetch(route)
         .then(res => res.json())
         .then(json => {
             dispatch(fetchDataSuccess(json));
-            //console.log(json);
-            return json.posts;
+            return json;
+
+
         })
         .catch(error => dispatch(fetchDataFailure(error)));
     };
@@ -28,4 +30,6 @@ export const fetchDataSuccess = posts => ({
 export const fetchDataFailure = error => ({
     type: 'FETCH_DATA_FAILURE',
     payload: {error}
+
 });
+

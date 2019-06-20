@@ -8,18 +8,10 @@ import SignUp from '../SignUp/SignUp';
 import  '../../css/style.css';
 import '../../css/normalize.css';
 import { connect } from 'react-redux';
-import { fetchData } from '../../actions/actionsData';
 import CatalogWithFilter from '../CatalogWithFilter/CatalogWithFilter';
+import { fetchData } from '../../actions/actionsData';
 
 class App extends Component{
-    
-    componentDidMount(){
-        // if (this.props.loading == true)
-        // {
-        this.props.dispatch(fetchData());
-        // }
-    }
-
     render() {
         return (
             <>  

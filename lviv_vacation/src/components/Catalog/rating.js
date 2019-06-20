@@ -91,7 +91,7 @@ class RatingStar extends Component {
     render() {
         return (
             <div className="rating">
-                 <Rating stars={0} />
+                 <Rating stars={this.props.rating} />
             </div>
         )
     }
