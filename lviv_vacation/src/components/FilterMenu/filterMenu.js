@@ -2,6 +2,7 @@ import React from 'react';
 import ItemForCheck from './itemForCheck';
 import ButtonFilter from './buttonFilter';
 import { connect } from 'react-redux';
+import {changeCheckboxAll, changeCheckboxHotel, changeCheckboxMotel, changeCheckboxHostel, changeCheckboxFlat} from '../../actions/actionFilterMenu';
 
 
 
@@ -9,15 +10,16 @@ export default class FilterMenu extends React.Component {
 
   //  
   render() {
-    console.log(this.props);
+    const dispatch = this.props.dispatch;
+    // console.log(this.props);
     let smallScreenClass = `preferences`;
-
+  
 
     if(this.props.smallscreen) {
       smallScreenClass = `preferences ${this.props.smallscreen}`;
     }
 
-
+    const {checkAll, checkFlat, checkHostel, checkHotel, checkMotel} = this.props;
    
     return (
       <div className={smallScreenClass}>
@@ -27,11 +29,11 @@ export default class FilterMenu extends React.Component {
               <div className="check-item ">
                 <legend className="choose-pref">Choose your preferences:</legend>
               </div>
-                <ItemForCheck content="Choose all"  check="all"/>
-                <ItemForCheck content="Hotel"  check="hotel"/>
-                <ItemForCheck content="Motel"  check="motel"/>
-                <ItemForCheck content="Hostel"  check="hostel" />
-                <ItemForCheck content="Flat"  check="flat" />
+                <ItemForCheck content="Choose all" checked={checkAll} dispatch={dispatch} action={changeCheckboxAll}/>
+                <ItemForCheck content="Hotel"  checked={checkHotel} dispatch={dispatch} action={changeCheckboxHotel}/>
+                <ItemForCheck content="Motel"  checked={checkMotel} dispatch={dispatch} action={changeCheckboxMotel}/>
+                <ItemForCheck content="Hostel" checked={checkHostel} dispatch={dispatch} action={changeCheckboxHostel}/>
+                <ItemForCheck content="Flat" checked={checkFlat} dispatch={dispatch} action={changeCheckboxFlat}/>
             </div>
             <ButtonFilter checkedItems={this.state}/>
           </form>
@@ -41,9 +43,14 @@ export default class FilterMenu extends React.Component {
   }
 }
 const mapStateToProps = (state) => {
-  console.log(state)
+
   return {
-    test: 1
+    checkAll: state.filter.checkAll,
+    checkHotel: state.filter.checkHotel,
+    checkMotel: state.filter.checkMotel,
+    checkHostel: state.filter.checkHostel,
+    checkFlat: state.filter.checkFlat
+    
   }
 }
 
