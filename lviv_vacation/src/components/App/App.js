@@ -11,14 +11,21 @@ import { connect } from 'react-redux';
 import { fetchData } from '../../actions/actionsData';
 import CatalogWithFilter from '../CatalogWithFilter/CatalogWithFilter';
 
+//import { loadState, saveState } from '../../localStorage';
+
 class App extends Component{
     
     componentDidMount(){
         // if (this.props.loading == true)
         // {
-        this.props.dispatch(fetchData());
+        //this.props.dispatch(fetchData());
+        //loadState();
         // }
     }
+
+    // componentWillMount() {
+    //     loadState();
+    // }
 
     render() {
         return (
@@ -42,5 +49,43 @@ const mapStateToProps = state => ({
     email: state.forms.email,
     password: state.forms.password
 });
+function fetchPostsRequest(){
+    return {
+      type: "FETCH_REQUEST"
+    }
+  }
+  
+  function fetchPostsSuccess(payload) {
+    return {
+      type: "FETCH_SUCCESS",
+      payload
+    }
+  }
+  
+  function fetchPostsError() {
+    return {
+      type: "FETCH_ERROR"
+    }
+  }
 
-export default connect(mapStateToProps)(App);
+function fetchPostsWithRedux() {
+    return (dispatch) => {
+    dispatch(fetchPostsRequest());
+    return fetchPosts().then(([response, json]) =>{
+        if(response.status === 200){
+        dispatch(fetchPostsSuccess(json))
+      }
+      else{
+        dispatch(fetchPostsError())
+      }
+    })
+  }
+}
+
+function fetchPosts() {
+  const URL = "http://localhost:3001/op/data";
+  return fetch(URL, { method: 'PUT'})
+     .then( response => Promise.all([response, response.json()]));
+}
+
+export default connect(mapStateToProps, {fetchPostsWithRedux})(App);

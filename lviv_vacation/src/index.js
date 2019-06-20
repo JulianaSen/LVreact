@@ -22,8 +22,6 @@ store.subscribe(() => {
     console.log(store.getState());
 });
 
-console.log()
-
 ReactDOM.render(
     <Provider store = { store }>
         <BrowserRouter>
