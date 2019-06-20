@@ -9,6 +9,8 @@ import rootReducer from './components/reducers/rootReducer';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
+console.log()
+
 ReactDOM.render(
     <Provider store = { store }>
         <BrowserRouter>

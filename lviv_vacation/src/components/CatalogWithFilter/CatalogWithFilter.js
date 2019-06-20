@@ -4,6 +4,7 @@ import Catalog from '../Catalog/Catalog'
 
 export default class CatalogWithFilter extends React.Component{
   render() {
+    // console.log(this.props);
     return (
       <div className="mainContent">
         <div className="nav-container">
