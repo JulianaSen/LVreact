@@ -2,47 +2,60 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
     
 const initialState = {
-    budget: "",
     error: ""
 }
 
 class MainContent extends Component {
     state = initialState;
 
-    handleChange = event => {
-        const isCheckBox = event.target.type === "checkbox";
-        this.setState ({
-            [event.target.name]: isCheckBox
-            ? event.target.checked
-            : event.target.value
-        });
-    };
+    // handleChange = event => {
+    //     const isCheckBox = event.target.type === "checkbox";
+    //     this.setState ({
+    //         [event.target.name]: isCheckBox
+    //         ? event.target.checked
+    //         : event.target.value
+    //     });
+    // };
 
-    handleSubmit = event => {
+    // handleSubmit = event => {
+    //     event.preventDefault();
+    //     const isValid = this.validate();
+    //     if(isValid) {
+    //         console.log(this.state);
+    //         this.setState(initialState);
+    //     }
+    //     console.log(this.props);
+    //     console.log(`budget ${this.props.budget}`);
+    // };
+
+    // validate = () => {
+    //     let error = "";
+    
+    //     if(isNaN(this.state.budget)) {
+    //         error = "Budget must be a number!";
+    //     } else if(!this.state.budget) {
+    //         error = "Budget can't be blank!";
+    //     }
+    
+    //     if(error) {
+    //         this.setState({ error });
+    //         return false;
+    //     }
+    
+    //     return true;
+    // };
+
+    clearInputs = (event) => {
         event.preventDefault();
-        const isValid = this.validate();
-        if(isValid) {
-            console.log(this.state);
-            this.setState(initialState);
-        }
-    };
+        document.getElementById('input').value = '';
+    }
 
-    validate = () => {
-        let error = "";
-    
-        if(isNaN(this.state.budget)) {
-            error = "Budget must be a number!";
-        } else if(!this.state.budget) {
-            error = "Budget can't be blank!";
+    handleReload = () => {
+        if(window.location.reload) {
+            this.clearInputs();
+            console.log("22");
         }
-    
-        if(error) {
-            this.setState({ error });
-            return false;
-        }
-    
-        return true;
-    };
+    }
 
     render() {
         return (
@@ -51,16 +64,18 @@ class MainContent extends Component {
                     {this.props.enter}
                 </span> 
                 <div className="bdg-ipt">
-                    <form className="budget_form" onSubmit={this.handleSubmit}>
+                    <form className="budget_form" > 
                         <input 
+                            id = "input" 
                             className="input_budget" 
                             type="text"
                             name="budget" 
                             placeholder="100$" 
-                            value={this.state.budget}
-                            onChange={this.handleChange}
+                            value={this.props.budget}
+                            //onChange={this.handleChange}
+                            onChange={this.props.setBudget}
                         />
-                        <button className="btn">
+                        <button className="btn" onClick={this.clearInputs}>
                             {this.props.submit}
                         </button>
                         <div style={{ paddingLeft: "25px" }}>
@@ -77,21 +92,19 @@ class MainContent extends Component {
     }
 }
 
-// const mapStateToProps = state => {
-//     return{
-//         loading: state.data.loading
-//     };
-//   };
+const mapStateToProps = state => {
+    return {
+        budget: state.forms.budget
+    }
+}
 
-// const mapDispatchToProps = dispatch => {
-//     return{
-//         handleLoading: (evt) => {
-//             evt.preventDefault();
-//             dispatch({type: 'FETCH_DATA_BEGIN', loading: true})
-//         }
-//     };
-// };
+const mapDispatchToProps = dispatch => {
+    return {
+        setBudget: (event) => {
+            event.preventDefault();
+            dispatch({type: 'SET_BUDGET', budget: event.target.value});
+        }
+    }
+}
 
-// export default connect(mapStateToProps, mapDispatchToProps)(MainContent);
-
-export default MainContent;
+export default connect(mapStateToProps, mapDispatchToProps)(MainContent);

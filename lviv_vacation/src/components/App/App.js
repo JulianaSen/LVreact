@@ -1,10 +1,8 @@
-import React, {Component, PropTypes} from 'react';
-
+import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-
 import AboutBlock from '../about/about';
 import MainBlock from '../mainPage/mainPage';
-import FilterMenu from '../FilterMenu/filterMenu';
+//import FilterMenu from '../FilterMenu/filterMenu';
 import SignIn from '../SignIn/SignIn';
 import SignUp from '../SignUp/SignUp';
 import  '../../css/style.css';
@@ -22,9 +20,6 @@ class App extends Component{
         // }
     }
 
-
-
-
     render() {
         return (
             <>  
@@ -38,13 +33,14 @@ class App extends Component{
       }
 }
 
-
 const mapStateToProps = state => ({
     items: state.data.items,
     loading: state.data.loading,
-    error: state.data.error
-  });
+    error: state.data.error, 
+    budget: state.forms.budget,
+    userName: state.forms.userName,
+    email: state.forms.email,
+    password: state.forms.password
+});
   
-  export default connect(mapStateToProps)(App);
-
-
+export default connect(mapStateToProps)(App);
