@@ -6,14 +6,14 @@ export default class ItemOfCatalog extends React.Component {
   render() {
     return (
         <div className="hotel-container">
-           <RatingStar />
+           <RatingStar rating={this.props.rating}/>
             <div className="hotel">
               <div className="container-img container-img-hotels">
                 <div className="additional-information">
-                  <p>This restaurant is very famous its food, because it is very tasty.</p>
+                  <p>{this.props.description}</p>
                 </div>
               </div>
-              <Description />
+              <Description id={this.props.id} stName={this.props.destination} isSmoking={this.props.smoking} isWiFi={this.props.WiFi}/>
           </div>
         </div>
     )

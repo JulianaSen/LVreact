@@ -6,13 +6,6 @@ const initialState = {
 
 export default function dataReducer(state=initialState, action) {
     switch(action.type) {
-        case 'FETCH_DATA_BEGIN':
-            return{
-                ...state,
-                loading: true,
-                error: null
-            };
-        
         case 'FETCH_DATA_FAILURE':
             return {
                 ...state,
@@ -27,7 +20,15 @@ export default function dataReducer(state=initialState, action) {
                 ...state,
                 loading: true,
                 items: action.payload.posts
-            }
+            };
+        
+        case 'SET_BUDGET':
+            return {
+                ...state,
+                budget: action.budget
+            };
+        
+            
         default:
             return state;
     }

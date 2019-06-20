@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-    
+
+
 const initialState = {
     budget: "",
     error: ""
@@ -8,6 +9,7 @@ const initialState = {
 
 class MainContent extends Component {
     state = initialState;
+
 
     handleChange = event => {
         const isCheckBox = event.target.type === "checkbox";
@@ -94,4 +96,11 @@ class MainContent extends Component {
 
 // export default connect(mapStateToProps, mapDispatchToProps)(MainContent);
 
-export default MainContent;
+const mapStateToProps = state => ({
+    items: state.data.items,
+    loading: state.data.loading,
+    error: state.data.error,
+    route: state.data.route
+  });
+
+  export default connect(mapStateToProps)(MainContent);
