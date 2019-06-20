@@ -10,89 +10,103 @@ const initialState = {
 class SignUp extends Component{
     state = initialState;
 
-    handleSubmit = event => {
+    // handleSubmit = event => {
+    //     event.preventDefault();
+    //     const isValid = this.validate();
+    //     if(isValid) {
+    //         console.log(this.state);
+    //         this.setState(initialState);
+    //     }
+    // }
+
+    // handleChange = event => {
+    //     const isCheckBox = event.target.type === "checkbox";
+    //     this.setState ({
+    //         [event.target.name]: isCheckBox
+    //         ? event.target.checked
+    //         : event.target.value
+    //     });
+    // }
+
+    // validate = () => {
+    //     let error = "";
+    //     if(this.state.password !== this.state.confirm) {
+    //         error = "Passwords aren't equal!";
+    //     }
+
+    //     if(!this.state.userName 
+    //         || !this.state.email 
+    //         || !this.state.password 
+    //         || !this.state.confirm) {
+    //         error = "Fields can't be empty!";
+    //     }
+
+    //     if(error) {
+    //         this.setState({ error });
+    //         return false;
+    //     }
+
+    //     return true;
+    // }
+
+    clearInputs = (event) => {
         event.preventDefault();
-        const isValid = this.validate();
-        if(isValid) {
-            console.log(this.state);
-            this.setState(initialState);
-        }
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('password').value = '';
+        document.getElementById('confirm').value = '';
     }
-
-    handleChange = event => {
-        const isCheckBox = event.target.type === "checkbox";
-        this.setState ({
-            [event.target.name]: isCheckBox
-            ? event.target.checked
-            : event.target.value
-        });
-    }
-
-    validate = () => {
-        let error = "";
-        if(this.state.password !== this.state.confirm) {
-            error = "Passwords aren't equal!";
-        }
-
-        if(!this.state.userName 
-            || !this.state.email 
-            || !this.state.password 
-            || !this.state.confirm) {
-            error = "Fields can't be empty!";
-        }
-
-        if(error) {
-            this.setState({ error });
-            return false;
-        }
-
-        return true;
-    }
-
-
 
     render(){
         return (
             <div className="rst">
                 <Navbar />
                 <section className="rgt">
-
                     <p className = "createText">Create new account:</p>
-                    <form className="rgt-form" onSubmit={this.handleSubmit}>
+                    <form className="rgt-form" >
                         <div className="input-rgt">
                             <input 
+                                id="name"
                                 type="text" 
                                 name="userName" 
                                 placeholder="username" 
-                                defaultValue={this.props.userName}
-                                onChange={this.handleChange}
+                                value={this.props.userName}
+                                onChange={this.props.setName}
+                                //onChange={this.handleChange}
                             />
                             <br />
                             <input 
+                                id="email"
                                 type="email" 
                                 name="email" 
                                 placeholder="email" 
-                                defaultValue={this.props.email}
-                                onChange={this.handleChange}
+                                value={this.props.email}
+                                onChange={this.props.setEmail}
+                                //onChange={this.handleChange}
                             />
                             <br />
                             <input 
+                                id="password"
                                 type="password" 
                                 name="password" 
                                 placeholder="password" 
-                                defaultValue={this.props.password}
-                                onChange={this.handleChange}
+                                value={this.props.password}
+                                onChange={this.props.setPassword}
+                                //onChange={this.handleChange}
                             />
                             <br />
                             <input 
+                                id="confirm"
                                 type="password" 
                                 name="confirm" 
                                 placeholder="repeat password" 
                                 defaultValue={this.state.confirm}
-                                onChange={this.handleChange}
+                                //onChange={this.handleChange}
                             />
-                            <br />
-                            <input id ="btn" type="submit" value="Register" />
+                            <br /> <br />
+                            <button id="btn" onClick={this.clearInputs}>
+                                Register
+                            </button>
                             <div style={{fontSize: "30px", backgroundColor: "white", borderRadius: "5px", marginTop: "45px", paddingLeft: "70px"}}>
                                 {this.state.error}
                             </div>

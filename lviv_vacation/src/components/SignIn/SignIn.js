@@ -4,28 +4,34 @@ import Navbar from "../Navbar/Navbar";
 import { connect } from 'react-redux';
 
 class SignIn extends Component{
-    handleSubmit = event => {
+    // handleSubmit = event => {
+    //     event.preventDefault();
+    //     console.log(this.state);
+    //     console.log(this.props);
+    //     console.log(`email ${this.props.email}`);
+    //     console.log(`password ${this.props.password}`);
+    //     console.log(`budget ${this.props.budget}`);
+    // };
+
+    // handleChange = event => {
+    //     const isCheckBox = event.target.type === "checkbox";
+    //     this.setState ({
+    //         [event.target.name]: isCheckBox
+    //         ? event.target.checked
+    //         : event.target.value
+    //     });
+
+    //     // console.log(this.state);
+    //      //console.log(`email ${this.props.email}`);
+    //     // console.log(`password ${this.props.password}`);
+    //     // console.log(`target ${event.target.value}`);
+    // };
+
+    clearInputs = (event) => {
         event.preventDefault();
-        console.log(this.state);
-        console.log(this.props);
-        console.log(`email ${this.props.email}`);
-        console.log(`password ${this.props.password}`);
-        console.log(`budget ${this.props.budget}`);
-    };
-
-    handleChange = event => {
-        const isCheckBox = event.target.type === "checkbox";
-        this.setState ({
-            [event.target.name]: isCheckBox
-            ? event.target.checked
-            : event.target.value
-        });
-
-        // console.log(this.state);
-         //console.log(`email ${this.props.email}`);
-        // console.log(`password ${this.props.password}`);
-        // console.log(`target ${event.target.value}`);
-    };
+        document.getElementById('inputEmail').value = '';
+        document.getElementById('inputPass').value = '';
+    }
 
     render(){
         return (
@@ -36,16 +42,18 @@ class SignIn extends Component{
                     <form className="rgt-form" >
                         <div className="input-rgt" >
                             <input 
+                                id = "inputEmail" 
                                 type="email" 
                                 name="email" 
                                 placeholder="email" 
                                 value={this.props.email}
                                 onChange={this.props.setEmail}
                                 //onChange={this.handleChange}
-                                onClick={this.props.setEmail}
+                                //onClick={this.props.setEmail}
                             />
                             <br />
                             <input 
+                                id = "inputPass" 
                                 type="password" 
                                 name="password" 
                                 placeholder="password" 
@@ -55,10 +63,9 @@ class SignIn extends Component{
                                // onClick={this.props.setPassword}
                             />
                             <br /><br />
-                            <button id="btn">
+                            <button id="btn" onClick={this.clearInputs}>
                                 Submit
                             </button>
-                            {/* <input id="btn" type="submit" value="Submit" onClick={this.props.setEmail}/> */}
                         </div>
                     </form>
 
@@ -92,4 +99,3 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
-//export default SignIn;

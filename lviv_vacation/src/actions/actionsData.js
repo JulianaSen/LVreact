@@ -6,7 +6,7 @@ export function fetchData() {
         .then(res => res.json())
         .then(json => {
             dispatch(fetchDataSuccess(json));
-            console.log(json);
+            //console.log(json);
             return json.posts;
         })
         .catch(error => dispatch(fetchDataFailure(error)));

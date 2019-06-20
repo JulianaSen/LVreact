@@ -1,8 +1,8 @@
 const initialState = {
-    budget: "",
-    userName: null,
-    email: null,
-    password: null
+    budget: '',
+    userName: '',
+    email: '',
+    password: ''
 };
 
 export default function formReducer(state=initialState, action) {
@@ -29,15 +29,6 @@ export default function formReducer(state=initialState, action) {
             return {
                 ...state,
                 password: action.password
-            }    
-
-        case 'CLEAR':
-            return {
-                ...state,
-                budget: "",
-                userName: "",
-                email: "",
-                password: ""
             }    
 
         default:
