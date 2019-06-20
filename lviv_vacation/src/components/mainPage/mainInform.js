@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-    
+
+
 const initialState = {
     error: ""
 }
@@ -108,3 +109,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainContent);
+

@@ -15,9 +15,9 @@ export default class Description extends React.Component {
                     <p><i className="fa fa-wifi"></i> Wi-fi</p>
                   </div>
                   <div>
-                    <p>st. "Name"</p>
-                    <p><i className="fa fa-check-circle"></i></p>
-                    <p><i className="fa fa-check-circle"></i></p>
+                    <p>{this.props.stName}</p>
+                    {this.props.isSmkoing && <p><i className="fa fa-check-circle"></i></p>}
+                    {this.props.isWiFi && <p><i className="fa fa-check-circle"></i></p>}
                   </div>
                 </div>
             </div>
