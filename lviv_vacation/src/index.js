@@ -10,8 +10,8 @@ import { loadState, saveState } from './localStorage';
 
 const loadedState = loadState();
 const store = createStore(
-    rootReducer, 
-    loadedState, 
+    rootReducer,
+    // loadedState,
     applyMiddleware(thunk)
 );
 
@@ -21,8 +21,6 @@ store.subscribe(() => {
     );
     console.log(store.getState());
 });
-
-console.log()
 
 ReactDOM.render(
     <Provider store = { store }>
