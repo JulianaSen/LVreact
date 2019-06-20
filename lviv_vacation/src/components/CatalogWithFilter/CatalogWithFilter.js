@@ -1,9 +1,15 @@
 import React from 'react';
 import FilterMenu from '../FilterMenu/filterMenu';
-import Catalog from '../Catalog/Catalog'
+import Catalog from '../Catalog/Catalog';
+import { Provider } from 'react-redux';
+// import { store } from '../../actions/actionFilterMenu';
+import { WrapperComponent } from '../FilterMenu/filterMenu'
+import {store} from "../../index";
+
 
 export default class CatalogWithFilter extends React.Component{
   render() {
+    // console.log(this.props);
     return (
       <div className="mainContent">
         <div className="nav-container">
@@ -14,12 +20,12 @@ export default class CatalogWithFilter extends React.Component{
               <div></div>
             </div>
           </label>
-          <FilterMenu smallscreen="small-screen"/>
+          <Provider store={store}><WrapperComponent smallscreen="small-screen"/></Provider>
         </div>
           
         <main className="main-container">
           <div className="wave-block">
-            <FilterMenu />
+           <Provider store={store}><WrapperComponent /></Provider>
             <Catalog />
           </div>
         </main>
