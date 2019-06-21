@@ -10,8 +10,8 @@ import { loadState, saveState } from './localStorage';
 
 const loadedState = loadState();
 const store = createStore(
-    rootReducer, 
-    loadedState, 
+    rootReducer,
+    loadedState,
     applyMiddleware(thunk)
 );
 

@@ -1,17 +1,19 @@
 import data from '../dt.json';
 import axios from 'axios'; 
-// export function fetchData() {
-//     return dispatch => {
-//         return  fetch("http://localhost:3001/op/posts")
-//         .then(res => res.json())
-//         .then(json => {
-//             dispatch(fetchDataSuccess(json));
-//             //console.log(json);
-//             return json.posts;
-//         })
-//         .catch(error => dispatch(fetchDataFailure(error)));
-//     };
-// }
+
+export function fetchData(route) {
+    return dispatch => {
+        return  fetch(route)
+        .then(res => res.json())
+        .then(json => {
+            dispatch(fetchDataSuccess(json));
+            return json;
+
+
+        })
+        .catch(error => dispatch(fetchDataFailure(error)));
+    };
+}
 
 function handleErrors(responce) {
     if(!responce.ok){
@@ -28,4 +30,5 @@ export const fetchDataSuccess = posts => ({
 export const fetchDataFailure = error => ({
     type: 'FETCH_DATA_FAILURE',
     payload: {error}
+
 });
