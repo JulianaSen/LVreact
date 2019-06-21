@@ -8,8 +8,6 @@ export function fetchData(route) {
         .then(json => {
             dispatch(fetchDataSuccess(json));
             return json;
-
-
         })
         .catch(error => dispatch(fetchDataFailure(error)));
     };
