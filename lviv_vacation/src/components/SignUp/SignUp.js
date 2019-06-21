@@ -10,51 +10,34 @@ const initialState = {
 class SignUp extends Component{
     state = initialState;
 
-    // handleSubmit = event => {
-    //     event.preventDefault();
-    //     const isValid = this.validate();
-    //     if(isValid) {
-    //         console.log(this.state);
-    //         this.setState(initialState);
-    //     }
-    // }
-
-    // handleChange = event => {
-    //     const isCheckBox = event.target.type === "checkbox";
-    //     this.setState ({
-    //         [event.target.name]: isCheckBox
-    //         ? event.target.checked
-    //         : event.target.value
-    //     });
-    // }
-
-    // validate = () => {
-    //     let error = "";
-    //     if(this.state.password !== this.state.confirm) {
-    //         error = "Passwords aren't equal!";
-    //     }
-
-    //     if(!this.state.userName 
-    //         || !this.state.email 
-    //         || !this.state.password 
-    //         || !this.state.confirm) {
-    //         error = "Fields can't be empty!";
-    //     }
-
-    //     if(error) {
-    //         this.setState({ error });
-    //         return false;
-    //     }
-
-    //     return true;
-    // }
-
-    clearInputs = (event) => {
+    handleSubmit = event => {
         event.preventDefault();
-        document.getElementById('name').value = '';
-        document.getElementById('email').value = '';
-        document.getElementById('password').value = '';
-        document.getElementById('confirm').value = '';
+        const isValid = this.validate();
+        if(isValid) {
+            console.log(this.state);
+            this.setState(initialState);
+        }
+    }
+
+    validate = (event) => {
+        let error = "";
+        if(this.props.password !== document.getElementById('confirm').value) {
+            error = "Passwords aren't equal!";
+        }
+
+        if(!this.props.userName 
+            || !this.props.email 
+            || !this.props.password 
+            || document.getElementById('confirm').value == '') {
+            error = "Fields can't be empty!";
+        }
+
+        if(error) {
+            this.setState({ error });
+            return false;
+        }
+
+        return true;
     }
 
     render(){
@@ -72,7 +55,6 @@ class SignUp extends Component{
                                 placeholder="username" 
                                 value={this.props.userName}
                                 onChange={this.props.setName}
-                                //onChange={this.handleChange}
                             />
                             <br />
                             <input 
@@ -82,7 +64,6 @@ class SignUp extends Component{
                                 placeholder="email" 
                                 value={this.props.email}
                                 onChange={this.props.setEmail}
-                                //onChange={this.handleChange}
                             />
                             <br />
                             <input 
@@ -92,7 +73,6 @@ class SignUp extends Component{
                                 placeholder="password" 
                                 value={this.props.password}
                                 onChange={this.props.setPassword}
-                                //onChange={this.handleChange}
                             />
                             <br />
                             <input 
@@ -101,10 +81,9 @@ class SignUp extends Component{
                                 name="confirm" 
                                 placeholder="repeat password" 
                                 defaultValue={this.state.confirm}
-                                //onChange={this.handleChange}
                             />
                             <br /> <br />
-                            <button id="btn" onClick={this.clearInputs}>
+                            <button id="btn" onClick={this.handleSubmit}>
                                 Register
                             </button>
                             <div style={{fontSize: "30px", backgroundColor: "white", borderRadius: "5px", marginTop: "45px", paddingLeft: "70px"}}>
@@ -145,5 +124,3 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
-
-//export default SignUp;

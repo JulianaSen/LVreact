@@ -1,5 +1,5 @@
-
-
+import data from '../dt.json';
+import axios from 'axios'; 
 
 export function fetchData(route) {
     return dispatch => {
@@ -32,4 +32,3 @@ export const fetchDataFailure = error => ({
     payload: {error}
 
 });
-

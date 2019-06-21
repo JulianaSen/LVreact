@@ -4,35 +4,6 @@ import Navbar from "../Navbar/Navbar";
 import { connect } from 'react-redux';
 
 class SignIn extends Component{
-    // handleSubmit = event => {
-    //     event.preventDefault();
-    //     console.log(this.state);
-    //     console.log(this.props);
-    //     console.log(`email ${this.props.email}`);
-    //     console.log(`password ${this.props.password}`);
-    //     console.log(`budget ${this.props.budget}`);
-    // };
-
-    // handleChange = event => {
-    //     const isCheckBox = event.target.type === "checkbox";
-    //     this.setState ({
-    //         [event.target.name]: isCheckBox
-    //         ? event.target.checked
-    //         : event.target.value
-    //     });
-
-    //     // console.log(this.state);
-    //      //console.log(`email ${this.props.email}`);
-    //     // console.log(`password ${this.props.password}`);
-    //     // console.log(`target ${event.target.value}`);
-    // };
-
-    clearInputs = (event) => {
-        event.preventDefault();
-        document.getElementById('inputEmail').value = '';
-        document.getElementById('inputPass').value = '';
-    }
-
     render(){
         return (
             <div className="rst">
@@ -48,8 +19,6 @@ class SignIn extends Component{
                                 placeholder="email" 
                                 value={this.props.email}
                                 onChange={this.props.setEmail}
-                                //onChange={this.handleChange}
-                                //onClick={this.props.setEmail}
                             />
                             <br />
                             <input 
@@ -57,10 +26,8 @@ class SignIn extends Component{
                                 type="password" 
                                 name="password" 
                                 placeholder="password" 
-                                defaultValue={this.props.password}
+                                value={this.props.password}
                                 onChange={this.props.setPassword}
-                                //onChange={this.handleChange}
-                               // onClick={this.props.setPassword}
                             />
                             <br /><br />
                             <button id="btn" onClick={this.clearInputs}>
