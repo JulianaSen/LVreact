@@ -49,7 +49,6 @@ export default class CatalogWithFilter extends React.Component {
           </div>
         </main>
       </div>
-
     )
   }
 }

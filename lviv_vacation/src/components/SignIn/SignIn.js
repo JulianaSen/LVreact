@@ -30,7 +30,7 @@ class SignIn extends Component{
                                 onChange={this.props.setPassword}
                             />
                             <br /><br />
-                            <button id="btn" onClick={this.clearInputs}>
+                            <button id="btn">
                                 Submit
                             </button>
                         </div>

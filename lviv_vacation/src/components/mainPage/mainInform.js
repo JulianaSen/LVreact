@@ -8,32 +8,24 @@ const initialState = {
 
 class MainContent extends Component {
     state = initialState;
+    // handleSubmit = event => {
+    //     event.preventDefault();
+    //     const isValid = this.validate();
+    //     if(isValid) {
+    //         this.setState(initialState);
+    //         console.log(`validate`);
+    //     }
+    // };
 
-    handleSubmit = event => {
-        event.preventDefault();
-        const isValid = this.validate();
-        if(isValid) {
-            this.setState(initialState);
-        }
-        console.log(`validate`);
-    };
-
-    validate = () => {
-        let error = "";
-    
-        if(isNaN(this.props.budget)) {
-            error = "Budget must be a number!";
-        } else if(!this.props.budget) {
-            error = "Budget can't be blank!";
-        }
-    
-        if(error) {
-            this.setState({ error });
-            return false;
-        }
-    
-        return true;
-    };
+    handleChange = event => {
+        const isCheckBox = event.target.type === "checkbox";
+        this.setState ({ 
+            [event.target.name]: isCheckBox
+            ? event.target.checked
+            : event.target.value
+        });
+        console.log("handleChange " + event.target.value);
+    }
 
     render() {
         return (
@@ -42,17 +34,17 @@ class MainContent extends Component {
                     {this.props.enter}
                 </span> 
                 <div className="bdg-ipt">
-                    <form className="budget_form"> 
+                    <form className="budget_form" onSubmit={this.props.setBudget}> 
                         <input 
-                            id = "input" 
                             className="input_budget" 
                             type="text"
                             name="budget" 
                             placeholder="100$" 
                             value={this.props.budget}
-                            onChange={this.props.setBudget}
+                            onChange={this.handleChange}
+                            //onChange={this.props.setBudget}
                         />
-                        <button className="btn" onClick={this.handleSubmit}>
+                        <button className="btn" >
                             {this.props.submit}
                         </button>
                         <div style={{ paddingLeft: "25px" }}>
@@ -69,6 +61,24 @@ class MainContent extends Component {
     }
 }
 
+const validate = budget => {
+    let error = "";
+
+    if(isNaN(budget)) {
+        error = "Budget must be a number!";
+    } else if(!budget) {
+        error = "Budget can't be blank!";
+    }
+
+    if(error) {
+        //this.setState({ error });
+        console.log(error);
+        return false;
+    } 
+    
+    return true;
+};
+
 const mapStateToProps = state => {
     return {
         budget: state.forms.budget
@@ -79,9 +89,13 @@ const mapDispatchToProps = dispatch => {
     return {
         setBudget: (event) => {
             event.preventDefault();
-            dispatch({type: 'SET_BUDGET', budget: event.target.value});
-        }
-    }
+            console.log("value: " + event.target.value);
+            if(validate(event.target.value)) {
+                dispatch({type: 'SET_BUDGET', budget: event.target.value});
+                console.log('ok');
+            } else console.log('no');
+        } 
+    } 
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainContent);
