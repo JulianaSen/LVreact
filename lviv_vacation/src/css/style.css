@@ -24,6 +24,7 @@
   background-size: cover;
   background-attachment: fixed;
   overflow: scroll;
+  height: 100%;
 }
 .rst {
   background-image: url(../img/rst-background.jpg);
@@ -642,7 +643,7 @@ a.changeLink:hover {
 }
 .wave-block {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin: 10px;
 }
 .preferences {
@@ -1063,4 +1064,7 @@ i.fa-star:hover {
 .nav-cont-without-filter-menu {
   background-color: black;
   height: 50px;
+}
+.hamburger {
+  display: none;
 }

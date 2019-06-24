@@ -4,6 +4,8 @@ import React from 'react';
 export default class ItemForCheck extends React.Component {
  
   render() {
+
+    // console.log()
     return (
       
       <div>

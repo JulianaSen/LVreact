@@ -8,7 +8,7 @@ class Catalog extends React.Component {
         return (
             <div className="hotels-offers">
 
- // Here we maps all hotels  
+ 
                 {this.props.items.map((p) => (
                     <ItemOfCatalog id={p.id} description={p.description} destination={p.destination} smoking={p.smoking} WiFi={p.WiFi} rating={p.rating}/>
                 ))

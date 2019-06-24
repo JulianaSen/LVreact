@@ -12,6 +12,9 @@ export default class FilterMenu extends React.Component {
 
   //  
   render() {
+
+
+    
     const dispatch = this.props.dispatch;
     // console.log(this.props);
     let smallScreenClass = `preferences`;
@@ -23,7 +26,8 @@ export default class FilterMenu extends React.Component {
 
 
     const {checkAll, checkFlat, checkHostel, checkHotel, checkMotel} = this.props;
-   
+   console.log(this.props);
+    // console.log(this.props);
 
     return (
       <div className={smallScreenClass}>
