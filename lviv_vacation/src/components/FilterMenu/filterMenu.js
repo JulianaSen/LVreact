@@ -52,6 +52,7 @@ export default class FilterMenu extends React.Component {
     )
   }
 }
+
 const mapStateToProps = (state) => {
 
   return {
@@ -60,7 +61,6 @@ const mapStateToProps = (state) => {
     checkMotel: state.filter.checkMotel,
     checkHostel: state.filter.checkHostel,
     checkFlat: state.filter.checkFlat
-    
   }
 }
 

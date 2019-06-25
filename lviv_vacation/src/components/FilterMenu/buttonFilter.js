@@ -10,11 +10,12 @@ constructor(props) {
 
   clickButtonFilter(e) {
     e.preventDefault();
-    
-    console.log(this.props);
   }
 
   render() {
+
+    console.log(this.props);
+
     return (
         <div className="check-item filter-button-container" >
             <input type="submit" value="Filter" className="filter-button" onClick={this.clickButtonFilter}/>
@@ -22,3 +23,5 @@ constructor(props) {
     )
   }
 }
+
+

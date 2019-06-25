@@ -8,9 +8,9 @@ class Catalog extends React.Component {
         return (
             <div className="hotels-offers">
 
- 
+                {/* {console.log(this.props.items)} */}
                 {this.props.items.map((p) => (
-                    <ItemOfCatalog id={p.id} description={p.description} destination={p.destination} smoking={p.smoking} WiFi={p.WiFi} rating={p.rating}/>
+                    <ItemOfCatalog key={p.id} description={p.description} destination={p.destination} smoking={p.smoking} WiFi={p.WiFi} rating={p.rating} whatIsIt={p.whatIsIt} name={p.name}/>
                 ))
                 }
                
