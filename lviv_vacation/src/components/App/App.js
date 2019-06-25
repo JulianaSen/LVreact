@@ -2,14 +2,12 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import AboutBlock from '../about/about';
 import MainBlock from '../mainPage/mainPage';
-//import FilterMenu from '../FilterMenu/filterMenu';
 import SignIn from '../SignIn/SignIn';
 import SignUp from '../SignUp/SignUp';
 import  '../../css/style.css';
 import '../../css/normalize.css';
 import { connect } from 'react-redux';
 import CatalogWithFilter from '../CatalogWithFilter/CatalogWithFilter';
-import { fetchData } from '../../actions/actionsData';
 
 class App extends Component{
     render() {
@@ -28,11 +26,7 @@ class App extends Component{
 const mapStateToProps = state => ({
     items: state.data.items,
     loading: state.data.loading,
-    error: state.data.error, 
-    budget: state.forms.budget,
-    userName: state.forms.userName,
-    email: state.forms.email,
-    password: state.forms.password
+    error: state.data.error
 });
 
 export default connect(mapStateToProps)(App);

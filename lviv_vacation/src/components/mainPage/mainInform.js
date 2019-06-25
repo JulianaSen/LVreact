@@ -9,54 +9,31 @@ const initialState = {
 class MainContent extends Component {
     state = initialState;
 
-    // handleChange = event => {
-    //     const isCheckBox = event.target.type === "checkbox";
-    //     this.setState ({
-    //         [event.target.name]: isCheckBox
-    //         ? event.target.checked
-    //         : event.target.value
-    //     });
-    // };
-
-    // handleSubmit = event => {
-    //     event.preventDefault();
-    //     const isValid = this.validate();
-    //     if(isValid) {
-    //         console.log(this.state);
-    //         this.setState(initialState);
-    //     }
-    //     console.log(this.props);
-    //     console.log(`budget ${this.props.budget}`);
-    // };
-
-    // validate = () => {
-    //     let error = "";
-    
-    //     if(isNaN(this.state.budget)) {
-    //         error = "Budget must be a number!";
-    //     } else if(!this.state.budget) {
-    //         error = "Budget can't be blank!";
-    //     }
-    
-    //     if(error) {
-    //         this.setState({ error });
-    //         return false;
-    //     }
-    
-    //     return true;
-    // };
-
-    clearInputs = (event) => {
+    handleSubmit = event => {
         event.preventDefault();
-        document.getElementById('input').value = '';
-    }
-
-    handleReload = () => {
-        if(window.location.reload) {
-            this.clearInputs();
-            console.log("22");
+        const isValid = this.validate();
+        if(isValid) {
+            this.setState(initialState);
         }
-    }
+        console.log(`validate`);
+    };
+
+    validate = () => {
+        let error = "";
+    
+        if(isNaN(this.props.budget)) {
+            error = "Budget must be a number!";
+        } else if(!this.props.budget) {
+            error = "Budget can't be blank!";
+        }
+    
+        if(error) {
+            this.setState({ error });
+            return false;
+        }
+    
+        return true;
+    };
 
     render() {
         return (
@@ -65,7 +42,7 @@ class MainContent extends Component {
                     {this.props.enter}
                 </span> 
                 <div className="bdg-ipt">
-                    <form className="budget_form" > 
+                    <form className="budget_form"> 
                         <input 
                             id = "input" 
                             className="input_budget" 
@@ -73,10 +50,9 @@ class MainContent extends Component {
                             name="budget" 
                             placeholder="100$" 
                             value={this.props.budget}
-                            //onChange={this.handleChange}
                             onChange={this.props.setBudget}
                         />
-                        <button className="btn" onClick={this.clearInputs}>
+                        <button className="btn" onClick={this.handleSubmit}>
                             {this.props.submit}
                         </button>
                         <div style={{ paddingLeft: "25px" }}>
@@ -109,4 +85,3 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainContent);
-

@@ -23,10 +23,15 @@
   background-color: #f3f3f3;
   background-size: cover;
   background-attachment: fixed;
+<<<<<<< HEAD
   overflow-y: scroll;
   overflow-x: hidden;
   max-height: 75vh;
   scroll-behavior: smooth;
+=======
+  overflow: scroll;
+  height: 100%;
+>>>>>>> e725dceade7c05b429720ea21f87a082a7bbcd48
 }
 .rst {
   background-image: url(../img/rst-background.jpg);
@@ -249,8 +254,12 @@ a.changeLink:hover {
   width: 100%;
   height: 100vh;
   opacity: 0.5;
+<<<<<<< HEAD
   transition: transform 0.8s;
   backface-visibility: hidden;
+=======
+  z-index: -3;
+>>>>>>> e725dceade7c05b429720ea21f87a082a7bbcd48
 }
 .main_section {
   display: flex;
@@ -463,6 +472,46 @@ a.changeLink:hover {
     font-size: 15px;
     overflow: hidden;
   }
+  .navbarLi {
+    font-size: 12px;
+  }
+  .logo {
+    width: 35px;
+    height: 35px;
+  }
+  .rgt .createText {
+    margin-top: 100px;
+    font-size: 20px;
+  }
+  .input-rgt input {
+    width: 220px;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  #btn {
+    margin-left: 140px;
+  }
+  .textBudget {
+    font-size: 30px;
+  }
+  .textAct {
+    font-size: 30px;
+  }
+  .choice {
+    margin-top: 40px;
+  }
+  .input_budget {
+    padding: 4px;
+    width: 220px;
+  }
+  .changeLink {
+    margin-left: 150px;
+    font-size: 18px;
+  }
+  a.changeLink {
+    margin-left: 180px;
+    font-size: 18px;
+  }
 }
 @media screen and (max-width: 700px), screen and (max-height: 500px) {
   #root {
@@ -562,12 +611,16 @@ a.changeLink:hover {
     margin-left: 230px;
   }
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 500px) {
   .rgt .createText {
+    font-size: 30px;
     padding-left: 120px;
   }
   .rgt .rgt-form {
     padding-left: 120px;
+  }
+  .input-rgt input {
+    width: 220px;
   }
   .changeLink {
     margin-left: 180px;
@@ -576,48 +629,6 @@ a.changeLink:hover {
   a.changeLink {
     margin-left: 210px;
     font-size: 22px;
-  }
-}
-@media screen and (max-width: 500px) {
-  .navbarLi {
-    font-size: 15px;
-  }
-  .logo {
-    width: 35px;
-    height: 35px;
-  }
-  .rgt .createText {
-    margin-top: 100px;
-    font-size: 20px;
-  }
-  .input-rgt input {
-    width: 220px;
-    font-size: 18px;
-    margin-bottom: 15px;
-  }
-  #btn {
-    margin-left: 140px;
-  }
-  .textBudget {
-    font-size: 30px;
-  }
-  .textAct {
-    font-size: 30px;
-  }
-  .choice {
-    margin-top: 40px;
-  }
-  .input_budget {
-    padding: 4px;
-    width: 220px;
-  }
-  .changeLink {
-    margin-left: 150px;
-    font-size: 18px;
-  }
-  a.changeLink {
-    margin-left: 180px;
-    font-size: 18px;
   }
 }
 @media screen and (max-width: 400px) {
@@ -646,7 +657,7 @@ a.changeLink:hover {
 }
 .wave-block {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin: 10px;
 }
 .preferences {
@@ -1064,6 +1075,7 @@ i.fa-star:hover {
     padding: 10px;
   }
 }
+<<<<<<< HEAD
 .main_page {
   transition: transform 0.9s;
   backface-visibility: hidden;
@@ -1092,4 +1104,15 @@ i.fa-star:hover {
   100% {
     opacity: 1;
   }
+=======
+.delete-margin {
+  margin-top: 10px;
+}
+.nav-cont-without-filter-menu {
+  background-color: black;
+  height: 50px;
+}
+.hamburger {
+  display: none;
+>>>>>>> e725dceade7c05b429720ea21f87a082a7bbcd48
 }

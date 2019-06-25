@@ -8,7 +8,25 @@ const initialState = {
     checkFlat: false
 };
 
+function checkingItems(state, checkOne, checkTwo, checkThree, action, newCheck) {
+    console.log("grtgrt");
+    if(checkOne && checkTwo && checkThree && action.payload) {
+        return {...state,
+            [newCheck]: action.payload,
+            checkAll: action.payload
+           }
+    } else if(checkOne && checkTwo && checkThree && action.payload != true) {
+        return { ...state,
+            [newCheck]: action.payload,
+            checkAll: action.payload
+        }
+    } else {
+        return {...state, [newCheck]: action.payload }
+    }
+}
+    
 const reducerFilterMenu = (state = initialState, action) => {
+
     switch (action.type) {
         case ACTION_CHECK_ALL:
             return { ...state, checkAll: action.payload,
@@ -19,77 +37,20 @@ const reducerFilterMenu = (state = initialState, action) => {
                     }
             break;
         case ACTION_CHECK_HOTEL:
-                if(state.checkMotel && state.checkHostel && state.checkFlat && action.payload) {
-                    return {...state,
-                        checkHotel: action.payload,
-                        checkAll: action.payload
-                       }
-                } else if(state.checkMotel && state.checkHostel && state.checkFlat && action.payload != true) {
-                    return { ...state,
-                        checkHotel: action.payload,
-                        checkAll: action.payload
-                    }
-                }
-                return {...state,
-                     checkHotel: action.payload,
-                    }
+                return checkingItems(state, state.checkMotel, state.checkHostel, state.checkFlat, action, 'checkHotel');
                  break;
         case ACTION_CHECK_MOTEL:
-                if(state.checkHotel && state.checkHostel && state.checkFlat && action.payload) {
-                    return {...state,
-                        checkMotel: action.payload,
-                        checkAll: action.payload
-                       }
-                } else if(state.checkHotel && state.checkHostel && state.checkFlat && action.payload != true) {
-                    return { ...state,
-                        checkMotel: action.payload,
-                        checkAll: action.payload
-                    }
-                }
-                return { ...state,
-                    checkMotel: action.payload
-                }
+                return checkingItems(state, state.checkHotel, state.checkHostel, state.checkFlat, action, 'checkMotel');
                 break;
-        case ACTION_CHECK_HOSTEL:
-            if(state.checkHotel && state.checkMotel && state.checkFlat && action.payload) {
-                return {...state,
-                    checkHostel: action.payload,
-                    checkAll: action.payload
-                    }
-            } else if(state.checkHotel && state.checkMotel && state.checkFlat && action.payload != true) {
-                return { ...state,
-                    checkHostel: action.payload,
-                    checkAll: action.payload
-                }
-            }
-
-            return { ...state,
-                checkHostel: action.payload
                 
-            }
+        case ACTION_CHECK_HOSTEL:
+            return checkingItems(state, state.checkHotel, state.checkMotel, state.checkFlat, action, 'checkHostel');
             break;
         case ACTION_CHECK_FLAT:
-
-            if(state.checkHotel && state.checkMotel && state.checkHostel && action.payload) {
-                return {...state,
-                    checkFlat: action.payload,
-                    checkAll: action.payload
-                    }
-            } else if(state.checkHotel && state.checkMotel && state.checkHostel && action.payload != true) {
-                return { ...state,
-                    checkFlat: action.payload,
-                    checkAll: action.payload
-                }
-            }
-
-            return { ...state, 
-                checkFlat: action.payload
-
-            }
+            return checkingItems(state, state.checkHotel, state.checkMotel, state.checkHostel, action, 'checkFlat');
             break;
-        
     }
-    
+
     return state;
 };
 
