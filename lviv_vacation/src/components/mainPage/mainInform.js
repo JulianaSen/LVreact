@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-
+import { setBudgetRequest } from '../../actions/actionsData';
+import axios from 'axios'; 
+import { thisTypeAnnotation } from '@babel/types';
+import { store } from '../../index';
+import { SET_BUDGET } from '../../actions/actionsForm';
 
 const initialState = {
     error: ""
@@ -8,24 +12,32 @@ const initialState = {
 
 class MainContent extends Component {
     state = initialState;
-    // handleSubmit = event => {
-    //     event.preventDefault();
-    //     const isValid = this.validate();
-    //     if(isValid) {
-    //         this.setState(initialState);
-    //         console.log(`validate`);
-    //     }
-    // };
 
-    handleChange = event => {
-        const isCheckBox = event.target.type === "checkbox";
-        this.setState ({ 
-            [event.target.name]: isCheckBox
-            ? event.target.checked
-            : event.target.value
-        });
-        console.log("handleChange " + event.target.value);
-    }
+    handleSubmit = event => {
+        event.preventDefault();
+        
+        var data = {
+            budget: this.props.budget
+        }
+
+        axios.post("http://localhost:3001/op/budget", data )
+            .then(function(response) {
+                console.log(response);
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    };
+
+    // handleChange = event => {
+    //     const isCheckBox = event.target.type === "checkbox";
+    //     this.setState ({ 
+    //         [event.target.name]: isCheckBox
+    //         ? event.target.checked
+    //         : event.target.value
+    //     });
+    //     console.log("handleChange " + event.target.value);
+    // }
 
     render() {
         return (
@@ -34,17 +46,17 @@ class MainContent extends Component {
                     {this.props.enter}
                 </span> 
                 <div className="bdg-ipt">
-                    <form className="budget_form" onSubmit={this.props.setBudget}> 
+                    <form className="budget_form" onSubmit={this.handleSubmit}> 
                         <input 
                             className="input_budget" 
                             type="text"
                             name="budget" 
                             placeholder="100$" 
-                            value={this.props.budget}
-                            onChange={this.handleChange}
-                            //onChange={this.props.setBudget}
+                            value={this.state.budget}
+                            //onChange={this.handleChange}
+                            onChange={this.props.setBudget}
                         />
-                        <button className="btn" >
+                        <button className="btn" type="submit">
                             {this.props.submit}
                         </button>
                         <div style={{ paddingLeft: "25px" }}>
@@ -89,7 +101,6 @@ const mapDispatchToProps = dispatch => {
     return {
         setBudget: (event) => {
             event.preventDefault();
-            console.log("value: " + event.target.value);
             if(validate(event.target.value)) {
                 dispatch({type: 'SET_BUDGET', budget: event.target.value});
                 console.log('ok');

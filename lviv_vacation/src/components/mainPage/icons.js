@@ -26,7 +26,7 @@ class MainIcons extends Component {
 }
 
 const mapStateToProps = state => ({
-        route: state.data.route
+    route: state.data.route
 });
 
 export default connect(mapStateToProps)(MainIcons);

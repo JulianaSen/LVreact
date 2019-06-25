@@ -8,7 +8,7 @@ import  '../../css/style.css';
 import '../../css/normalize.css';
 import { connect } from 'react-redux';
 import CatalogWithFilter from '../CatalogWithFilter/CatalogWithFilter';
-
+ 
 class App extends Component{
     render() {
         return (
@@ -20,7 +20,7 @@ class App extends Component{
                 <Route exact path='/hotels' component={CatalogWithFilter}/>
             </>
         );
-      }
+    }
 }
 
 const mapStateToProps = state => ({
