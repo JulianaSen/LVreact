@@ -1082,7 +1082,7 @@ i.fa-star:hover {
 .is-element-choose {
   background-color: #9da6b5;
 }
-.enable-animation {
+.animation-enable {
   animation: appearAnimation 3s ease-out;
 }
 @keyframes appearAnimation {

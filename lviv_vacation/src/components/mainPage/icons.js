@@ -72,10 +72,10 @@ class MainIcons extends Component {
                             <img src={sleep} alt="Sleep" />
                         </div>
 
-                        <div onClick={()=>this.handleRest()} className={['images', this.props.clicked && 'is-inf-images'].join(' ')} >
+                        <div onClick={()=>this.handleRest()} className={['images', this.props.clicked && 'is-inf-images', this.props.restClicked && 'is-element-choose'].join(' ')} >
                             <img src={food} alt="Eat" />
                         </div>
-                        <div onClick={()=>this.handleEnt()} className={['images', this.props.clicked && 'is-inf-images'].join(' ')}> 
+                        <div onClick={()=>this.handleEnt()} className={['images', this.props.clicked && 'is-inf-images', this.props.entClicked && 'is-element-choose'].join(' ')}> 
                             <img src={cinema} alt="Hang_out" />
                         </div>
                     </div>

@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class ItemOfCatalog extends React.Component {
   render() {
     return (
-        <div className='hotel-container'>
+        <div className='hotel-container animation-enable'>
            <RatingStar rating={this.props.rating}/>
             <div className="hotel">
               <div className="container-img container-img-hotels">
