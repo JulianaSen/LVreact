@@ -1,6 +1,5 @@
 const initialState = {
     items: [],
-    loading: false,
     error: null
 };
 
@@ -9,7 +8,6 @@ export default function dataReducer(state=initialState, action) {
         case 'FETCH_DATA_FAILURE':
             return {
                 ...state,
-                loading: false,
                 error: action.payload.error,
                 items: []
             };
@@ -18,7 +16,6 @@ export default function dataReducer(state=initialState, action) {
         case 'FETCH_DATA_SUCCESS':
             return {
                 ...state,
-                loading: false,
                 items: action.payload.posts
 
           };

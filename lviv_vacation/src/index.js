@@ -5,7 +5,7 @@ import App from '../src/components/App/App.js';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from './components/reducers/rootReducer';
+import rootReducer from '../src/reducers/rootReducer';
 import { loadState, saveState } from './localStorage';
 
 const loadedState = loadState();
