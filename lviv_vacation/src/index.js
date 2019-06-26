@@ -7,21 +7,22 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 import combineReducer from '../src/reducers/rootReducer';
-import { loadState, saveState } from './localStorage';
-
-const loadedState = loadState();
+//import { loadState, saveState } from './localStorage';
+import { configureFakeBackend } from './helpers/fakeBackend'
+//const loadedState = loadState();
 const store = createStore(
     combineReducer,
     //loadedState,
     applyMiddleware(thunk)
 );
 
-store.subscribe(() => {
-    saveState(
-        store.getState()
-    );
-});
+// store.subscribe(() => {
+//     saveState(
+//         store.getState()
+//     );
+// });
 
+configureFakeBackend();
 ReactDOM.render(
     <Provider store = { store }>
         <BrowserRouter>

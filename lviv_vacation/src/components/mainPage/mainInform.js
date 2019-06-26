@@ -29,7 +29,6 @@ const MainContent = props => {
             Choose your activity:
         </span>
     </div>
-
     )
   }
 

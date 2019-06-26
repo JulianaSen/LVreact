@@ -5,6 +5,9 @@ import renderField from "../../components/Validation/renderField";
 import validate from "../../components/Validation/validation";
 import { Field, reduxForm } from 'redux-form';
 
+import { connect } from 'react-redux';
+import { userActions } from '../../actions/userActions';
+
 const SignIn = props => {
     const { handleSubmit, submitting } = props;
     const submit = (values) => console.log(values);
