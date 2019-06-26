@@ -14,18 +14,10 @@ class VideoContainer extends Component {
             </div>
         )
     }
-<<<<<<< HEAD
 }
-
 
 const mapStateToProps = state => ({
     clicked: state.click.clicked,
 });
 
 export default connect(mapStateToProps)(VideoContainer);
-
-
-
-=======
-}
->>>>>>> e725dceade7c05b429720ea21f87a082a7bbcd48

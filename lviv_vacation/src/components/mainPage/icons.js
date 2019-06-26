@@ -85,10 +85,11 @@ class MainIcons extends Component {
 }
 
 const mapStateToProps = state => ({
-        clicked: state.click.clicked,
-        hotelClicked: state.click.clickedHotels,
-        restClicked: state.click.clickedRestaraunts,
-        entClicked: state.click.clickedEntertainment
+    route: state.data.route,
+    clicked: state.click.clicked,
+    hotelClicked: state.click.clickedHotels,
+    restClicked: state.click.clickedRestaraunts,
+    entClicked: state.click.clickedEntertainment
 });
 
 

@@ -2,6 +2,7 @@ const SET_BUDGET = 'SET_BUDGET';
 const SET_USERNAME = 'SET_USERNAME';
 const SET_EMAIL = 'SET_EMAIL';
 const SET_PASSWORD = 'SET_PASSWORD';
+const ERROR = 'ERROR';
 
 export const fetchSetBudget = budget => ({
     type: SET_BUDGET,
@@ -23,4 +24,9 @@ export const fetchSetPassword = password => ({
     payload: {password}
 });
 
-export {SET_BUDGET, SET_USERNAME, SET_EMAIL, SET_PASSWORD}
+export const fetchError = error => ({
+    type: ERROR,
+    payload: {error}
+});
+
+export {SET_BUDGET, SET_USERNAME, SET_EMAIL, SET_PASSWORD, ERROR}
