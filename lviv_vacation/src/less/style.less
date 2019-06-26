@@ -12,7 +12,10 @@
     background-color: #f3f3f3;
     background-size: cover;
     background-attachment: fixed;
-    overflow: scroll;
+    overflow-y: scroll;   
+    overflow-x: hidden;
+    max-height: 75vh;
+    scroll-behavior: smooth;
 }
 
 .rst{
@@ -53,11 +56,13 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    backface-visibility: hidden;
 }
 
 .budget_form {
     opacity: 0.7;
     font-size: 30px;
+    line-height: 25px;
 }
 
 .btn, .filter-button {
@@ -65,6 +70,8 @@
     padding: 10px;
     background-color: white;
     margin-left: 10px;
+    font-size: 30px;
+    margin-top: 10px;
 }
 
 .btn:hover, .filter-button:hover {
@@ -94,6 +101,7 @@
     img {
         height: 80px;  
     }
+    transition: margin 0.9s, padding 0.9s;
 }
 
 @nav-color-hvr: #9da6b5;
@@ -272,6 +280,8 @@ a.changeLink:hover {
     width: 100%;
     height: 100vh;
     opacity: 0.5;
+    transition: transform 0.8s;
+    backface-visibility: hidden;
     z-index: -3;
 }
 
@@ -715,6 +725,7 @@ a.changeLink:hover {
 .main-container {
     display: flex;
     justify-content: center;
+    
 }
 
 .img-hotel {
@@ -724,7 +735,7 @@ a.changeLink:hover {
 
 .wave-block {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin: 10px;
 }
 
@@ -979,12 +990,10 @@ i.fa-star:hover  {
 //     width: 20%;
 // }
 
-// .hotels-offers {
-//     // width: 100%;
-//     margin-left: 22vw;
-    
-// }
-//-----fixed
+.hotels-offers {
+     z-index: 2;
+ }
+
 
 @media screen and (max-width: 783px) {
     .hotel {
@@ -1264,6 +1273,44 @@ i.fa-star:hover  {
     }
 }
 
+.main_page{
+    transition: transform 0.9s;
+    backface-visibility: hidden;
+}
+
+.is-inf-open{
+    transform: translateY(-73vh);
+
+}
+
+.is-inf-video{
+    transform: translateY(-100vh);
+}
+
+.is-inf-images{
+    padding: 20px;
+    margin: 22px;
+    margin-right: 100px;
+}
+
+.is-element-choose{
+    background-color: @nav-color-hvr;
+}
+
+.animation-enable{
+    animation: appearAnimation 3s ease-out;
+}
+
+@keyframes appearAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 .delete-margin {
     margin-top: 10px;
 }
@@ -1271,4 +1318,9 @@ i.fa-star:hover  {
 .nav-cont-without-filter-menu {
     background-color: black;
     height: 50px;
+}
+
+.hamburger {
+    display: none;
+    
 }

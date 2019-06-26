@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import reducer from "../components/reducers/filterMenuReducer"
+import reducer from "../reducers/filterMenuReducer"
 
 
 const ACTION_CHECK_ALL = "ACTION_CHECK_ALL";
