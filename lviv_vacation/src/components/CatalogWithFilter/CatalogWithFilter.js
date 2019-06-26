@@ -9,7 +9,7 @@ import BurgerContainer from './BurgerContainer'
 
 
 export default class CatalogWithFilter extends React.Component {
-
+ 
 
   state = {
     drawerOpen: false
@@ -21,7 +21,7 @@ export default class CatalogWithFilter extends React.Component {
     })
   };
 
-
+ 
 
   render() {
 
@@ -44,7 +44,7 @@ export default class CatalogWithFilter extends React.Component {
           
         <main className={classNameFilterMenu}>
           <div className="wave-block">
-           <Provider store={store}><WrapperComponent /></Provider>
+           <WrapperComponent />
             <Catalog />
           </div>
         </main>

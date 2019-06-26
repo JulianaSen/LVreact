@@ -5,8 +5,9 @@ export default class Description extends React.Component {
       let mobilePhone = null;
       let mobileField = null;
       let iconOfPhone = null;
-      if(this.props.whatIsIt == "Flat") { 
-        mobilePhone = "237675781290";
+      if(this.props.whatIsIt == "Flat") {
+          console.log(this.props.mobilePhone);
+        mobilePhone = this.props.mobilePhone;
         mobileField = "Phone number";
       iconOfPhone = <i className="fa fa-mobile"></i> 
       }

@@ -19,7 +19,7 @@ export default function dataReducer(state=initialState, action) {
             return {
                 ...state,
                 loading: false,
-                items: action.payload.posts
+                items: action.payload.posts,
 
           };
 

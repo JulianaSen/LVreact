@@ -1,6 +1,6 @@
 import React from 'react';
-
-export default class ButtonFilter extends React.Component {
+import { connect } from 'react-redux';
+class ButtonFilter extends React.Component {
 constructor(props) {
   super(props);
 
@@ -10,11 +10,12 @@ constructor(props) {
 
   clickButtonFilter(e) {
     e.preventDefault();
+    console.log(this.props);
   }
 
   render() {
-
-    console.log(this.props);
+    console.log("cdfrvrvrrvr",this.props);
+    // console.log(this.props);
 
     return (
         <div className="check-item filter-button-container" >
@@ -24,4 +25,10 @@ constructor(props) {
   }
 }
 
+const mapStateToProps = (state) => {
+  return   {
+    items: state.data.items
+  }
+}
 
+export default connect(mapStateToProps)(ButtonFilter);
