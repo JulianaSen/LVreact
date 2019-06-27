@@ -44,7 +44,7 @@ export default class FilterMenu extends React.Component {
                 <ItemForCheck content="Flat" checked={checkFlat} dispatch={dispatch} action={changeCheckboxFlat}/>
 
             </div>
-            <ButtonFilter checkedItems={this.props} renderFilterItems={this.props.renderFilterItems}/>
+            <ButtonFilter checkedItems={this.props}/>
           </form>
         </div>
       </div>
