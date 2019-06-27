@@ -8,7 +8,7 @@ export function configureFakeBackend() {
             setTimeout(() => {
 
                 // authenticate
-                if (url.endsWith('/users/authenticate') && opts.method === 'POST') {
+                if (url.endsWith('/sign_in') && opts.method === 'POST') {
                     // get parameters from post request
                     let params = JSON.parse(opts.body);
 
@@ -29,7 +29,6 @@ export function configureFakeBackend() {
                         };
                         resolve({ ok: true, text: () => Promise.resolve(JSON.stringify(responseJson)) });
                     } else {
-                        // else return error
                         reject('Username or password is incorrect');
                     }
 
@@ -70,7 +69,7 @@ export function configureFakeBackend() {
                 }
 
                 // register user
-                if (url.endsWith('/users/register') && opts.method === 'POST') {
+                if (url.endsWith('/sign_up') && opts.method === 'POST') {
                     // get new user object from post body
                     let newUser = JSON.parse(opts.body);
 

@@ -5,22 +5,15 @@ import App from '../src/components/App/App.js';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-
 import combineReducer from '../src/reducers/rootReducer';
-//import { loadState, saveState } from './localStorage';
-import { configureFakeBackend } from './helpers/fakeBackend'
-//const loadedState = loadState();
+import { createLogger } from 'redux-logger';
+import { configureFakeBackend } from './helpers/fakeBackend';
+
+const loggerMiddleware = createLogger();
 const store = createStore(
     combineReducer,
-    //loadedState,
-    applyMiddleware(thunk)
+    applyMiddleware(thunk, loggerMiddleware)
 );
-
-// store.subscribe(() => {
-//     saveState(
-//         store.getState()
-//     );
-// });
 
 configureFakeBackend();
 ReactDOM.render(

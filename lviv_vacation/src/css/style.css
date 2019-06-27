@@ -66,6 +66,7 @@
   opacity: 0.7;
   font-size: 30px;
   line-height: 25px;
+  display: flex;
 }
 .btn,
 .filter-button {
@@ -74,7 +75,6 @@
   background-color: white;
   margin-left: 10px;
   font-size: 30px;
-  margin-top: 10px;
 }
 .btn:hover,
 .filter-button:hover {
@@ -150,7 +150,6 @@
 .nav-cng .navbarLi a:hover {
   height: 100%;
   cursor: pointer;
-  background-color: #9da6b5;
   z-index: 1;
 }
 .logo {
@@ -200,9 +199,6 @@
   height: 30px;
   width: 400px;
   border-radius: 8px;
-}
-.actives {
-  background-color: #9da6b5;
 }
 #btn {
   margin-left: 220px;
@@ -262,8 +258,8 @@ a.changeLink:hover {
   align-items: center;
   margin: 0 auto;
   height: 95%;
-  width: 75%;
   opacity: 0.9;
+  position: absolute;
 }
 .history,
 .tourists,
@@ -346,7 +342,6 @@ a.changeLink:hover {
   .history,
   .tourists,
   .contacts {
-    width: 30%;
     height: 55%;
     padding-left: 10px;
     padding-right: 10px;

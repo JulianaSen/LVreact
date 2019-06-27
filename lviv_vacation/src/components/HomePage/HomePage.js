@@ -19,12 +19,11 @@ class HomePage extends React.Component {
         console.log("state of app - ", users);
         console.log("state.authentification - ", user);
         return (
-            <div style={{marginTop:"200px"}} className="col-md-6 col-md-offset-3">
+            <div style={{margin:"100px"}}>
                 <h1>Hi {user.firstName}!</h1>
-                <p>You're logged in with React!!</p>
                 <h3>All registered users:</h3>
                 {users.loading && <em>Loading users...</em>}
-                {users.error && <span className="text-danger">ERROR: {users.error}</span>}
+                {users.error && <span>ERROR: {users.error}</span>}
                 {users.items &&
                     <ul>
                         {users.items.map((user, index) =>
@@ -32,7 +31,7 @@ class HomePage extends React.Component {
                                 {user.firstName + ' ' + user.lastName}
                                 {
                                     user.deleting ? <em> - Deleting...</em>
-                                    : user.deleteError ? <span className="text-danger"> - ERROR: {user.deleteError}</span>
+                                    : user.deleteError ? <span> - ERROR: {user.deleteError}</span>
                                     : <span>  <a onClick={this.handleDeleteUser(user.id)}>Delete</a></span>
                                 }
                             </li>
@@ -40,7 +39,7 @@ class HomePage extends React.Component {
                     </ul>
                 }
                 <p>
-                    <Link to="/login">Logout</Link>
+                    <Link to="/sign_in">Logout</Link>
                 </p>
             </div>
         );

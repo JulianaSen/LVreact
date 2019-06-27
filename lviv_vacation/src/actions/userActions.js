@@ -1,7 +1,7 @@
-import { userConstants } from '../constants/userConstants';
-import { userService } from '../services/userService';
-import { alertActions } from './actionsForm';
-import { history } from '../helpers/history';
+import { userConstants } from '../constants';
+import { userService } from '../services';
+import { alertActions } from './';
+import { history } from '../helpers';
 
 export const userActions = {
     login,
@@ -20,10 +20,11 @@ function login(username, password) {
                 user => { 
                     dispatch(success(user));
                     history.push('/');
+                    window.location.reload(true);
                 },
                 error => {
-                    dispatch(failure(error.toString()));
-                    dispatch(alertActions.error(error.toString()));
+                    dispatch(failure(error));
+                    dispatch(alertActions.error(error));
                 }
             );
     };
@@ -46,12 +47,13 @@ function register(user) {
             .then(
                 user => { 
                     dispatch(success());
-                    history.push('/login');
+                    history.push('/sign_in');
                     dispatch(alertActions.success('Registration successful'));
+                    window.location.reload(true);
                 },
                 error => {
-                    dispatch(failure(error.toString()));
-                    dispatch(alertActions.error(error.toString()));
+                    dispatch(failure(error));
+                    dispatch(alertActions.error(error));
                 }
             );
     };
@@ -68,7 +70,7 @@ function getAll() {
         userService.getAll()
             .then(
                 users => dispatch(success(users)),
-                error => dispatch(failure(error.toString()))
+                error => dispatch(failure(error))
             );
     };
 
@@ -77,15 +79,18 @@ function getAll() {
     function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
 }
 
-// prefixed function name with underscore because delete is a reserved word in javascript
 function _delete(id) {
     return dispatch => {
         dispatch(request(id));
 
         userService.delete(id)
             .then(
-                user => dispatch(success(id)),
-                error => dispatch(failure(id, error.toString()))
+                user => { 
+                    dispatch(success(id));
+                },
+                error => {
+                    dispatch(failure(id, error));
+                }
             );
     };
 
