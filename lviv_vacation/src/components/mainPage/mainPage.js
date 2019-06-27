@@ -3,12 +3,13 @@ import VideoContainer from '../video/video';
 import MainContent from '../mainPage/mainInform';
 import MainIcons from '../mainPage/icons';
 import Navbar from '../Navbar/Navbar';
-import Catalog from '../CatalogWithFilter/CatalogWithFilter';
 import CatalogWithFilter from '../CatalogWithFilter/CatalogWithFilter';
 import { connect } from 'react-redux';
+import { userActions } from '../../actions/userActions';
 
 class MainBlock extends Component {
     render() {
+        const { user, users } = this.props;
         return (
             <>
             <div  className={['main_page', this.props.clicked && 'is-inf-open'].join(' ')}>
