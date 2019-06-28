@@ -8,8 +8,8 @@ class Catalog extends React.Component {
     render() {
         return (
             <div className="hotels-offers">
-                {this.props.items.map((p) => (
-                        <ItemOfCatalog key={p.id} id={p.id} description={p.description} destination={p.destination} smoking={p.smoking} WiFi={p.WiFi} rating={p.rating}/>    
+                {this.props.userItems.map((p) => (
+                        <ItemOfCatalog key={p.id} id={p.id} description={p.description} destination={p.destination} smoking={p.smoking} WiFi={p.WiFi} rating={p.rating}/>      
                 ))
                 }
                
@@ -20,7 +20,7 @@ class Catalog extends React.Component {
 
 // Map state to props for turning our items from db on props
 const mapStateToProps = state => ({
-    items: state.data.items
+    userItems: state.data.userItems
 });
 
 export default connect(mapStateToProps)(Catalog);

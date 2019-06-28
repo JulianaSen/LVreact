@@ -25,7 +25,7 @@
   background-attachment: fixed;
   overflow-y: scroll;
   overflow-x: hidden;
-  max-height: 75vh;
+  max-height: 82vh;
   scroll-behavior: smooth;
 }
 .rst {
@@ -1070,7 +1070,7 @@ i.fa-star:hover {
   backface-visibility: hidden;
 }
 .is-inf-open {
-  transform: translateY(-73vh);
+  transform: translateY(-51vh);
 }
 .is-inf-video {
   transform: translateY(-100vh);

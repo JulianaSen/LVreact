@@ -1,7 +1,3 @@
-import data from '../dt.json';
-import axios from 'axios'; 
-import { SET_BUDGET } from './actionsForm.js';
-
 export function fetchData(route) {
     return dispatch => {
         return  fetch(route)
@@ -31,3 +27,8 @@ export const fetchDataFailure = error => ({
     payload: {error}
 
 });
+
+export const addUserChoice = item => ({
+    type: 'ADD_USER_DATA',
+    payload: { item }
+})

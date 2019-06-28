@@ -1,6 +1,7 @@
 const initialState = {
     items: [],
-    error: null
+    error: null,
+    userItems: []
 };
 
 export default function dataReducer(state=initialState, action) {
@@ -19,6 +20,12 @@ export default function dataReducer(state=initialState, action) {
                 items: action.payload.posts
 
           };
+
+          case 'ADD_USER_DATA':
+              return {
+                ...state,
+                userItems: [...state.userItems, action.payload.item]
+              }
 
 
         default:

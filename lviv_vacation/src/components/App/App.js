@@ -43,7 +43,8 @@ class App extends Component{
 const mapStateToProps = state => ({
     items: state.data.items,
     loading: state.data.loading,
-    error: state.data.error
+    error: state.data.error,
+    userData: state.data.userItems
 });
 
 
