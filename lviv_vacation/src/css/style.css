@@ -25,7 +25,7 @@
   background-attachment: fixed;
   overflow-y: scroll;
   overflow-x: hidden;
-  max-height: 75vh;
+  max-height: 82vh;
   scroll-behavior: smooth;
 }
 .rst {
@@ -1070,7 +1070,7 @@ i.fa-star:hover {
   backface-visibility: hidden;
 }
 .is-inf-open {
-  transform: translateY(-73vh);
+  transform: translateY(-51vh);
 }
 .is-inf-video {
   transform: translateY(-100vh);
@@ -1103,4 +1103,23 @@ i.fa-star:hover {
 }
 .hamburger {
   display: none;
+}
+.choice-back-color {
+  height: 100vh;
+  width: 100%;
+  background-color: #f5f7fc;
+}
+.hotel-container:hover {
+  cursor: pointer;
+}
+@keyframes disappearAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.is-delete {
+  animation: disappearAnimation 1s ease-out;
 }

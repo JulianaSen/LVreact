@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import AboutBlock from '../about/about';
 import MainBlock from '../mainPage/mainPage';
 import  '../../css/style.css';
@@ -11,6 +11,8 @@ import { alertActions } from '../../actions/alertActions';
 import { LoginPage } from '../LoginPage/LoginPage';
 import { RegisterPage } from '../RegisterPage/RegisterPage';
 import { HomePage } from '../HomePage/HomePage';
+import userCatalog from '../userChoice/userCatalog';
+import { fetchChoice } from '../../actions/actionsData';
 
 class App extends Component{
 
@@ -21,6 +23,10 @@ class App extends Component{
             dispatch(alertActions.clear());
         });
     }
+
+    // componentDidMount(){
+    //     this.props.dispatch(fetchChoice())
+    // }
 
     render() {
         return (
@@ -33,6 +39,7 @@ class App extends Component{
                             <Route exact path='/sign_in' component={LoginPage} />
                             <Route exact path='/sign_up' component={RegisterPage}/>
                             <Route exact path='/hotels' component={CatalogWithFilter}/>
+                            <Route exact path='/users_page' component={userCatalog}/>
                         </div>
                     </Router>
                 </div>
@@ -43,7 +50,8 @@ class App extends Component{
 const mapStateToProps = state => ({
     items: state.data.items,
     loading: state.data.loading,
-    error: state.data.error
+    error: state.data.error,
+    userData: state.data.userItems
 });
 
 

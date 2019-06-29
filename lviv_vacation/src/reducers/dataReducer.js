@@ -1,6 +1,7 @@
 const initialState = {
     items: [],
-    error: null
+    error: null,
+    userItems: []
 };
 
 export default function dataReducer(state=initialState, action) {
@@ -20,6 +21,24 @@ export default function dataReducer(state=initialState, action) {
 
           };
 
+
+        case 'FETCH_USER_CHOICE':
+            return {
+                ...state,
+                userItems: action.payload.choice
+            };
+
+        case 'ADD_USER_CHOICE':
+            return {
+                ...state,
+                userItems: [...state.userItems, action.payload.item]
+              };
+        
+        case 'DELETE_USER_CHOICE':
+            return {
+                ...state,
+                userItems: state.userItems.filter(item => item.id !== action.payload.id)
+            };
 
         default:
             return state;
