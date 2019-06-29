@@ -2,27 +2,13 @@ import React from 'react';
 import RatingStar from './rating';
 import Description from './description';
 import { connect } from 'react-redux';
-import { addUserChoice } from "../../actions/actionsData";
 
 class ItemOfCatalog extends React.Component {
-
-
-  handleClick(id){
-    let alreadyAdded = new Set(this.props.userItems.map(i => i.id));
-    this.props.items.map(item => {
-                console.log(alreadyAdded)
-                if(item.id === id && !alreadyAdded.has(id)){
-                    this.props.dispatch(addUserChoice(item));
-                }
-            }
-    )
-}
-
 
   render() {
    
     return (
-        <div className='hotel-container animation-enable' onClick={() => this.handleClick(this.props.id)}>
+        <div className='hotel-container animation-enable' onClick={this.props.addEvent}>
            <RatingStar key={this.props.id} rating={this.props.rating}/>
             <div className="hotel">
               <div className="container-img container-img-hotels">

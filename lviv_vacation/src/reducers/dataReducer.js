@@ -21,12 +21,24 @@ export default function dataReducer(state=initialState, action) {
 
           };
 
-          case 'ADD_USER_DATA':
-              return {
+
+        case 'FETCH_USER_CHOICE':
+            return {
+                ...state,
+                userItems: action.payload.choice
+            };
+
+        case 'ADD_USER_CHOICE':
+            return {
                 ...state,
                 userItems: [...state.userItems, action.payload.item]
-              }
-
+              };
+        
+        case 'DELETE_USER_CHOICE':
+            return {
+                ...state,
+                userItems: state.userItems.filter(item => item.id !== action.payload.id)
+            };
 
         default:
             return state;

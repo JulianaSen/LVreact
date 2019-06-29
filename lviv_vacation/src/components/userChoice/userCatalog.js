@@ -1,26 +1,64 @@
 import React from 'react';
-import ItemOfCatalog from './itemOfCatalog';
+import ItemOfCatalog from '../Catalog/itemOfCatalog';
 import {connect} from "react-redux";
+import { deleteUserChoice } from "../../actions/actionsData";
+import Navbar from '../Navbar/Navbar';
 
-class Catalog extends React.Component {
+class userCatalog extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.state = {
+            deliting: false
+        };
+    }
+
+    // deleteData(id, url) {
+    //     return fetch(url + '/' + id, {
+    //       method: 'delete'
+    //     })
+    //     .then(response => {
+    //         response.json();
+    //         this.props.dispatch(deleteUserChoice(id));
+    //     });
+    //   }
+
+    handleDelete(id){
+        //set state for delete animation
+        this.setState(() => {
+            return {deliting: true};
+          });
+        console.log(this.state.deliting);
+        setTimeout(()=>this.props.dispatch(deleteUserChoice(id)), 1000);
+        setTimeout(()=>this.setState((state) => {
+            return {deliting: false};
+          }), 2000);
+    }
 
     render() {
         return (
-            <div className="hotels-offers">
-                {this.props.userItems.map((p) => (
-                        <ItemOfCatalog key={p.id} id={p.id} description={p.description} destination={p.destination} smoking={p.smoking} WiFi={p.WiFi} rating={p.rating}/>      
-                ))
-                }
-               
-            </div>
+            <>
+                <Navbar />
+
+                <div className="choice-back-color">
+                    <div className="wave-block">
+                        <div className="hotels-offers">
+                            {this.props.userItems.map(i => (
+                                <ItemOfCatalog key={i.id} id={i.id} description={i.description} destination={i.destination} smoking={i.smoking} WiFi={i.WiFi} rating={i.rating} addEvent={() => this.handleDelete(i.id)} deliting={this.state.deliting} selected={[this.props.deliting && 'is-delete'].join(' ')}/>     
+                            ))
+                            }
+                        
+                        </div>
+                    </div>
+                </div>
+            </>
         )
     }
 }
 
-// Map state to props for turning our items from db on props
+
 const mapStateToProps = state => ({
     userItems: state.data.userItems
 });
 
-export default connect(mapStateToProps)(Catalog);
+export default connect(mapStateToProps)(userCatalog);
