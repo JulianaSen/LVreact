@@ -14,6 +14,7 @@ constructor(props) {
     // console.log(this.props);
     // this.props.filterCatalog(this.pr);
     // console.log(this.props.dispach);
+    console.log(this.props);
     this.props.filterCheck(this.props);
    
 
@@ -22,7 +23,6 @@ constructor(props) {
   render() {
     console.log("update");
     // console.log(this.props);
-    console.log(this.props.items);
     return (
         <div className="check-item filter-button-container" >
             <input type="submit" value="Filter" className="filter-button" onClick={this.clickButtonFilter}/>
@@ -40,7 +40,6 @@ const mapStateToProps = (state) => {
     // checkMotel: state.filter.checkMotel,
     // checkHostel: state.filter.checkHostel,
     // checkFlat: state.filter.checkFlat
-
   }
 }
 
@@ -62,9 +61,6 @@ const mapStateToProps = (state) => {
 //     });
 //   }
 // }
-
-
-
 
 let mapDispachToProps = (dispach) => {
   // return {

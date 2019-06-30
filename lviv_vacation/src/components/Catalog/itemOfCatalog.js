@@ -12,7 +12,7 @@ export default class ItemOfCatalog extends React.Component {
                 <div className="additional-information">
                   <p>{this.props.description}</p>
                 </div>
-                <img src="https://www.imgacademy.com/sites/default/files/legacy-hotel-rendering-guest-room.jpg" className="test" alt=""/>
+                <img src={this.props.imgUrl} className="test" alt=""/>
               </div>
             
               <Description id={this.props.id} stName={this.props.destination} 

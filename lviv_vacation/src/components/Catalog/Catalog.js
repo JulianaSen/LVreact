@@ -8,43 +8,24 @@ class Catalog extends React.Component {
   
 
     render() {
-
-        console.log(this.props.renderFilterItems);
-
+        // console.log(this.props.renderFilterItems);
+        // console.log("frfrgrgr !!!!!!", this.props.filterItems == this.props.items);
+        console.log(this.props.filterItems);
         // console.log(this.props.items);
         return (
             <div className="hotels-offers">
-                {/* {console.log(this.props.items)} */}
-                {this.props.items.filter((item) => {
-                  
-                 let ObjCheck = {
-                    "Hotel": this.props.checkHotel,
-                    "Flat": this.props.checkFlat,
-                    "Motel": this.props.checkMotel,
-                    "Hostel": this.props.checkHostel
-                }                                                             
-                    if(ObjCheck[item.whatIsIt]) {
-                        return item;
-                    } else if(this.props.checkAll) {
-                        return item;
-                    } else if(!this.props.checkFlat && !this.props.checkHostel && !this.props.checkHotel && !this.props.checkMotel) {
-                        return item;
-                    }          
-                  
-                })                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+                {console.log("here here here",this.props.filterItems)}
+                {this.props.filterItems
 
 
                 .map((p, index) => {
 
                         return <ItemOfCatalog key={p.id} description={p.description} destination={p.destination} 
                         smoking={p.smoking} WiFi={p.WiFi} rating={p.rating} whatIsIt={p.whatIsIt} name={p.name}
-                        mobilePhone={p.mobilePhone} />
+                        mobilePhone={p.mobilePhone} imgUrl={p.img} />
                     }
                 
                 )}
-
-                
-
 
             </div>
         )
@@ -53,7 +34,7 @@ class Catalog extends React.Component {
 
 // Map state to props for turning our items from db on props
 const mapStateToProps = state => ({
-
+    filterItems: state.data.filterItems,
     items: state.data.items,
     checkAll: state.filter.checkAll,
     checkHotel: state.filter.checkHotel,

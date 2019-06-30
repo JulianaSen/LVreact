@@ -17,7 +17,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/s/pacifico/v13/FwZY7-Qmy14u9lezJ-6H6Mw.ttf) format('truetype');
+  src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/s/pacifico/v14/FwZY7-Qmy14u9lezJ-6H6Mw.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Satisfy';
@@ -667,6 +667,8 @@ a.changeLink:hover {
   box-shadow: 10px 10px 7px -8px #8f8f8f;
   border-radius: 15px;
   background-color: white;
+  position: sticky;
+  top: 10px;
 }
 .hotel-container {
   display: flex;
