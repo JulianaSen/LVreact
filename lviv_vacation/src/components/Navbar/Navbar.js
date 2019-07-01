@@ -55,12 +55,6 @@ class Navbar extends Component{
                         </li>
 
                         <li className="navbarLi">
-                            <NavLink activeClassName="active" to='/users_page'>
-                                Basket
-                            </NavLink>
-                        </li>
-
-                        <li className="navbarLi">
                             <NavLink activeClassName="active" to='/sign_up'>
                                 Sign Up
                             </NavLink>
