@@ -17,6 +17,8 @@ class Catalog extends React.Component {
     //             console.log(error)
     //         })
     
+
+
     // }
 
     handleClick(id){
@@ -30,6 +32,7 @@ class Catalog extends React.Component {
     }
 
 
+
     render() {
         // console.log(this.props.renderFilterItems);
         // console.log("frfrgrgr !!!!!!", this.props.filterItems == this.props.items);
@@ -39,7 +42,8 @@ class Catalog extends React.Component {
             <div className="hotels-offers">
 
                 {console.log("here here here",this.props)}
-                {this.props.items.map((p, index) => {
+                {this.props.filterItems.map((p, index) => {
+
 
                         return <ItemOfCatalog key={p.id} description={p.description} destination={p.destination} 
                         smoking={p.smoking} WiFi={p.WiFi} rating={p.rating} whatIsIt={p.whatIsIt} name={p.name}
@@ -66,9 +70,6 @@ const mapStateToProps = state => ({
     checkFlat: state.filter.checkFlat
 
 });
-
-
-
 
 
 export default connect(mapStateToProps)(Catalog);

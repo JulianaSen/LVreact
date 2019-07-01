@@ -42,7 +42,11 @@ export default class FilterMenu extends React.Component {
                 <ItemForCheck content="Motel"  checked={checkMotel} dispatch={dispatch} action={changeCheckboxMotel}/>
                 <ItemForCheck content="Hostel" checked={checkHostel} dispatch={dispatch} action={changeCheckboxHostel}/>
                 <ItemForCheck content="Flat" checked={checkFlat} dispatch={dispatch} action={changeCheckboxFlat}/>
-
+                {/* <hr style={{color: "red",
+                border: "1px solid red",
+                width: "100%"}}/>
+                <ItemForCheck content="sortByincrease" checked={checkFlat} dispatch={dispatch} action={changeCheckboxFlat}/>
+                <ItemForCheck content="sortbYLOWER" checked={checkFlat} dispatch={dispatch} action={changeCheckboxFlat}/> */}
             </div>
             <ButtonFilter checkedItems={this.props}/>
           </form>

@@ -5,9 +5,8 @@ import { connect } from 'react-redux';
 
 class Navbar extends Component{
     render() {
-        let header;
-        if (this.props.loggedIn === true) {
-            header = <header className="header">
+        return (
+            <header className="header">
                 <ul className="navbar">
                     <li className="navbarLi">
                         <NavLink to='/'>
@@ -20,53 +19,32 @@ class Navbar extends Component{
                             </NavLink>         
                         </li>
 
-                        <li className="navbarLi">
+                        {this.props.loggedIn && <li className="navbarLi">
                             <NavLink activeClassName="active" to='/users_page'>
                                 Basket
                             </NavLink>
-                        </li>
+                        </li>}
 
-                        <li className="navbarLi">
+                        {this.props.loggedIn &&<li className="navbarLi">
                             <NavLink activeClassName="active" to='/sign_in'>
                                 Log out
                             </NavLink>
-                        </li>
-                    </div>
-                </ul>
-            </header>
-        } else {
-            header = <header className="header">
-                <ul className="navbar">
-                    <li className="navbarLi">
-                        <NavLink to='/'>
-                            <img className="logo" src={favicon} alt="logo" />
-                        </NavLink></li>
-                    <div className="nav-cng">
-                        <li className="navbarLi">
-                            <NavLink activeClassName="active" to='/about'>
-                                About 
-                            </NavLink>
-                        </li>
+                        </li>}
 
-                        <li className="navbarLi">
+                        {!this.props.loggedIn &&<li className="navbarLi">
                             <NavLink activeClassName="active" to='/sign_in'>
                                 Sign In
                             </NavLink>
-                        </li>
+                        </li>}
 
-                        <li className="navbarLi">
+                        {!this.props.loggedIn &&<li className="navbarLi">
                             <NavLink activeClassName="active" to='/sign_up'>
                                 Sign Up
                             </NavLink>
-                        </li>
+                        </li>}
                     </div>
                 </ul>
             </header>
-        }
-        return (
-            <div>
-                { header }
-            </div>
         )
     }
 }
