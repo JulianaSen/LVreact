@@ -4,19 +4,24 @@ import Description from './description';
 import { connect } from 'react-redux';
 
 class ItemOfCatalog extends React.Component {
+
   render() {
-   
     return (
-        <div className='hotel-container animation-enable'>
-           <RatingStar rating={this.props.rating}/>
+        <div className='hotel-container animation-enable' onClick={this.props.handle}>
+           <RatingStar key={this.props.id} rating={this.props.rating}/>
             <div className="hotel">
               <div className="container-img container-img-hotels">
                 <div className="additional-information">
                   <p>{this.props.description}</p>
-                <img src="../src/img/around.png" alt=""/>
                 </div>
+                <img src={this.props.imgUrl} className="test" alt=""/>
               </div>
-              <Description id={this.props.id} stName={this.props.destination} isSmoking={this.props.smoking} isWiFi={this.props.WiFi}/>
+
+
+              <Description id={this.props.id} stName={this.props.destination} 
+              isSmoking={this.props.smoking} isWiFi={this.props.WiFi} 
+              whatIsIt={this.props.whatIsIt} name={this.props.name}
+              mobilePhone={this.props.mobilePhone}/>
           </div>
         </div>
     )
@@ -24,9 +29,8 @@ class ItemOfCatalog extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  hotelClicked: state.click.clickedHotels,
-  restClicked: state.click.clickedRestaraunts,
-  entClicked: state.click.clickedEntertainment
+  userItems: state.data.userItems,
+  items: state.data.items
 });
 
 export default connect(mapStateToProps)(ItemOfCatalog);

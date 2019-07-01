@@ -12,6 +12,20 @@
   font-display: swap;
   src: local('Lobster Regular'), local('Lobster-Regular'), url(https://fonts.gstatic.com/s/lobster/v21/neILzCirqoswsqX9zoKmNg.ttf) format('truetype');
 }
+@font-face {
+  font-family: 'Pacifico';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/s/pacifico/v14/FwZY7-Qmy14u9lezJ-6H6Mw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Satisfy';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Satisfy Regular'), local('Satisfy-Regular'), url(https://fonts.gstatic.com/s/satisfy/v9/rP2Hp2yn6lkG50LoCZOIGA.ttf) format('truetype');
+}
 #root {
   font-family: 'Acme', sans-serif;
   background-repeat: no-repeat;
@@ -25,7 +39,7 @@
   background-attachment: fixed;
   overflow-y: scroll;
   overflow-x: hidden;
-  max-height: 75vh;
+  max-height: 82vh;
   scroll-behavior: smooth;
 }
 .rst {
@@ -657,6 +671,8 @@ a.changeLink:hover {
   box-shadow: 10px 10px 7px -8px #8f8f8f;
   border-radius: 15px;
   background-color: white;
+  position: sticky;
+  top: 10px;
 }
 .hotel-container {
   display: flex;
@@ -666,7 +682,7 @@ a.changeLink:hover {
   background-color: white;
   padding: 10px;
 }
-.hotel-container:nth-child(2) {
+.hotel-container:nth-child(even) {
   margin-bottom: 20px;
   margin-top: 20px;
 }
@@ -794,6 +810,9 @@ i.fa-star:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 .additional-information p {
   padding: 30px;
@@ -808,6 +827,7 @@ i.fa-star:hover {
 }
 .container-img-hotels {
   background-image: url(../img/double2-slide.jpg);
+  position: relative;
 }
 .container-img-restaurants {
   background-image: url(../img/rest1.jpg);
@@ -844,6 +864,7 @@ i.fa-star:hover {
 }
 .hotels-offers {
   z-index: 2;
+  max-width: 800px;
 }
 @media screen and (max-width: 783px) {
   .hotel {
@@ -922,6 +943,9 @@ i.fa-star:hover {
   }
   .main-container {
     margin-top: 370px;
+  }
+  .hotels-offers {
+    max-width: 500px;
   }
 }
 @media screen and (max-width: 977px) {
@@ -1070,7 +1094,7 @@ i.fa-star:hover {
   backface-visibility: hidden;
 }
 .is-inf-open {
-  transform: translateY(-73vh);
+  transform: translateY(-51vh);
 }
 .is-inf-video {
   transform: translateY(-100vh);
@@ -1103,4 +1127,42 @@ i.fa-star:hover {
 }
 .hamburger {
   display: none;
+}
+.choice-back-color {
+  height: 100vh;
+  width: 100%;
+  background-color: #f5f7fc;
+}
+.hotel-container:hover {
+  cursor: pointer;
+}
+@keyframes disappearAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.is-delete {
+  animation: disappearAnimation 1s ease-out;
+}
+.test {
+  width: 100%;
+  height: 100%;
+}
+.building {
+  text-align: center;
+}
+.nameOfBuilding {
+  font-family: 'Pacifico', cursive;
+  font-size: 20px;
+}
+.fa-mobile {
+  font-size: 20px;
+  color: #2929f8;
+}
+.mobile {
+  position: relative;
+  top: 4px;
 }

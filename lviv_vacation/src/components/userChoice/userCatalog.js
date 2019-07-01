@@ -9,7 +9,7 @@ class userCatalog extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            deliting: false
+            deleting: false
         };
     }
 
@@ -26,12 +26,13 @@ class userCatalog extends React.Component {
     handleDelete(id){
         //set state for delete animation
         this.setState(() => {
-            return {deliting: true};
+
+            return {deleting: true};
           });
-        console.log(this.state.deliting);
+        console.log(this.state.deleting);
         setTimeout(()=>this.props.dispatch(deleteUserChoice(id)), 1000);
         setTimeout(()=>this.setState((state) => {
-            return {deliting: false};
+            return {deleting: false};
           }), 2000);
     }
 
@@ -44,7 +45,7 @@ class userCatalog extends React.Component {
                     <div className="wave-block">
                         <div className="hotels-offers">
                             {this.props.userItems.map(i => (
-                                <ItemOfCatalog key={i.id} id={i.id} description={i.description} destination={i.destination} smoking={i.smoking} WiFi={i.WiFi} rating={i.rating} addEvent={() => this.handleDelete(i.id)} deliting={this.state.deliting} />     
+                                <ItemOfCatalog key={i.id} id={i.id} description={i.description} destination={i.destination} smoking={i.smoking} WiFi={i.WiFi} rating={i.rating} addEvent={() => this.handleDelete(i.id)} deleting={this.state.deleting} selected={[this.props.deleting && 'is-delete'].join(' ')}/>     
                             ))
                             }
                         
