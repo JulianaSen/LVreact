@@ -6,7 +6,7 @@ import { WrapperComponent } from '../FilterMenu/filterMenu';
 import BurgerContainer from './BurgerContainer';
 import basket from "../../img/basket.png";
 import { connect } from 'react-redux';
-import Basket from "../Catalog/modal";
+import Basket from "../userChoice/modal";
 
 class CatalogWithFilter extends React.Component {
 
