@@ -3,7 +3,6 @@ export function fetchData(route) {
         return  fetch(route)
         .then(res => res.json())
         .then(json => {
-            console.log(json);
             dispatch(fetchDataSuccess(json));
             return json;
         })
