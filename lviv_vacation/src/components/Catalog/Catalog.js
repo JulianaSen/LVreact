@@ -21,15 +21,15 @@ class Catalog extends React.Component {
 
     // }
 
-    // handleClick(id){
-    //     let alreadyAdded = new Set(this.props.userItems.map(i => i.id));
-    //     this.props.items.map(item => {
-    //                 if(item.id === id && !alreadyAdded.has(id)){
-    //                     this.props.dispatch(addUserChoice(item));
-    //                 }
-    //             }
-    //     )
-    // }
+    handleClick(id){
+        let alreadyAdded = new Set(this.props.userItems.map(i => i.id));
+        this.props.items.map(item => {
+                    if(item.id === id && !alreadyAdded.has(id)){
+                        this.props.dispatch(addUserChoice(item));
+                    }
+                }
+        )
+    }
 
 
 
