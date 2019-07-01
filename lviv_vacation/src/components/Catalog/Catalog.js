@@ -12,10 +12,7 @@ class Catalog extends React.Component {
         return (
             <div className="hotels-offers">
                 {console.log("here here here",this.props.filterItems)}
-                {this.props.filterItems
-
-
-                .map((p, index) => {
+                {this.props.filterItems.map((p, index) => {
 
                         return <ItemOfCatalog key={p.id} description={p.description} destination={p.destination} 
                         smoking={p.smoking} WiFi={p.WiFi} rating={p.rating} whatIsIt={p.whatIsIt} name={p.name}
