@@ -23,7 +23,7 @@ class Catalog extends React.Component {
         let alreadyAdded = new Set(this.props.userItems.map(i => i.id));
         this.props.items.map(item => {
                     if(item.id === id && !alreadyAdded.has(id)){
-                        this.postChoice("http://localhost:3001/op/user_data", item);
+                        this.props.dispatch(addUserChoice(item));
                     }
                 }
         )
