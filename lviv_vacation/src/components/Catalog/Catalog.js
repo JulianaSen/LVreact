@@ -6,18 +6,18 @@ import axios from 'axios';
 
 class Catalog extends React.Component {
 
-    postChoice(route, data) {
-        axios
-            .post(route, data)
-            .then(res => {
-                console.log(res)
-                this.props.dispatch(addUserChoice(data));
-            })
-            .catch(error => {
-                console.log(error)
-            })
+    // postChoice(route, data) {
+    //     axios
+    //         .post(route, data)
+    //         .then(res => {
+    //             console.log(res)
+    //             this.props.dispatch(addUserChoice(data));
+    //         })
+    //         .catch(error => {
+    //             console.log(error)
+    //         })
     
-    }
+    // }
 
     handleClick(id){
         let alreadyAdded = new Set(this.props.userItems.map(i => i.id));
@@ -43,7 +43,7 @@ class Catalog extends React.Component {
 
                         return <ItemOfCatalog key={p.id} description={p.description} destination={p.destination} 
                         smoking={p.smoking} WiFi={p.WiFi} rating={p.rating} whatIsIt={p.whatIsIt} name={p.name}
-                        mobilePhone={p.mobilePhone} imgUrl={p.img} />
+                        mobilePhone={p.mobilePhone} imgUrl={p.img}  handle={() => this.handleClick(p.id)}/>
                     }
                 
                 )}

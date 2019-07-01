@@ -866,7 +866,6 @@ i.fa-star:hover {
   z-index: 2;
   max-width: 800px;
 }
-
 @media screen and (max-width: 783px) {
   .hotel {
     display: flex;
@@ -1129,7 +1128,6 @@ i.fa-star:hover {
 .hamburger {
   display: none;
 }
-
 .choice-back-color {
   height: 100vh;
   width: 100%;
@@ -1167,5 +1165,4 @@ i.fa-star:hover {
 .mobile {
   position: relative;
   top: 4px;
-
 }

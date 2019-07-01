@@ -7,7 +7,7 @@ class ItemOfCatalog extends React.Component {
 
   render() {
     return (
-        <div className='hotel-container animation-enable' onClick={this.props.addEvent}>
+        <div className='hotel-container animation-enable' onClick={this.props.handle}>
            <RatingStar key={this.props.id} rating={this.props.rating}/>
             <div className="hotel">
               <div className="container-img container-img-hotels">

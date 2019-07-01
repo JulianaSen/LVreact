@@ -39,17 +39,11 @@ class userCatalog extends React.Component {
         return (
             <>
                 <Navbar />
-
-                <div className="choice-back-color">
-                    <div className="wave-block">
-                        <div className="hotels-offers">
-                            {this.props.userItems.map(i => (
-                                <ItemOfCatalog key={i.id} id={i.id} description={i.description} destination={i.destination} smoking={i.smoking} WiFi={i.WiFi} rating={i.rating} addEvent={() => this.handleDelete(i.id)} deleting={this.state.deleting} selected={[this.props.deleting && 'is-delete'].join(' ')}/>     
-                            ))
-                            }
-                        
-                        </div>
-                    </div>
+                <div className="hotels-offers">
+                    {this.props.userItems.map(i => (
+                        <ItemOfCatalog key={i.id} id={i.id} description={i.description} destination={i.destination} smoking={i.smoking} WiFi={i.WiFi} rating={i.rating} handle={() => this.handleDelete(i.id)} deleting={this.state.deleting} selected={[this.props.deleting && 'is-delete'].join(' ')}/>     
+                    ))
+                    }
                 </div>
             </>
         )
