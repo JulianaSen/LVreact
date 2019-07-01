@@ -5,23 +5,17 @@ import App from '../src/components/App/App.js';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from './components/reducers/rootReducer';
-import { loadState, saveState } from './localStorage';
+import combineReducer from '../src/reducers/rootReducer';
+import { createLogger } from 'redux-logger';
+import { configureFakeBackend } from './helpers/fakeBackend';
 
-const loadedState = loadState();
+const loggerMiddleware = createLogger();
 const store = createStore(
-    rootReducer,
-    loadedState,
-    applyMiddleware(thunk)
+    combineReducer,
+    applyMiddleware(thunk, loggerMiddleware)
 );
 
-store.subscribe(() => {
-    saveState(
-        store.getState()
-    );
-    console.log(store.getState());
-});
-
+configureFakeBackend();
 ReactDOM.render(
     <Provider store = { store }>
         <BrowserRouter>
@@ -31,7 +25,4 @@ ReactDOM.render(
     document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 export {store};

@@ -1,5 +1,5 @@
 import { ACTION_CHECK_ALL, ACTION_CHECK_HOTEL, ACTION_CHECK_MOTEL,
-    ACTION_CHECK_HOSTEL, ACTION_CHECK_FLAT } from '../../actions/actionFilterMenu';
+    ACTION_CHECK_HOSTEL, ACTION_CHECK_FLAT } from '../actions/actionFilterMenu';
 const initialState = {
     checkAll: false,
     checkHotel: false,
