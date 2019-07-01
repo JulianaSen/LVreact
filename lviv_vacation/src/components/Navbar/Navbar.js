@@ -21,7 +21,7 @@ class Navbar extends Component{
                         </li>
 
                         <li className="navbarLi">
-                            <NavLink activeClassName="active" to='/userPage'>
+                            <NavLink activeClassName="active" to='/users_page'>
                                 Basket
                             </NavLink>
                         </li>
