@@ -1176,3 +1176,30 @@ i.fa-star:hover {
   background-color: #9da6b5;
   cursor: pointer;
 }
+.align-basket {
+  display: flex;
+  align-items: flex-start;
+  margin-left: 60px;
+}
+.basket {
+  position: sticky;
+  top: 700px;
+  width: 30px;
+  height: 20px;
+  border: 4px solid black;
+  display: flex;
+}
+.basket img {
+  width: 60px;
+  height: 60px;
+  display: block;
+  position: absolute;
+}
+.basket .counter p {
+  font-size: 30px;
+  margin-right: 60px;
+  margin-top: 80px;
+}
+.basket:hover {
+  cursor: pointer;
+}
