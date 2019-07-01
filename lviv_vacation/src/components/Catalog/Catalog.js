@@ -4,9 +4,6 @@ import {connect} from "react-redux";
 
 class Catalog extends React.Component {
     
-
-  
-
     render() {
         // console.log(this.props.renderFilterItems);
         // console.log("frfrgrgr !!!!!!", this.props.filterItems == this.props.items);
@@ -43,9 +40,6 @@ const mapStateToProps = state => ({
     checkFlat: state.filter.checkFlat
 
 });
-
-
-
 
 
 export default connect(mapStateToProps)(Catalog);
