@@ -50,8 +50,8 @@ export default class CatalogWithFilter extends React.Component {
           
         <main className={classNameFilterMenu}>
           <div className="wave-block">
-            <WrapperComponent />
-            <Catalog/>
+           <WrapperComponent />
+            <Catalog />
           </div>
         </main>
       </div>

@@ -3,6 +3,7 @@ export function fetchData(route) {
         return  fetch(route)
         .then(res => res.json())
         .then(json => {
+            console.log(json);
             dispatch(fetchDataSuccess(json));
             return json;
         })
@@ -29,7 +30,7 @@ export const fetchDataSuccess = posts => ({
 
 export const fetchDataFailure = error => ({
     type: 'FETCH_DATA_FAILURE',
-    payload: {error}
+    payload: { error }
 
 });
 
