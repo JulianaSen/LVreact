@@ -8,6 +8,7 @@ const initialState = {
 export default function dataReducer(state=initialState, action) {
     switch(action.type) {
         case 'FETCH_DATA_FAILURE':
+            
             return {
                 ...state,
                 loading: false,
@@ -17,12 +18,11 @@ export default function dataReducer(state=initialState, action) {
     
 
         case 'FETCH_DATA_SUCCESS':
-           
             return {
                 ...state,
                 loading: false,
                 items: action.payload.posts,
-                filterItems: [...action.payload.posts]
+                filterItems: [ ...action.payload.posts]
           };
 
         case 'FILTER_ITEMS':
