@@ -9,7 +9,6 @@ const initialState = {
 };
 
 function checkingItems(state, checkOne, checkTwo, checkThree, action, newCheck) {
-    console.log("grtgrt");
     if(checkOne && checkTwo && checkThree && action.payload) {
         return {...state,
             [newCheck]: action.payload,

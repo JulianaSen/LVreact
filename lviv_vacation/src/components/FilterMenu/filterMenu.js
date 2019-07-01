@@ -9,7 +9,7 @@ import {changeCheckboxAll, changeCheckboxHotel, changeCheckboxMotel, changeCheck
 
 export default class FilterMenu extends React.Component {
 
-
+  
   //  
   render() {
 
@@ -26,7 +26,6 @@ export default class FilterMenu extends React.Component {
 
 
     const {checkAll, checkFlat, checkHostel, checkHotel, checkMotel} = this.props;
-   console.log(this.props);
     // console.log(this.props);
 
     return (
@@ -52,6 +51,7 @@ export default class FilterMenu extends React.Component {
     )
   }
 }
+
 const mapStateToProps = (state) => {
 
   return {
@@ -60,9 +60,9 @@ const mapStateToProps = (state) => {
     checkMotel: state.filter.checkMotel,
     checkHostel: state.filter.checkHostel,
     checkFlat: state.filter.checkFlat
-    
   }
 }
+
 
 
 const WrapperComponent = connect(mapStateToProps)(FilterMenu)

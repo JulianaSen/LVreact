@@ -29,7 +29,7 @@ export const fetchDataSuccess = posts => ({
 
 export const fetchDataFailure = error => ({
     type: 'FETCH_DATA_FAILURE',
-    payload: {error}
+    payload: { error }
 
 });
 
