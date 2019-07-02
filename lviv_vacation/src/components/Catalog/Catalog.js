@@ -47,7 +47,7 @@ class Catalog extends React.Component {
 
                         return <ItemOfCatalog key={p.id} description={p.description} destination={p.destination} 
                         smoking={p.smoking} WiFi={p.WiFi} rating={p.rating} whatIsIt={p.whatIsIt} name={p.name}
-                        mobilePhone={p.mobilePhone} imgUrl={p.img}  handle={() => this.handleClick(p.id)}/>
+                        mobilePhone={p.mobilePhone} imgUrl={p.img}  handle={() => this.handleClick(p.id)} classBtn="fa fa-plus"/>
                     }
                 
                 )}

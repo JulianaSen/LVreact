@@ -26,6 +26,7 @@ class userCatalog extends React.Component {
     handleDelete(id){
         //set state for delete animation
         this.setState(() => {
+
             return {deleting: true};
           });
         console.log(this.state.deleting);
@@ -41,7 +42,7 @@ class userCatalog extends React.Component {
                 <Navbar />
                 <div className="hotels-offers">
                     {this.props.userItems.map(i => (
-                        <ItemOfCatalog key={i.id} id={i.id} description={i.description} destination={i.destination} smoking={i.smoking} WiFi={i.WiFi} rating={i.rating} handle={() => this.handleDelete(i.id)} deleting={this.state.deleting} selected={[this.props.deleting && 'is-delete'].join(' ')}/>     
+                        <ItemOfCatalog key={i.id} id={i.id} description={i.description} destination={i.destination} smoking={i.smoking} WiFi={i.WiFi} rating={i.rating} handle={() => this.handleDelete(i.id)} deleting={this.state.deleting} selected={[this.props.deleting && 'is-delete'].join(' ')} classBtn="fa fa-close"/>     
                     ))
                     }
                 </div>

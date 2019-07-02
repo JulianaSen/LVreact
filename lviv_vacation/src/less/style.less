@@ -15,7 +15,7 @@
     background-color: #f3f3f3;
     background-size: cover;
     background-attachment: fixed;
-    overflow-y: scroll;   
+   overflow-y: scroll;   
     overflow-x: hidden;
     max-height: 82vh;
     scroll-behavior: smooth;
@@ -1298,7 +1298,6 @@ i.fa-star:hover  {
 
 .is-inf-open{
     transform: translateY(-51vh);
-
 }
 
 .is-inf-video{
@@ -1343,11 +1342,11 @@ i.fa-star:hover  {
     
 }
 
-.choice-back-color{
-    height: 100vh;
-    width: 100%;
-    background-color: #f5f7fc;
-}
+// .choice-back-color{
+//     height: 100vh;
+//     width: 100%;
+//     background-color: #f5f7fc;
+// }
 
 .hotel-container:hover{
     cursor: pointer;
@@ -1394,3 +1393,34 @@ i.fa-star:hover  {
     position: relative;
     top: 4px;
 }
+
+.btn-user{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.fa-plus, .fa-close {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.fa-plus:hover, .fa-close:hover{
+    background-color: @nav-color-hvr;
+    cursor: pointer;
+}
+
+
+// @media only screen and (max-height: 1480px){
+//     .is-inf-open{
+//         transform: translateY(-60vh);
+//     }
+
+//     .mainContent{
+//         max-height: 80vh;
+//         min-height: 40vh;
+
+//     }
+// }
+
