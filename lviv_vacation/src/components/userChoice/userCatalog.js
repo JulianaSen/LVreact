@@ -56,7 +56,6 @@ class userCatalog extends React.Component {
     }
 }
 
-
 const mapStateToProps = state => ({
     userItems: state.data.userItems
 });
