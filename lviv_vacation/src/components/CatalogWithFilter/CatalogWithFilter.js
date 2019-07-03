@@ -74,7 +74,8 @@ class CatalogWithFilter extends React.Component {
               <Catalog />
               
               {/* Basket button */}
-                {this.props.loggedIn && <div className="align-basket">
+                {this.props.loggedIn && 
+                <div className="align-basket">
                   <div className="basket" onClick={this.handleOpenModal}>
                     <img src={basket}/>
                     <div className="counter"><p>{this.props.userItems.length}</p></div>
