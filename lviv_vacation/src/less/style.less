@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Satisfy&display=swap');
 
+
+body {
+    overflow: hidden;
+}
 #root {
     font-family: 'Acme', sans-serif;
     background-repeat: no-repeat;
@@ -10,6 +14,9 @@
 
 .mainContent {
     background-color: #f3f3f3;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: 83vh;
 }
 
 .rst{
@@ -25,6 +32,8 @@
     flex-direction: column;
     align-items: center;
     min-height: 800px;
+    overflow-y: scroll;
+    max-height: 83vh;
     .nameOfBuilding {
         font-size: 30px;
     }
@@ -366,30 +375,6 @@ a.changeLink:hover {
     visibility: collapse;
 }
 
-// user page
-.basket {
-    font-size: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-    padding: 30px;
-    border: 1px solid black;
-    border-radius: 20px;
-    opacity: 0.6;
-    background-color: white;
-    width: 50%;
-    margin-left: 20%;
-}
-
-.user_choice {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-}
-
 @media screen and (max-width: 1650px), screen and (max-height: 800px) {
     .history, .tourists, .contacts {
         height: 55%;
@@ -664,9 +649,9 @@ a.changeLink:hover {
         font-size: 40px;
     }
 
-    .index{
-        overflow-y: scroll;
-    }
+    // .index{
+    //     overflow-y: scroll;
+    // }
 
     .textBudget{
         margin-bottom: 50px;
@@ -1296,18 +1281,21 @@ i.fa-star:hover  {
 }
 
 .is-inf-open{
-    transform: translateY(-51vh);
+    transform: translateY(-68vh);
+    //position: fixed;
 }
 
 .is-inf-video{
-    transform: translateY(-100vh);
+    //transform: translateY(-100vh);
+    display: none;
 }
 
 .is-inf-images{
     padding: 20px;
     margin: 22px;
-    margin-right: 100px;
+    margin-right: 40px;
 }
+
 
 .is-element-choose{
     background-color: @nav-color-hvr;
@@ -1423,19 +1411,31 @@ i.fa-star:hover  {
 //     }
 // }
 
-.align-basket{
+
+// user page
+.user_choice {
+    list-style-type: none;
     display: flex;
-    align-items: flex-start;
-    margin-left: 20px;
+    flex-direction: column;
+    padding: 0;
 }
 
 .basket{
     position: sticky;
-    top: 700px;
+    font-size: 40px;
+    top: 10px;
     width: 30px;
     height: 20px;
-    border: 4px solid black;
+    border: 3px solid black;
+    border-radius: 20px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    opacity: 0.6;
+    background-color: white;
+    margin-left: 20px;
     img{
         width: 60px;
         height: 60px;

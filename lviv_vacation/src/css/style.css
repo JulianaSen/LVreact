@@ -26,6 +26,9 @@
   font-display: swap;
   src: local('Satisfy Regular'), local('Satisfy-Regular'), url(https://fonts.gstatic.com/s/satisfy/v9/rP2Hp2yn6lkG50LoCZOIGA.ttf) format('truetype');
 }
+body {
+  overflow: hidden;
+}
 #root {
   font-family: 'Acme', sans-serif;
   background-repeat: no-repeat;
@@ -33,6 +36,9 @@
 }
 .mainContent {
   background-color: #f3f3f3;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-height: 83vh;
 }
 .rst {
   background-image: url(../img/rst-background.jpg);
@@ -46,6 +52,8 @@
   flex-direction: column;
   align-items: center;
   min-height: 800px;
+  overflow-y: scroll;
+  max-height: 83vh;
 }
 .userCatalog .nameOfBuilding {
   font-size: 30px;
@@ -342,27 +350,6 @@ a.changeLink:hover {
   font-size: 20px;
   visibility: collapse;
 }
-.basket {
-  font-size: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 30px;
-  padding: 30px;
-  border: 1px solid black;
-  border-radius: 20px;
-  opacity: 0.6;
-  background-color: white;
-  width: 50%;
-  margin-left: 20%;
-}
-.user_choice {
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-}
 @media screen and (max-width: 1650px), screen and (max-height: 800px) {
   .history,
   .tourists,
@@ -617,9 +604,6 @@ a.changeLink:hover {
   .textAct {
     line-height: 1.2;
     font-size: 40px;
-  }
-  .index {
-    overflow-y: scroll;
   }
   .textBudget {
     margin-bottom: 50px;
@@ -1126,15 +1110,15 @@ i.fa-star:hover {
   backface-visibility: hidden;
 }
 .is-inf-open {
-  transform: translateY(-51vh);
+  transform: translateY(-68vh);
 }
 .is-inf-video {
-  transform: translateY(-100vh);
+  display: none;
 }
 .is-inf-images {
   padding: 20px;
   margin: 22px;
-  margin-right: 100px;
+  margin-right: 40px;
 }
 .is-element-choose {
   background-color: #9da6b5;
@@ -1208,18 +1192,28 @@ i.fa-star:hover {
   background-color: #9da6b5;
   cursor: pointer;
 }
-.align-basket {
+.user_choice {
+  list-style-type: none;
   display: flex;
-  align-items: flex-start;
-  margin-left: 20px;
+  flex-direction: column;
+  padding: 0;
 }
 .basket {
   position: sticky;
-  top: 700px;
+  font-size: 40px;
+  top: 10px;
   width: 30px;
   height: 20px;
-  border: 4px solid black;
+  border: 3px solid black;
+  border-radius: 20px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  opacity: 0.6;
+  background-color: white;
+  margin-left: 20px;
 }
 .basket img {
   width: 60px;
