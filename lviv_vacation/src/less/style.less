@@ -2,23 +2,14 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Satisfy&display=swap');
 
-
 #root {
     font-family: 'Acme', sans-serif;
     background-repeat: no-repeat;
-    width: 100%;
-    height: 100vh;
     overflow: hidden;
 }
 
 .mainContent {
     background-color: #f3f3f3;
-    background-size: cover;
-    background-attachment: fixed;
-   overflow-y: scroll;   
-    overflow-x: hidden;
-    max-height: 82vh;
-    scroll-behavior: smooth;
 }
 
 .rst{
@@ -26,6 +17,17 @@
     background-size: cover;
     width: 100%;
     height: 100vh;
+}
+
+.userCatalog {
+    background-color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 800px;
+    .nameOfBuilding {
+        font-size: 30px;
+    }
 }
 
 //index page
@@ -65,8 +67,17 @@
 .budget_form {
     opacity: 0.7;
     font-size: 30px;
-    line-height: 25px;
+    line-height: 30px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error_bdg {
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 25px;
 }
 
 .btn, .filter-button {
@@ -75,7 +86,7 @@
     background-color: white;
     margin-left: 10px;
     font-size: 30px;
-    //margin-top: 10px;
+    margin-top: 10px;
 }
 
 .btn:hover, .filter-button:hover {
@@ -225,7 +236,7 @@
 
 // .active {
 //     background-color: @nav-color-hvr;
-//  }
+// }
 
  #btn{
     margin-left: 220px;
@@ -294,8 +305,7 @@ a.changeLink:hover {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    height: 95%;
-    //width: 75%;
+    height: 90%;
     opacity: 0.9;
     position: absolute;
 }
@@ -382,7 +392,6 @@ a.changeLink:hover {
 
 @media screen and (max-width: 1650px), screen and (max-height: 800px) {
     .history, .tourists, .contacts {
-        //width: 30%;
         height: 55%;
         padding-left: 10px;
         padding-right: 10px;
@@ -476,6 +485,22 @@ a.changeLink:hover {
         margin-top: 0;
         margin-left: 0;
     }
+
+    .textBudget{
+        font-size: 35px;
+    }
+
+    .textAct{
+        font-size: 45px;
+    }
+
+    .images {
+        height: 40px;
+        margin: 15px;
+        img {
+            height: 50px;  
+        }
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -559,11 +584,31 @@ a.changeLink:hover {
     }
 }
 
-@media screen and (max-width: 700px), screen and (max-height: 500px) {
-    #root {
-        overflow-y: scroll;
+@media screen and (max-width: 440px) {
+    .history, .tourists, .contacts {
+        width: 10%;
+    }
+    
+    .history:hover, .tourists:hover, .contacts:hover {
+        padding-left: 5px;
+        padding-right: 0;
+        width: 60%;
+        height: 10%;
+        background-size: 0;
+        .titleInform {
+            display: none;
+        }
     }
 
+    .inform {
+        padding: 20px;
+        font-size: 15px;
+        overflow: hidden;
+    }
+
+}
+
+@media screen and (max-width: 700px), screen and (max-height: 500px) {
     .history, .tourists, .contacts {
         background-size: 90px 90px;
     }
@@ -616,7 +661,7 @@ a.changeLink:hover {
     }
     .textAct{
         line-height: 1.2;
-        font-size: 60px;
+        font-size: 40px;
     }
 
     .index{
@@ -626,7 +671,6 @@ a.changeLink:hover {
     .textBudget{
         margin-bottom: 50px;
         line-height: 1.3;
-        font-size: 40px;
         margin-top: 10px;
     }
 
@@ -792,16 +836,6 @@ fieldset {
     width: 100%;
 }
 
-// .check-item {
-//     display: flex;
-//     flex-direction: row-reverse;
-//     justify-content: space-between;
-//     margin: 10px;
-//     user-select: none; 
-    
-// }
-
-
 /* styled checkbox */
 .check-item {
     display: flex;
@@ -933,27 +967,22 @@ i.fa-star:hover  {
     width: 100%;
     height: 100%;
   }
+
   .additional-information p {
     padding: 30px;
     line-height: 1.3em;
     text-align: center;
   }
+  
   .container-img {
-    // background-image: url(../img/rest1.jpg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
-    // max-width: 400px;
     height: 250px;
   }
 
   .container-img-hotels {
-    background-image: url(../img/double2-slide.jpg);
     position: relative;
-  }
-
-  .container-img-restaurants {
-    background-image: url(../img/rest1.jpg);
   }
 
   .container-img:hover > .additional-information {
@@ -962,18 +991,6 @@ i.fa-star:hover  {
     height: 100%;
     background-color: black;
     opacity: 0.7;
-  }
-
-  .container-img-rest-one {
-    background-image: url(../img/cinema.jpg)
-  }
-
-  .container-img-rest-two {
-    background-image: url(../img/LvivOperaTheater-2b.jpg)
-  }
-
-  .container-img-rest-three {
-    background-image: url(../img/stadion.jpg)
   }
 
 .description {
@@ -993,21 +1010,11 @@ i.fa-star:hover  {
     padding: 5px;
 }
 
-
-//------ fixed
-// .preferences {
-//     position: fixed;
-//     width: 20%;
-// }
-
 .hotels-offers {
      z-index: 2;
     max-width: 800px;
-    // // width: 100%;
-    // margin-left: 22vw;
+    margin-bottom: 50px;
 }
-//-----fixed
-
 
 @media screen and (max-width: 783px) {
     .hotel {
@@ -1104,9 +1111,6 @@ i.fa-star:hover  {
     .main-container {
         margin-top: 370px;
     }
-    // .form-preferences {
-    //     width: 50%;
-    // }
 
     .hotels-offers {
         max-width: 500px;
@@ -1152,6 +1156,52 @@ i.fa-star:hover  {
         font-size: 1.6rem;
     }
     
+    .video-container{
+        min-height: 100%
+    }
+
+    .textBudget{
+        font-size:  80px;
+        text-align: center;
+    }
+    
+    .input{
+        font-size: 50px;
+        margin-top: 90px;
+    }
+
+    .choice{
+        line-height: 1.7;
+    }
+
+    .textAct{
+        font-size: 100px;
+        margin-top: 100px;
+    }
+
+    .images{
+        padding: 70px;
+
+        img{
+            height: 100px;
+            width: 100px;
+        }
+
+    margin-top: 90px;
+    }
+
+    .navbar{
+        font-size: 30px;
+    }
+
+    .logo{
+        height: 70px;
+        width: 70px;
+    }
+
+    .nav-cng{
+        margin-top: 35px;
+    }
 }
 
 @media screen and (max-width: 977px) { 
@@ -1213,57 +1263,6 @@ i.fa-star:hover  {
         line-height: 1.2;
     }
 }
-
-@media screen and (width: 1024px) and (height: 1366px){
-    .video-container{
-        min-height: 100%
-    }
-
-    .textBudget{
-        font-size:  80px;
-        text-align: center;
-    }
-    
-    .input{
-        font-size: 50px;
-        margin-top: 90px;
-    }
-
-    .choice{
-        line-height: 1.7;
-    }
-
-    .textAct{
-        font-size: 100px;
-        margin-top: 100px;
-
-    }
-
-    .images{
-        padding: 70px;
-
-        img{
-            height: 100px;
-            width: 100px;
-        }
-
-    margin-top: 90px;
-    }
-
-    .navbar{
-        font-size: 30px;
-    }
-
-    .logo{
-        height: 70px;
-        width: 70px;
-    }
-
-    .nav-cng{
-        margin-top: 35px;
-    }
-}
-
 
 @media screen and (max-height: 610px) and (max-width: 1000px) and (min-width: 800px){
     .choice{
@@ -1427,7 +1426,7 @@ i.fa-star:hover  {
 .align-basket{
     display: flex;
     align-items: flex-start;
-    margin-left: 60px;
+    margin-left: 20px;
 }
 
 .basket{
@@ -1452,7 +1451,6 @@ i.fa-star:hover  {
         }
     }
 }
-
 
 .basket:hover{
     cursor: pointer;

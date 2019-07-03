@@ -61,7 +61,7 @@ class MainIcons extends Component {
         }
 
         this.props.dispatch(clickedEntertainments());
-        this.props.dispatch(fetchData("http://localhost:3001/op/entertainments"));
+        this.props.dispatch(fetchData("http://localhost:3001/op/entertainment"));
     }
 
     render() {

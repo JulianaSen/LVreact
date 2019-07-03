@@ -2,6 +2,7 @@ import React from 'react';
 import ItemOfCatalog from '../Catalog/itemOfCatalog';
 import {connect} from "react-redux";
 import { deleteUserChoice } from "../../actions/actionsData";
+import Navbar from '../Navbar/Navbar';
 
 class userCatalog extends React.Component {
 
@@ -38,12 +39,18 @@ class userCatalog extends React.Component {
     render() {
         return (
             <>
+            <Navbar />
+            <div className="userCatalog">
+            <p className="nameOfBuilding">Your choice:</p>
                 <div className="hotels-offers">
                     {this.props.userItems.map(i => (
-                        <ItemOfCatalog key={i.id} id={i.id} description={i.description} destination={i.destination} smoking={i.smoking} WiFi={i.WiFi} rating={i.rating} handle={() => this.handleDelete(i.id)} deleting={this.state.deleting} selected={[this.props.deleting && 'is-delete'].join(' ')} classBtn="fa fa-close"/>     
+                        <ItemOfCatalog key={i.id} id={i.id} description={i.description} destination={i.destination} smoking={i.smoking} WiFi={i.WiFi} 
+                        rating={i.rating} whatIsIt={i.whatIsIt} name={i.name} mobilePhone={i.mobilePhone} imgUrl={i.img} 
+                        handle={() => this.handleDelete(i.id)} deleting={this.state.deleting} selected={[this.props.deleting && 'is-delete'].join(' ')} classBtn="fa fa-close"/>     
                     ))
                     }
                 </div>
+            </div>
             </>
         )
     }

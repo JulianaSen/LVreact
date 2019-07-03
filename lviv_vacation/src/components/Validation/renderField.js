@@ -13,7 +13,7 @@ const renderField = ({
         {touched &&
           (error &&  
             <div><br />
-                <span style={{ backgroundColor: "white", borderRadius: "5px", padding: "5px"}}>
+                <span className="error_bdg">
                 {error}
                 </span>
                 <br /> <br /> 

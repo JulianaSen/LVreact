@@ -43,7 +43,6 @@ class CatalogWithFilter extends React.Component {
 
 
     render() {
-
       let showFilterMenu = null;
       let classNameFilterMenu = "delete-margin";
       let navContainerClass = "nav-cont-without-filter-menu";
@@ -75,26 +74,25 @@ class CatalogWithFilter extends React.Component {
               <Catalog />
               
               {/* Basket button */}
-                  <div className="align-basket">
+                {this.props.loggedIn && <div className="align-basket">
                   <div className="basket" onClick={this.handleOpenModal}>
                     <img src={basket}/>
                     <div className="counter"><p>{this.props.userItems.length}</p></div>
                   </div>
-              </div>
+                </div>
+                }
 
             </div>
           </main>
-
-
-            <Basket showModal={this.state.showModal} handleCloseModal={this.handleCloseModal}/>
+          <Basket showModal={this.state.showModal} handleCloseModal={this.handleCloseModal}/>
         </div>
       )
     }
-  }
-
+}
 
 const mapStateToProps = state => ({
   userItems: state.data.userItems,
+  loggedIn : state.authentication.loggedIn
 });
 
 export default connect(mapStateToProps)(CatalogWithFilter);
