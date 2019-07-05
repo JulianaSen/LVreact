@@ -1,21 +1,46 @@
-export function fetchData(route) {
+export function fetchHotels() {
     return dispatch => {
-        return  fetch(route)
+        return  fetch("http://127.0.0.1:5000/api/content/hotel")
         .then(res => res.json())
         .then(json => {
-            dispatch(fetchDataSuccess(json));
+            dispatch(fetchDataSuccess(json.items));
             return json;
         })
         .catch(error => dispatch(fetchDataFailure(error)));
     };
 }
 
-export function fetchChoice(route) {
+
+export function fetchRestaraunts() {
     return dispatch => {
-        return  fetch(route)
+        return  fetch("http://127.0.0.1:5000/api/content/restaurant")
         .then(res => res.json())
         .then(json => {
-            dispatch(fetchUserChoice(json));
+            dispatch(fetchDataSuccess(json.items));
+            return json;
+        })
+        .catch(error => dispatch(fetchDataFailure(error)));
+    };
+}
+
+export function fetchEntertainments() {
+    return dispatch => {
+        return  fetch("http://127.0.0.1:5000/api/content/entertainment")
+        .then(res => res.json())
+        .then(json => {
+            dispatch(fetchDataSuccess(json.items));
+            return json;
+        })
+        .catch(error => dispatch(fetchDataFailure(error)));
+    };
+}
+
+export function fetchBasket(user_id) {
+    return dispatch => {
+        return  fetch("http://127.0.0.1:5000/api/basket/1")
+        .then(res => res.json())
+        .then(json => {
+            dispatch(fetchUserChoice(json.items));
             return json;
         })
         .catch(error => dispatch(fetchDataFailure(error)));
@@ -33,9 +58,9 @@ export const fetchDataFailure = error => ({
 
 });
 
-export const addUserChoice = item => ({
+export const addUserChoice = choice => ({
     type: 'ADD_USER_CHOICE',
-    payload: { item }
+    payload: { choice }
 });
 
 export const fetchUserChoice = choice => ({

@@ -6,8 +6,14 @@ import Navbar from '../Navbar/Navbar';
 import CatalogWithFilter from '../CatalogWithFilter/CatalogWithFilter';
 import { connect } from 'react-redux';
 import { userActions } from '../../actions/userActions';
+import { fetchBasket } from '../../actions/actionsData';
 
 class MainBlock extends Component {
+
+    componentDidMount(){
+        this.props.dispatch(fetchBasket(1))
+    }
+
     render() {
         const { user, users } = this.props;
         return (

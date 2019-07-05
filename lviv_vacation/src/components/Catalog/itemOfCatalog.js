@@ -14,7 +14,7 @@ class ItemOfCatalog extends React.Component {
                 <div className="additional-information">
                   <p>{this.props.description}</p>
                 </div>
-                <img src={this.props.imgUrl} className="test" alt=""/>
+                <img src={this.props.img} className="test" alt=""/>
               </div>
 
 

@@ -12,7 +12,7 @@ import { LoginPage } from '../LoginPage/LoginPage';
 import { RegisterPage } from '../RegisterPage/RegisterPage';
 import { HomePage } from '../HomePage/HomePage';
 import userCatalog from '../userChoice/userCatalog';
-import { fetchChoice } from '../../actions/actionsData';
+import { fetchBasket } from '../../actions/actionsData';
 
 class App extends Component{
 
@@ -24,9 +24,6 @@ class App extends Component{
         });
     }
 
-    // componentDidMount(){
-    //     this.props.dispatch(fetchChoice())
-    // }
 
     render() {
         return (
@@ -51,7 +48,7 @@ const mapStateToProps = state => ({
     items: state.data.items,
     loading: state.data.loading,
     error: state.data.error,
-    userData: state.data.userItems
+    userItems: state.data.userItems
 });
 
 

@@ -4,7 +4,7 @@ import food from '../../img/food.svg';
 import cinema from '../../img/cinema.svg';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchData } from '../../actions/actionsData';
+import { fetchHotels, fetchRestaraunts, fetchEntertainments } from '../../actions/actionsData';
 import {clickedEntertainments, clickedHotels, clickedRestaraunts, justClick} from '../../actions/actionClicked';
 
 class MainIcons extends Component {
@@ -24,7 +24,7 @@ class MainIcons extends Component {
         }
 
         this.props.dispatch(clickedHotels())
-        this.props.dispatch(fetchData("http://localhost:3001/op/hotels"));
+        this.props.dispatch(fetchHotels());
     }
 
 
@@ -43,7 +43,7 @@ class MainIcons extends Component {
         }
 
         this.props.dispatch(clickedRestaraunts())
-        this.props.dispatch(fetchData("http://localhost:3001/op/restaurants"));
+        this.props.dispatch(fetchRestaraunts());
     }
 
 
@@ -61,7 +61,7 @@ class MainIcons extends Component {
         }
 
         this.props.dispatch(clickedEntertainments());
-        this.props.dispatch(fetchData("http://localhost:3001/op/entertainment"));
+        this.props.dispatch(fetchEntertainments());
     }
 
     render() {
