@@ -1,11 +1,12 @@
 import React from 'react';
 import renderField from "../../components/Validation/renderField";
 import validate from "../../components/Validation/validation";
-import { Field, reduxForm } from 'redux-form'; 
+import { Field, reduxForm, formValueSelector } from 'redux-form'; 
+import { connect } from 'react-redux';
 
-const MainContent = props => {
+let MainContent = props => {
     const { handleSubmit, submitting } = props;
-    const submit = (values) => console.log(values);
+    const submit = (values) => {return values;}
     return (
         <div className="choice">
         <span className="textBudget"> 
@@ -32,7 +33,15 @@ const MainContent = props => {
     )
   }
 
-export default reduxForm({
+MainContent = reduxForm({
     form: 'mainContent', 
     validate
 })(MainContent)
+
+const selector = formValueSelector('mainContent');
+MainContent = connect(state => {
+    const budget = selector(state, 'budget');
+    return budget;
+})(MainContent)
+
+export default MainContent;
