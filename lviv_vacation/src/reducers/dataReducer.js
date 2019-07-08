@@ -5,10 +5,6 @@ const initialState = {
     filterItems: []
 };
 
-
-
-
-
 export default function dataReducer(state=initialState, action) {
     switch(action.type) {
         case 'FETCH_DATA_FAILURE':
@@ -18,14 +14,12 @@ export default function dataReducer(state=initialState, action) {
             items: [],
           };
         
-        
         case 'FETCH_DATA_SUCCESS':
           return {
             ...state,
             items: action.payload.posts,
             filterItems: [ ...action.payload.posts]
           };
-
 
         case 'FETCH_USER_CHOICE':
           return {
