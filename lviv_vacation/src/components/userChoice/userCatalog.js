@@ -5,7 +5,6 @@ import { deleteUserChoice } from "../../actions/actionsData";
 import Navbar from '../Navbar/Navbar';
 
 class userCatalog extends React.Component {
-
     constructor(props){
         super(props);
         this.state = {
@@ -21,12 +20,11 @@ class userCatalog extends React.Component {
     //         response.json();
     //         this.props.dispatch(deleteUserChoice(id));
     //     });
-    //   }
+    // }
 
     handleDelete(id){
         //set state for delete animation
         this.setState(() => {
-
             return {deleting: true};
           });
         console.log(this.state.deleting);

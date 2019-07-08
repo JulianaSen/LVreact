@@ -22,7 +22,7 @@ class MainBlock extends Component {
                 <VideoContainer />
                 <Navbar />
 
-                <section id='choice' className="choice"> 
+                <section className="choice"> 
                     <MainContent />
                     <MainIcons />
                 </section>

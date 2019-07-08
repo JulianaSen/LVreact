@@ -1,14 +1,15 @@
 import React from 'react';
 import renderField from "../../components/Validation/renderField";
 import validate from "../../components/Validation/validation";
-import { Field, reduxForm, formValueSelector } from 'redux-form'; 
+import { Field, reduxForm, formValueSelector, formValues, getFormValues } from 'redux-form'; 
 import { connect } from 'react-redux';
 
 let MainContent = props => {
+    console.log(props.budget);
     const { handleSubmit, submitting } = props;
     const submit = (values) => {return values;}
     return (
-        <div className="choice">
+        <div className="choice_text">
         <span className="textBudget"> 
             Enter your budget for one day:
         </span> 
@@ -31,7 +32,7 @@ let MainContent = props => {
         </span>
     </div>
     )
-  }
+}
 
 MainContent = reduxForm({
     form: 'mainContent', 
@@ -39,9 +40,10 @@ MainContent = reduxForm({
 })(MainContent)
 
 const selector = formValueSelector('mainContent');
-MainContent = connect(state => {
-    const budget = selector(state, 'budget');
-    return budget;
-})(MainContent)
+MainContent = connect(
+    state => ({
+        budget:  selector(state, 'budget')
+    })
+)(MainContent)
 
 export default MainContent;

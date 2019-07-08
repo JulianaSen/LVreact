@@ -10,7 +10,6 @@ export function fetchHotels() {
     };
 }
 
-
 export function fetchRestaraunts() {
     return dispatch => {
         return  fetch("http://127.0.0.1:5000/api/content/restaurant")
@@ -68,8 +67,17 @@ export const fetchUserChoice = choice => ({
     payload: { choice }
 });
 
-
 export const deleteUserChoice = id => ({
     type: 'DELETE_USER_CHOICE',
     payload: { id }
+});
+
+export const addPrices = price => ({
+    type: 'ADD_BASKET_PRICE',
+    payload: { price }
+});
+
+export const minusPrices = price => ({
+    type: 'MINUS_BASKET_PRICE',
+    payload: { price }
 });
