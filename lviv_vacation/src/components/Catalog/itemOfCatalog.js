@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 class ItemOfCatalog extends React.Component {
 
   render() {
+    console.log("item of catalog", this.props.WiFi);
     return (
         <div className='hotel-container animation-enable'>
            <RatingStar key={this.props.id} rating={this.props.rating}/>
@@ -21,7 +22,7 @@ class ItemOfCatalog extends React.Component {
               <Description id={this.props.id} stName={this.props.destination} 
               isSmoking={this.props.smoking} isWiFi={this.props.WiFi} 
               whatIsIt={this.props.whatIsIt} name={this.props.name}
-              mobilePhone={this.props.mobilePhone}/>
+              mobilePhone={this.props.mobilePhone} price={this.props.price}/>
 
           </div>
 

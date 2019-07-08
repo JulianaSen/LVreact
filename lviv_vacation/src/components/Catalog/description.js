@@ -10,6 +10,8 @@ export default class Description extends React.Component {
         mobileField = "Phone number";
         iconOfPhone = <i className="fa fa-mobile"></i> 
       }
+      console.log("----------------->>>>",this.props);
+
         return (
             <div className="description ">
                 <div className="name-hotel">
@@ -22,12 +24,14 @@ export default class Description extends React.Component {
                     <p>{(this.props.whatIsIt == "Flat") ? null : "Smoking rm."}</p>
                     <p><i className="fa fa-wifi"></i> Wi-fi</p>
                     <p>{iconOfPhone} {mobileField}</p>
+                    <p>Average Price</p>
                   </div>
                   <div>
                     <p>{this.props.stName}</p>
                     {(this.props.isSmoking) ? <p><i className="fa fa-check-circle"></i></p> : (this.props.whatIsIt == "Flat") ? null : <p><i className="fa fa-times-circle"></i></p>} 
                     {(this.props.isWiFi) ? <p><i className="fa fa-check-circle"></i></p> : <p><i className="fa fa-times-circle"></i></p>}
                     <p className="mobile">{mobilePhone}</p>
+                    <p>{this.props.price}</p>
                   </div>
                 </div>
             </div>
