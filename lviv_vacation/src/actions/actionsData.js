@@ -3,7 +3,7 @@ export function fetchHotels() {
         return  fetch("http://localhost:5000/api/content/hotel")
         .then(res => res.json())
         .then(json => {
-            console.log("-------------->>>>>",json);
+            // console.log("-------------->>>>>",json);
             dispatch(fetchDataSuccess(json.items));
             return json;
         })

@@ -5,7 +5,7 @@ export default class ItemForCheck extends React.Component {
  
   render() {
 
-    // console.log()
+    // console.log("------------>>>>>>>>>>>>" ,this.props.propCheck);
     return (
       
       <div>

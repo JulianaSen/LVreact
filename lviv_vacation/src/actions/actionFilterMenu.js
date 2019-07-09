@@ -1,12 +1,11 @@
 import { createStore } from 'redux';
 import reducer from "../reducers/filterMenuReducer"
 
-
 const ACTION_CHECK_ALL = "ACTION_CHECK_ALL";
 const ACTION_CHECK_HOTEL = "ACTION_CHECK_HOTEL";
 const ACTION_CHECK_MOTEL = "ACTION_CHECK_MOTEL";
-const ACTION_CHECK_HOSTEL = "ACTION_CHECK_HOSTEL"
-const ACTION_CHECK_FLAT = "ACTION_CHECK_FLAT"
+const ACTION_CHECK_HOSTEL = "ACTION_CHECK_HOSTEL";
+const ACTION_CHECK_FLAT = "ACTION_CHECK_FLAT";
 
 const changeCheckboxAll = (checked) => {
     return {
@@ -43,11 +42,9 @@ const changeCheckboxFlat = (checked) => {
     }
 }
 
-
-
 // const store = createStore(reducer);
 export {
-         changeCheckboxAll, ACTION_CHECK_ALL, changeCheckboxHotel, ACTION_CHECK_HOTEL,
+        changeCheckboxAll, ACTION_CHECK_ALL, changeCheckboxHotel, ACTION_CHECK_HOTEL,
         changeCheckboxMotel, changeCheckboxHostel, changeCheckboxFlat, ACTION_CHECK_MOTEL,
         ACTION_CHECK_HOSTEL, ACTION_CHECK_FLAT
-        };
+    };
