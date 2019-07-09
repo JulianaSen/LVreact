@@ -13,9 +13,10 @@ export default class FilterMenu extends React.Component {
   //  
   render() {
 
-
-    
+    // console.log("filter menu clickecd", this.props);
+    let firstField, secondField, thirdField, fourtField, fithField;
     const dispatch = this.props.dispatch;
+    // console.log("Dispach --->", dispatch);
     // console.log(this.props);
     let smallScreenClass = `preferences`;
 
@@ -24,9 +25,31 @@ export default class FilterMenu extends React.Component {
       smallScreenClass = `preferences ${this.props.smallscreen}`;
     }
 
-
     const {checkAll, checkFlat, checkHostel, checkHotel, checkMotel} = this.props;
     // console.log(this.props);
+
+
+    if(this.props.hotelClicked) {
+      firstField = 'Choose all';
+      secondField = 'Hotel';
+      thirdField = 'Motel';
+      fourtField = 'Hostel';
+      fithField = 'Flat';
+      
+    } else if(this.props.restClicked) {
+      firstField = 'Choose all';
+      secondField = 'Restaurants';
+      thirdField = 'Cafes';
+      fourtField = 'Snack-bars';
+      fithField = 'Pubs'
+
+    } else if(this.props.entClicked) {
+      firstField = 'Choose all';
+      secondField = 'Cinema';
+      thirdField = 'Theatre';
+      fourtField = 'Active Rest';
+      fithField = 'Passive Rest'
+    }
 
     return (
       <div className={smallScreenClass}>
@@ -37,11 +60,11 @@ export default class FilterMenu extends React.Component {
                 <legend className="choose-pref">Choose your preferences:</legend>
               </div>
 
-                <ItemForCheck content="Choose all" checked={checkAll} dispatch={dispatch} action={changeCheckboxAll}/>
-                <ItemForCheck content="Hotel"  checked={checkHotel} dispatch={dispatch} action={changeCheckboxHotel}/>
-                <ItemForCheck content="Motel"  checked={checkMotel} dispatch={dispatch} action={changeCheckboxMotel}/>
-                <ItemForCheck content="Hostel" checked={checkHostel} dispatch={dispatch} action={changeCheckboxHostel}/>
-                <ItemForCheck content="Flat" checked={checkFlat} dispatch={dispatch} action={changeCheckboxFlat}/>
+                <ItemForCheck content={firstField} checked={checkAll} dispatch={dispatch} action={changeCheckboxAll} propCheck={this.props}/>
+                <ItemForCheck content={secondField}  checked={checkHotel} dispatch={dispatch} action={changeCheckboxHotel} propCheck={this.props}/>
+                <ItemForCheck content={thirdField}  checked={checkMotel} dispatch={dispatch} action={changeCheckboxMotel} propCheck={this.props}/>
+                <ItemForCheck content={fourtField} checked={checkHostel} dispatch={dispatch} action={changeCheckboxHostel} propCheck={this.props}/>
+                <ItemForCheck content={fithField} checked={checkFlat} dispatch={dispatch} action={changeCheckboxFlat} propCheck={this.props}/>
                 {/* <hr style={{color: "red",
                 border: "1px solid red",
                 width: "100%"}}/>
@@ -63,7 +86,10 @@ const mapStateToProps = (state) => {
     checkHotel: state.filter.checkHotel,
     checkMotel: state.filter.checkMotel,
     checkHostel: state.filter.checkHostel,
-    checkFlat: state.filter.checkFlat
+    checkFlat: state.filter.checkFlat,
+    hotelClicked: state.click.clickedHotels,
+    restClicked: state.click.clickedRestaraunts,
+    entClicked: state.click.clickedEntertainment
   }
 }
 

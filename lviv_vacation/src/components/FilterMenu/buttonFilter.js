@@ -14,14 +14,13 @@ constructor(props) {
     // console.log(this.props);
     // this.props.filterCatalog(this.pr);
     // console.log(this.props.dispach);
-    console.log(this.props);
+    console.log( "---------------------button---->>>>>", this.props);
     this.props.filterCheck(this.props);
-   
-
   }
 
+
   render() {
-    console.log("update");
+    // console.log("update");
     // console.log(this.props);
     return (
         <div className="check-item filter-button-container" >
@@ -34,7 +33,10 @@ constructor(props) {
 const mapStateToProps = (state) => {
   return   {
     items: state.data.items,
-    filterItems: state.data.filterItems
+    filterItems: state.data.filterItems,
+    clickedHotels: state.click.clickedHotels,
+    clickedEntertainment: state.click.clickedEntertainment,
+    clickedRestaraunts: state.click.clickedRestaraunts
     // checkAll: state.filter.checkAll,
     // checkHotel: state.filter.checkHotel,
     // checkMotel: state.filter.checkMotel,
@@ -77,8 +79,6 @@ let mapDispachToProps = (dispach) => {
       }
     }
 }
-
-
 
 
 export default connect(mapStateToProps, mapDispachToProps)(ButtonFilter);
