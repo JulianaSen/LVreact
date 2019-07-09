@@ -14,31 +14,31 @@ class Navbar extends Component{
                         </NavLink></li>
                     <div className="nav-cng">
                         <li className="navbarLi">
-                            <NavLink activeClassName="active" to='/about'>
+                            <NavLink activeClassName="act" to='/about'>
                                 About 
                             </NavLink>         
                         </li>
 
                         {this.props.loggedIn && <li className="navbarLi">
-                            <NavLink activeClassName="active" to='/users_page'>
+                            <NavLink activeClassName="act" to='/users_page'>
                                 Basket
                             </NavLink>
                         </li>}
 
                         {this.props.loggedIn &&<li className="navbarLi">
-                            <NavLink activeClassName="active" to='/sign_in'>
+                            <NavLink activeClassName="act" to='/sign_in'>
                                 Log out
                             </NavLink>
                         </li>}
 
                         {!this.props.loggedIn &&<li className="navbarLi">
-                            <NavLink activeClassName="active" to='/sign_in'>
+                            <NavLink activeClassName="act" to='/sign_in'>
                                 Sign In
                             </NavLink>
                         </li>}
 
                         {!this.props.loggedIn &&<li className="navbarLi">
-                            <NavLink activeClassName="active" to='/sign_up'>
+                            <NavLink activeClassName="act" to='/sign_up'>
                                 Sign Up
                             </NavLink>
                         </li>}

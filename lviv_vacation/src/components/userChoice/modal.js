@@ -35,11 +35,11 @@ class Basket extends React.Component {
               isOpen={this.props.showModal}
               contentLabel="Basket modal">
               <div className="userCatalog">
-              <div className="hotels-offers">
               <p className="nameOfBuilding">Your choice:</p>
+              <div className="hotels-offers">
               {this.props.userItems.map(i => (
                 <ItemOfCatalog key={i.id} id={i.id} description={i.description} destination={i.destination} smoking={i.smoking} WiFi={i.WiFi} 
-                rating={i.rating} whatIsIt={i.whatIsIt} name={i.name} mobilePhone={i.mobilePhone} imgUrl={i.img} 
+                rating={i.rating} whatIsIt={i.whatIsIt} name={i.name} mobilePhone={i.mobilePhone} img={i.image} 
                 handle={() => this.handleDelete(i.id)} deleting={this.state.deleting} selected={[this.props.deleting && 'is-delete'].join(' ')} classBtn="fa fa-close"/>     
                 ))
               }

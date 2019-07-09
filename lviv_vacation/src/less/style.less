@@ -2,10 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Satisfy&display=swap');
 
-
-body {
-    overflow: hidden;
-}
 #root {
     font-family: 'Acme', sans-serif;
     background-repeat: no-repeat;
@@ -14,8 +10,6 @@ body {
 
 .mainContent {
     background-color: #f3f3f3;
-    overflow-x: hidden;
-    overflow-y: scroll;
     max-height: 83vh;
 }
 
@@ -32,7 +26,6 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 800px;
-    overflow-y: scroll;
     max-height: 83vh;
     .nameOfBuilding {
         font-size: 30px;
@@ -49,6 +42,13 @@ body {
     line-height: 2;
     letter-spacing: 4px;
     margin-top: 50px;
+}
+
+.choice_text {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .textBudget {
@@ -243,9 +243,9 @@ body {
      }
 }
 
-// .active {
-//     background-color: @nav-color-hvr;
-// }
+.act {
+    background-color: @nav-color-hvr;
+}
 
  #btn{
     margin-left: 220px;
@@ -486,6 +486,16 @@ a.changeLink:hover {
             height: 50px;  
         }
     }
+
+    .choice {
+        margin-top: 100px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .history, .tourists, .contacts {
+        max-width: 125px;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -547,10 +557,6 @@ a.changeLink:hover {
 
     .textAct{
         font-size: 30px;
-    }
-
-    .choice{
-        margin-top: 40px;
     }
 
     .input_budget{
@@ -648,10 +654,6 @@ a.changeLink:hover {
         line-height: 1.2;
         font-size: 40px;
     }
-
-    // .index{
-    //     overflow-y: scroll;
-    // }
 
     .textBudget{
         margin-bottom: 50px;
@@ -773,11 +775,9 @@ a.changeLink:hover {
 }
 
 .preferences {
-    // width: 50%;
     display: flex;
     align-self: flex-start;
     margin-right: 10px;
-    // border: 2px solid black;
     box-shadow: 10px 10px 7px -8px rgba(143,143,143,1);
     border-radius: 15px;
     background-color: white;
@@ -789,7 +789,6 @@ a.changeLink:hover {
     display: flex;
     flex-direction: column;
     box-shadow: 10px 10px 7px -8px rgba(143,143,143,1);
-    // border: 2px solid black;
     border-radius: 12px;
     background-color: white;
     padding: 10px;
@@ -993,6 +992,7 @@ i.fa-star:hover  {
     display: flex;
     justify-content: space-between;
     padding: 5px;
+    font-family: 'Acme', sans-serif;
 }
 
 .hotels-offers {
@@ -1155,10 +1155,6 @@ i.fa-star:hover  {
         margin-top: 90px;
     }
 
-    .choice{
-        line-height: 1.7;
-    }
-
     .textAct{
         font-size: 100px;
         margin-top: 100px;
@@ -1172,7 +1168,7 @@ i.fa-star:hover  {
             width: 100px;
         }
 
-    margin-top: 90px;
+        margin-top: 90px;
     }
 
     .navbar{
@@ -1189,25 +1185,8 @@ i.fa-star:hover  {
     }
 }
 
-@media screen and (max-width: 977px) { 
-    .preferences {
-    min-width: 230px;
-    }
-
-}
-
-
 @media screen and (max-height: 740px) and (max-width: 1000px) and (min-width: 800px){
-    .choice{
-        margin-top: 60px;
-    }
-
-    .textBudget{
-        font-size: 40px;
-    }
-
     .input_budget{
-        margin-top: 50px;
         padding: 7px;
     }
 
@@ -1217,20 +1196,10 @@ i.fa-star:hover  {
 
     .input{
         font-size: 25px;
-    }
-
-    .textAct{
-        font-size: 60px;
-    }
-
-    .images{
-        padding: 20px;
-        margin: 15px;
-        margin-left: 50px;
-    }   
+    }  
 }
 
-@media screen and (width:768px) and (height: 1024px){
+@media screen and (width: 768px) and (height: 1024px){
     .input{
         margin-top: 90px;
     }
@@ -1247,13 +1216,13 @@ i.fa-star:hover  {
         text-align: center;
         line-height: 1.2;
     }
+
+    .choice {
+        margin-top: 150px;
+    }
 }
 
-@media screen and (max-height: 610px) and (max-width: 1000px) and (min-width: 800px){
-    .choice{
-        margin-top: 10px;
-    }
-
+@media screen and (max-width: 1000px) and (min-width: 800px){
     .input{
         font-size: 15px;
     }
@@ -1261,17 +1230,27 @@ i.fa-star:hover  {
     .input_budget{
         width: 250px;
     }
+}
+
+@media screen and (max-height: 720px) {
+    .choice{
+        margin-top: 20px;
+    }
 
     .textBudget{
         font-size: 30px;
     }
 
     .textAct{
-        font-size: 40px;
+        font-size: 30px;
     }
 
-    .images{
-        padding: 10px;
+    .images {
+        height: 40px;
+        margin: 15px;
+        img {
+            height: 50px;
+        }
     }
 }
 
@@ -1282,11 +1261,9 @@ i.fa-star:hover  {
 
 .is-inf-open{
     transform: translateY(-68vh);
-    //position: fixed;
 }
 
 .is-inf-video{
-    //transform: translateY(-100vh);
     display: none;
 }
 
@@ -1329,12 +1306,6 @@ i.fa-star:hover  {
     
 }
 
-// .choice-back-color{
-//     height: 100vh;
-//     width: 100%;
-//     background-color: #f5f7fc;
-// }
-
 .hotel-container:hover{
     cursor: pointer;
 }
@@ -1354,7 +1325,6 @@ i.fa-star:hover  {
 }
 
 .test {
-    // width: 50%;
     width: 100%;
     height: 100%;
 }
@@ -1364,18 +1334,15 @@ i.fa-star:hover  {
 }
 
 .nameOfBuilding {
-    // font-family: 'Satisfy', cursive;
     font-family: 'Pacifico', cursive;
-    // font-size: 24px;
     font-size: 20px;
 }
 
 .fa-mobile {
     font-size: 20px;
     color: rgb(41, 41, 248);
-    // position: relative;
-    // top: 5px;
 }
+
 .mobile {
     position: relative;
     top: 4px;
@@ -1385,7 +1352,6 @@ i.fa-star:hover  {
     display: flex;
     justify-content: flex-end;
 }
-
 
 .fa-plus, .fa-close {
     width: 50px;
@@ -1397,20 +1363,6 @@ i.fa-star:hover  {
     background-color: @nav-color-hvr;
     cursor: pointer;
 }
-
-
-// @media only screen and (max-height: 1480px){
-//     .is-inf-open{
-//         transform: translateY(-60vh);
-//     }
-
-//     .mainContent{
-//         max-height: 80vh;
-//         min-height: 40vh;
-
-//     }
-// }
-
 
 // user page
 .user_choice {
