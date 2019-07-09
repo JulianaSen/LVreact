@@ -6,10 +6,8 @@ const initialState = {
     sum: 0
 };
 
-<<<<<<< HEAD
-=======
 
->>>>>>> final-week-add-filter
+
 export default function dataReducer(state=initialState, action) {
     switch(action.type) {
         case 'ADD_BASKET_PRICE':
@@ -30,11 +28,7 @@ export default function dataReducer(state=initialState, action) {
             error: action.payload.error,
             items: [],
           };
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> final-week-add-filter
         case 'FETCH_DATA_SUCCESS':
           return {
             ...state,

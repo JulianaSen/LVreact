@@ -34,26 +34,16 @@ class Catalog extends React.Component {
     }
 
     render() {
-<<<<<<< HEAD
-        // console.log(this.props.renderFilterItems);
-        // console.log("frfrgrgr !!!!!!", this.props.filterItems == this.props.items);
-      
-        console.log("-----frgtg---->>>>",this.props.filterItems);
-=======
->>>>>>> 3886af5ce470cd1dd732a508b0b2bde04f30f0b1
         return (
             <div className="hotels-offers">
                 {console.log("here here here",this.props.filterItems)}
                 {this.props.filterItems.map((p, index) => {
                     // console.log(p.wi_fi);
                         return <ItemOfCatalog key={p.id} description={p.description} destination={p.destination} 
-<<<<<<< HEAD
+
                         smoking={p.smoking} WiFi={p.wi_fi} rating={p.rating} whatIsIt={p.whatIsIt} name={p.name}
                         mobilePhone={p.mobile_phone} img={p.image} price={p.price} handle={() => this.handleClick(p.id)} classBtn="fa fa-plus"/>
-=======
-                        smoking={p.smoking} WiFi={p.wi_fi} rating={p.rating} whatIsIt={p.type_content} name={p.name}
-                        mobilePhone={p.mobilePhone} img={p.image} price={p.price} handle={() => this.handleClick(p.id)} classBtn="fa fa-plus"/>
->>>>>>> 3886af5ce470cd1dd732a508b0b2bde04f30f0b1
+
                     }
                 )}
             </div>
