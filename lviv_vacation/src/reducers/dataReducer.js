@@ -2,15 +2,24 @@ const initialState = {
     items: [],
     error: null,
     userItems: [],
-    filterItems: []
+    filterItems: [],
+    sum: 0
 };
-
-
-
-
 
 export default function dataReducer(state=initialState, action) {
     switch(action.type) {
+        case 'ADD_BASKET_PRICE':
+          return {
+            ...state,
+            sum: state.sum + action.payload.sum
+          };
+
+        case 'MINUS_BASKET_PRICE':
+          return {
+            ...state,
+            sum: state.sum - action.payload.sum
+          };
+
         case 'FETCH_DATA_FAILURE':
           return {
             ...state,
@@ -18,14 +27,12 @@ export default function dataReducer(state=initialState, action) {
             items: [],
           };
         
-        
         case 'FETCH_DATA_SUCCESS':
           return {
             ...state,
             items: action.payload.posts,
             filterItems: [ ...action.payload.posts]
           };
-
 
         case 'FETCH_USER_CHOICE':
           return {
@@ -36,7 +43,7 @@ export default function dataReducer(state=initialState, action) {
         case 'ADD_USER_CHOICE':
           return {
             ...state,
-            userItems: [...state.userItems, action.payload.choce]
+            userItems: [...state.userItems, action.payload.choice]
           };
         
         case 'DELETE_USER_CHOICE':
