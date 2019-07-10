@@ -824,6 +824,10 @@ i.fa-star:hover {
 .fa-map-marker {
   color: #2929f8;
 }
+.fa-map-marker {
+  padding-left: 4px;
+  padding-right: 3px;
+}
 .fa-check-circle {
   color: #28a745;
 }

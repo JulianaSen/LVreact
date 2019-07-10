@@ -16,6 +16,7 @@ constructor(props) {
     // console.log(this.props.dispach);
     console.log( "---------------------button---->>>>>", this.props);
     this.props.filterCheck(this.props);
+    this.props.filterByPrice(this.props);
   }
 
 
@@ -36,7 +37,10 @@ const mapStateToProps = (state) => {
     filterItems: state.data.filterItems,
     clickedHotels: state.click.clickedHotels,
     clickedEntertainment: state.click.clickedEntertainment,
-    clickedRestaraunts: state.click.clickedRestaraunts
+    clickedRestaraunts: state.click.clickedRestaraunts,
+    checkByIncrease: state.filter.checkByIncrease,
+    checkByDecrease: state.filter.checkByDecrease
+
     // checkAll: state.filter.checkAll,
     // checkHotel: state.filter.checkHotel,
     // checkMotel: state.filter.checkMotel,
@@ -74,6 +78,13 @@ let mapDispachToProps = (dispach) => {
       filterCheck: (value) => {
         dispach({
           type: "FILTER_ITEMS",
+          value: value
+        });
+      },
+
+      filterByPrice: (value) => {
+        dispach({
+          type: "FILTER_BY_PRICE",
           value: value
         });
       }

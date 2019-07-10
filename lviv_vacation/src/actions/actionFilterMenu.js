@@ -42,9 +42,25 @@ const changeCheckboxFlat = (checked) => {
     }
 }
 
+const changeCheckboxByIncrease = (checked) => {
+    return {
+        type: "ACTION_CHECK_BY_iNCREASE",
+        payload: checked
+    }
+}
+
+const changeCheckboxByDecrease = (checked) => {
+    return {
+        type: "ACTION_CHECK_BY_DECREASE",
+        payload: checked
+    }
+}
+
+
+
 // const store = createStore(reducer);
 export {
         changeCheckboxAll, ACTION_CHECK_ALL, changeCheckboxHotel, ACTION_CHECK_HOTEL,
         changeCheckboxMotel, changeCheckboxHostel, changeCheckboxFlat, ACTION_CHECK_MOTEL,
-        ACTION_CHECK_HOSTEL, ACTION_CHECK_FLAT
+        ACTION_CHECK_HOSTEL, ACTION_CHECK_FLAT, changeCheckboxByIncrease, changeCheckboxByDecrease
     };

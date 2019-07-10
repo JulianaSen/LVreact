@@ -3,7 +3,7 @@ import ItemForCheck from './itemForCheck';
 import ButtonFilter from './buttonFilter';
 
 import { connect } from 'react-redux';
-import {changeCheckboxAll, changeCheckboxHotel, changeCheckboxMotel, changeCheckboxHostel, changeCheckboxFlat} from '../../actions/actionFilterMenu';
+import {changeCheckboxAll, changeCheckboxHotel, changeCheckboxMotel, changeCheckboxHostel, changeCheckboxFlat, changeCheckboxByIncrease, changeCheckboxByDecrease} from '../../actions/actionFilterMenu';
 
 
 
@@ -25,7 +25,7 @@ export default class FilterMenu extends React.Component {
       smallScreenClass = `preferences ${this.props.smallscreen}`;
     }
 
-    const {checkAll, checkFlat, checkHostel, checkHotel, checkMotel} = this.props;
+    const {checkAll, checkFlat, checkHostel, checkHotel, checkMotel, checkByDecrease, checkByIncrease} = this.props;
     // console.log(this.props);
 
 
@@ -50,7 +50,7 @@ export default class FilterMenu extends React.Component {
       fourtField = 'Active Rest';
       fithField = 'Passive Rest'
     }
-
+    console.log("------increase---->>>>>", this.props);
     return (
       <div className={smallScreenClass}>
         <div className="form-preferences">
@@ -65,11 +65,11 @@ export default class FilterMenu extends React.Component {
                 <ItemForCheck content={thirdField}  checked={checkMotel} dispatch={dispatch} action={changeCheckboxMotel} propCheck={this.props}/>
                 <ItemForCheck content={fourtField} checked={checkHostel} dispatch={dispatch} action={changeCheckboxHostel} propCheck={this.props}/>
                 <ItemForCheck content={fithField} checked={checkFlat} dispatch={dispatch} action={changeCheckboxFlat} propCheck={this.props}/>
-                {/* <hr style={{color: "red",
-                border: "1px solid red",
+                <hr style={{color: "red",
+                border: "1px solid black",
                 width: "100%"}}/>
-                <ItemForCheck content="sortByincrease" checked={checkFlat} dispatch={dispatch} action={changeCheckboxFlat}/>
-                <ItemForCheck content="sortbYLOWER" checked={checkFlat} dispatch={dispatch} action={changeCheckboxFlat}/> */}
+                <ItemForCheck content="Sort by price increase" checked={checkByIncrease} dispatch={dispatch} action={changeCheckboxByIncrease}/>
+                <ItemForCheck content="Sort by price decrease" checked={checkByDecrease} dispatch={dispatch} action={changeCheckboxByDecrease}/>
             </div>
             <ButtonFilter checkedItems={this.props}/>
           </form>
@@ -89,7 +89,9 @@ const mapStateToProps = (state) => {
     checkFlat: state.filter.checkFlat,
     hotelClicked: state.click.clickedHotels,
     restClicked: state.click.clickedRestaraunts,
-    entClicked: state.click.clickedEntertainment
+    entClicked: state.click.clickedEntertainment,
+    checkByIncrease: state.filter.checkByIncrease,
+    checkByDecrease: state.filter.checkByDecrease
   }
 }
 

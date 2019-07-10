@@ -64,7 +64,7 @@ class CatalogWithFilter extends React.Component {
               <WrapperComponent smallscreen="small-screen"/>
           </div>
           <div className={navContainerClass}>
-            <BurgerContainer clickBurger={this.drawerToggleClickHandler}/>;
+            <BurgerContainer clickBurger={this.drawerToggleClickHandler}/>
             {showFilterMenu}
           </div>
             

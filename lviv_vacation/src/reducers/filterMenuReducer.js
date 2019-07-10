@@ -1,11 +1,13 @@
 import { ACTION_CHECK_ALL, ACTION_CHECK_HOTEL, ACTION_CHECK_MOTEL,
-    ACTION_CHECK_HOSTEL, ACTION_CHECK_FLAT } from '../actions/actionFilterMenu';
+    ACTION_CHECK_HOSTEL, ACTION_CHECK_FLAT,  } from '../actions/actionFilterMenu';
 const initialState = {
     checkAll: false,
     checkHotel: false,
     checkMotel: false,
     checkHostel: false,
-    checkFlat: false
+    checkFlat: false,
+    checkByIncrease: false,
+    checkByDecrease: false
 };
 
 function checkingItems(state, checkOne, checkTwo, checkThree, action, newCheck) {
@@ -36,18 +38,30 @@ const reducerFilterMenu = (state = initialState, action) => {
                     }
             break;
         case ACTION_CHECK_HOTEL:
-                return checkingItems(state, state.checkMotel, state.checkHostel, state.checkFlat, action, 'checkHotel');
-                 break;
+            return checkingItems(state, state.checkMotel, state.checkHostel, state.checkFlat, action, 'checkHotel');
+            break;
         case ACTION_CHECK_MOTEL:
-                return checkingItems(state, state.checkHotel, state.checkHostel, state.checkFlat, action, 'checkMotel');
-                break;
-                
+            return checkingItems(state, state.checkHotel, state.checkHostel, state.checkFlat, action, 'checkMotel');
+            break;
+            
         case ACTION_CHECK_HOSTEL:
             return checkingItems(state, state.checkHotel, state.checkMotel, state.checkFlat, action, 'checkHostel');
             break;
         case ACTION_CHECK_FLAT:
             return checkingItems(state, state.checkHotel, state.checkMotel, state.checkHostel, action, 'checkFlat');
             break;
+        case "ACTION_CHECK_BY_iNCREASE": 
+        if(state.checkByDecrease) {
+            return { ...state, checkByIncrease: !state.checkByIncrease,  checkByDecrease: !state.checkByDecrease}
+        } else {
+            return { ...state, checkByIncrease: !state.checkByIncrease}
+        }
+        case "ACTION_CHECK_BY_DECREASE": {
+            if(state.checkByIncrease) {
+                return { ...state, checkByDecrease: !state.checkByDecrease,  checkByIncrease: !state.checkByIncrease}
+            }
+                return { ...state, checkByDecrease: !state.checkByDecrease }
+        }
     }
 
     return state;

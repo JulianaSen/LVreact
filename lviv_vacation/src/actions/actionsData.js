@@ -1,6 +1,6 @@
 export function fetchHotels() {
     return dispatch => {
-        return  fetch("http://localhost:5000/api/content/hotel")
+        return  fetch("http://127.0.0.1:5000/api/content/hotel")
         .then(res => res.json())
         .then(json => {
             // console.log("-------------->>>>>",json);

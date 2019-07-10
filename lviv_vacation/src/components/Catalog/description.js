@@ -31,7 +31,7 @@ export default class Description extends React.Component {
                     {(this.props.isSmoking) ? <p><i className="fa fa-check-circle"></i></p> : (this.props.whatIsIt == "Flat" || this.props.clickedEntertainment) ? null : <p><i className="fa fa-times-circle"></i></p>} 
                     {(this.props.isWiFi) ? <p><i className="fa fa-check-circle"></i></p> : <p><i className="fa fa-times-circle"></i></p>}
                     <p className="mobile">{mobilePhone}</p>
-                    <p>{this.props.price}</p>
+                    <p>{this.props.price} $</p>
                   </div>
                 </div>
             </div>
