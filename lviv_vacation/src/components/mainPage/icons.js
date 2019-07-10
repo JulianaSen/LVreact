@@ -22,8 +22,7 @@ class MainIcons extends Component {
         if(this.props.restClicked){
             this.props.dispatch(clickedRestaraunts());
         }
-
-        this.props.dispatch(clickedHotels())
+        this.props.dispatch(clickedHotels());
         this.props.dispatch(fetchHotels());
     }
 
@@ -90,7 +89,10 @@ const mapStateToProps = state => ({
     clicked: state.click.clicked,
     hotelClicked: state.click.clickedHotels,
     restClicked: state.click.clickedRestaraunts,
-    entClicked: state.click.clickedEntertainment
+    entClicked: state.click.clickedEntertainment,
+    budget: state.data.budget,
+    items: state.data.items,
+    price: state.data.price
 });
 
 

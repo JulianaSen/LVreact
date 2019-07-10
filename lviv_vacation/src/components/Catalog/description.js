@@ -10,6 +10,9 @@ export default class Description extends React.Component {
         mobileField = "Phone number";
         iconOfPhone = <i className="fa fa-mobile"></i> 
       }
+
+      let smoking =  <p><i class="fa fa-smoking"></i>Smoking rm.</p>
+
         return (
             <div className="description ">
                 <div className="name-hotel">
@@ -18,16 +21,19 @@ export default class Description extends React.Component {
                 </div>
                 <div className="servises">
                   <div>
-                    <p><i className="fa fa-map-marker"></i> Destination</p>
-                    <p>{(this.props.whatIsIt === "Flat") ? null : "Smoking rm."}</p>
+
+                    <p><i class="fas fa-map-marker-alt"></i> Destination</p>
+                    <p>{(this.props.whatIsIt == "Flat" || this.props.clickedEntertainment) ? null : smoking}</p>
                     <p><i className="fa fa-wifi"></i> Wi-fi</p>
                     <p>{iconOfPhone} {mobileField}</p>
+                    <p><i class="fas fa-hand-holding-usd"></i>Average Price</p>
                   </div>
                   <div>
                     <p>{this.props.stName}</p>
-                    {(this.props.isSmoking) ? <p><i className="fa fa-check-circle"></i></p> : (this.props.whatIsIt === "Flat") ? null : <p><i className="fa fa-times-circle"></i></p>} 
+                    {(this.props.isSmoking) ? <p><i className="fa fa-check-circle"></i></p> : (this.props.whatIsIt == "Flat" || this.props.clickedEntertainment) ? null : <p><i className="fa fa-times-circle"></i></p>} 
                     {(this.props.isWiFi) ? <p><i className="fa fa-check-circle"></i></p> : <p><i className="fa fa-times-circle"></i></p>}
                     <p className="mobile">{mobilePhone}</p>
+                    <p>{this.props.price} $</p>
                   </div>
                 </div>
             </div>

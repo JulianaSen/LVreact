@@ -1,24 +1,26 @@
-import React from 'react';
+import React, {Component} from 'react';
 import renderField from "../../components/Validation/renderField";
 import validate from "../../components/Validation/validation";
-import { Field, reduxForm, formValueSelector } from 'redux-form'; 
+import { Field, reduxForm } from 'redux-form'; 
 import { connect } from 'react-redux';
+import { changeBudget } from '../../actions/actionsData';
 
-let MainContent = props => {
-    const { handleSubmit, submitting } = props;
-    const submit = (values) => {return values;}
+class MainContent extends Component {
+    render() {
+    const { handleSubmit, submitting } = this.props;
+    const submit = (values) => {this.props.dispatch(changeBudget(values.budget));}
     return (
-        <div className="choice">
+        <div className="choice_text">
         <span className="textBudget"> 
             Enter your budget for one day:
         </span> 
         <div className="bdg-ipt">
-            <form className="budget_form" onSubmit={handleSubmit(submit)}> 
+            <form className="budget_form" onSubmit={handleSubmit(submit)}>  
                     <Field 
                     className="input_budget"
                     name="budget" 
                     type="text" 
-                    placeholder="100$" 
+                    placeholder="100$"
                     component={renderField} />
                 <button className="btn" type="submit" disabled={submitting} >
                     Submit
@@ -31,17 +33,18 @@ let MainContent = props => {
         </span>
     </div>
     )
-  }
+    }
+}
+
+function mapStateToProps(state) {
+    return {
+        budget: state.data.budget
+    };
+} 
 
 MainContent = reduxForm({
     form: 'mainContent', 
     validate
 })(MainContent)
 
-const selector = formValueSelector('mainContent');
-MainContent = connect(state => {
-    const budget = selector(state, 'budget');
-    return budget;
-})(MainContent)
-
-export default MainContent;
+export default connect(mapStateToProps)(MainContent);

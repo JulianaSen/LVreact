@@ -15,6 +15,7 @@ class MainBlock extends Component {
     }
 
     render() {
+        // console.log("------------->>>>>>------>>>", this.props);
         const { user, users } = this.props;
         return (
             <>
@@ -22,7 +23,7 @@ class MainBlock extends Component {
                 <VideoContainer />
                 <Navbar />
 
-                <section id='choice' className="choice"> 
+                <section className="choice"> 
                     <MainContent />
                     <MainIcons />
                 </section>

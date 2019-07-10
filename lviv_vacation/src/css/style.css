@@ -26,7 +26,7 @@
   font-display: swap;
   src: local('Satisfy Regular'), local('Satisfy-Regular'), url(https://fonts.gstatic.com/s/satisfy/v9/rP2Hp2yn6lkG50LoCZOIGA.ttf) format('truetype');
 }
-body {
+html {
   overflow: hidden;
 }
 #root {
@@ -36,8 +36,6 @@ body {
 }
 .mainContent {
   background-color: #f3f3f3;
-  overflow-x: hidden;
-  overflow-y: scroll;
   max-height: 83vh;
 }
 .rst {
@@ -52,7 +50,6 @@ body {
   flex-direction: column;
   align-items: center;
   min-height: 800px;
-  overflow-y: scroll;
   max-height: 83vh;
 }
 .userCatalog .nameOfBuilding {
@@ -67,6 +64,12 @@ body {
   line-height: 2;
   letter-spacing: 4px;
   margin-top: 50px;
+}
+.choice_text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .textBudget {
   color: black;
@@ -233,6 +236,9 @@ body {
   width: 400px;
   border-radius: 8px;
 }
+.act {
+  background-color: #9da6b5;
+}
 #btn {
   margin-left: 220px;
   border-radius: 12px;
@@ -281,7 +287,7 @@ a.changeLink:hover {
   width: 100%;
   height: 100vh;
   opacity: 0.5;
-  transition: transform 0.8s;
+  transition: transform 1.6s;
   backface-visibility: hidden;
   z-index: -3;
 }
@@ -454,6 +460,16 @@ a.changeLink:hover {
   .images img {
     height: 50px;
   }
+  .choice {
+    margin-top: 100px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .history,
+  .tourists,
+  .contacts {
+    max-width: 125px;
+  }
 }
 @media screen and (max-width: 500px) {
   .navbar {
@@ -511,9 +527,6 @@ a.changeLink:hover {
   }
   .textAct {
     font-size: 30px;
-  }
-  .choice {
-    margin-top: 40px;
   }
   .input_budget {
     padding: 4px;
@@ -692,7 +705,13 @@ a.changeLink:hover {
 .wave-block {
   display: flex;
   justify-content: center;
-  margin: 10px;
+  margin: 10px 0 10px 10px;
+  background-color: #f3f3f3;
+  max-height: 85vh;
+  overflow-y: scroll;
+}
+.wave-block .hotel-container:last-child {
+  margin-bottom: 50px;
 }
 .preferences {
   display: flex;
@@ -702,7 +721,7 @@ a.changeLink:hover {
   border-radius: 15px;
   background-color: white;
   position: sticky;
-  top: 10px;
+  top: 0px;
 }
 .hotel-container {
   display: flex;
@@ -711,6 +730,7 @@ a.changeLink:hover {
   border-radius: 12px;
   background-color: white;
   padding: 10px;
+  margin-right: 10px;
 }
 .hotel-container:nth-child(even) {
   margin-bottom: 20px;
@@ -811,8 +831,25 @@ i.fa-star:hover {
   color: yellow;
 }
 .fa-wifi,
-.fa-map-marker {
+.fa-map-marker,
+.fa-map-marker-alt,
+.fa-smoking,
+.fa-hand-holding-usd {
   color: #2929f8;
+}
+.fa-wifi {
+  padding-right: 6px;
+}
+.fa-map-marker-alt {
+  padding-right: 8px;
+  padding-left: 4px;
+}
+.fa-smoking {
+  padding-right: 8px;
+}
+.fa-hand-holding-usd {
+  padding-right: 7px;
+  font-size: 20px;
 }
 .fa-check-circle {
   color: #28a745;
@@ -826,6 +863,7 @@ i.fa-star:hover {
 .Star {
   color: #cfd8dc;
   cursor: pointer;
+  font-size: 25px;
   transition: all 0.3s;
 }
 .container-img {
@@ -878,6 +916,7 @@ i.fa-star:hover {
   display: flex;
   justify-content: space-between;
   padding: 5px;
+  font-family: 'Acme', sans-serif;
 }
 .hotels-offers {
   z-index: 2;
@@ -1012,9 +1051,6 @@ i.fa-star:hover {
     font-size: 50px;
     margin-top: 90px;
   }
-  .choice {
-    line-height: 1.7;
-  }
   .textAct {
     font-size: 100px;
     margin-top: 100px;
@@ -1038,20 +1074,8 @@ i.fa-star:hover {
     margin-top: 35px;
   }
 }
-@media screen and (max-width: 977px) {
-  .preferences {
-    min-width: 230px;
-  }
-}
 @media screen and (max-height: 740px) and (max-width: 1000px) and (min-width: 800px) {
-  .choice {
-    margin-top: 60px;
-  }
-  .textBudget {
-    font-size: 40px;
-  }
   .input_budget {
-    margin-top: 50px;
     padding: 7px;
   }
   .btn {
@@ -1059,14 +1083,6 @@ i.fa-star:hover {
   }
   .input {
     font-size: 25px;
-  }
-  .textAct {
-    font-size: 60px;
-  }
-  .images {
-    padding: 20px;
-    margin: 15px;
-    margin-left: 50px;
   }
 }
 @media screen and (width: 768px) and (height: 1024px) {
@@ -1084,25 +1100,34 @@ i.fa-star:hover {
     text-align: center;
     line-height: 1.2;
   }
-}
-@media screen and (max-height: 610px) and (max-width: 1000px) and (min-width: 800px) {
   .choice {
-    margin-top: 10px;
+    margin-top: 150px;
   }
+}
+@media screen and (max-width: 1000px) and (min-width: 800px) {
   .input {
     font-size: 15px;
   }
   .input_budget {
     width: 250px;
   }
+}
+@media screen and (max-height: 720px) {
+  .choice {
+    margin-top: 20px;
+  }
   .textBudget {
     font-size: 30px;
   }
   .textAct {
-    font-size: 40px;
+    font-size: 30px;
   }
   .images {
-    padding: 10px;
+    height: 40px;
+    margin: 15px;
+  }
+  .images img {
+    height: 50px;
   }
 }
 .main_page {
@@ -1110,10 +1135,10 @@ i.fa-star:hover {
   backface-visibility: hidden;
 }
 .is-inf-open {
-  transform: translateY(-68vh);
+  transform: translateY(-59vh);
 }
 .is-inf-video {
-  display: none;
+  transform: translateY(-200vh);
 }
 .is-inf-images {
   padding: 20px;
@@ -1228,4 +1253,27 @@ i.fa-star:hover {
 }
 .basket:hover {
   cursor: pointer;
+}
+input:focus,
+button:focus {
+  outline: 0;
+}
+::-webkit-scrollbar {
+  width: 12px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: gray;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: gray;
 }

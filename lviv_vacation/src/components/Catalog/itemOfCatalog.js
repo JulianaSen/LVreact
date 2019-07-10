@@ -21,7 +21,7 @@ class ItemOfCatalog extends React.Component {
               <Description id={this.props.id} stName={this.props.destination} 
               isSmoking={this.props.smoking} isWiFi={this.props.WiFi} 
               whatIsIt={this.props.whatIsIt} name={this.props.name}
-              mobilePhone={this.props.mobilePhone}/>
+              mobilePhone={this.props.mobilePhone} price={this.props.price} clickedEntertainment={this.props.clickedEntertainment}/>
 
           </div>
 
@@ -37,7 +37,10 @@ class ItemOfCatalog extends React.Component {
 const mapStateToProps = state => ({
   userItems: state.data.userItems,
   items: state.data.items,
-  loggedIn: state.authentication.loggedIn
+  loggedIn: state.authentication.loggedIn,
+  clickedHotels: state.click.clickedHotels,
+  clickedEntertainment: state.click.clickedEntertainment,
+  clickedRestaraunts: state.click.clickedRestaraunts
 });
 
 export default connect(mapStateToProps)(ItemOfCatalog);
