@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 class ItemOfCatalog extends React.Component {
 
   render() {
-    // console.log("item of catalog", this.props.WiFi);
     return (
         <div className='hotel-container animation-enable'>
            <RatingStar key={this.props.id} rating={this.props.rating}/>

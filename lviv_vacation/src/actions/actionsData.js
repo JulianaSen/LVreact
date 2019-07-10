@@ -3,7 +3,6 @@ export function fetchHotels() {
         return  fetch("http://127.0.0.1:5000/api/content/hotel")
         .then(res => res.json())
         .then(json => {
-            // console.log("-------------->>>>>",json);
             dispatch(fetchDataSuccess(json.items));
             return json;
         })
@@ -81,4 +80,9 @@ export const addPrices = price => ({
 export const minusPrices = price => ({
     type: 'MINUS_BASKET_PRICE',
     payload: { price }
+});
+
+export const changeBudget = budget => ({
+    type: 'SHOW_BUDGET',
+    payload: { budget }
 });

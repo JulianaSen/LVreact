@@ -1,7 +1,7 @@
 import React from 'react';
 import ItemOfCatalog from './itemOfCatalog';
 import {connect} from "react-redux";
-import { addUserChoice, addPrices, minusPrices } from "../../actions/actionsData";
+import { addUserChoice } from "../../actions/actionsData";
 import axios from 'axios';
 
 class Catalog extends React.Component {
@@ -36,15 +36,10 @@ class Catalog extends React.Component {
     render() {
         return (
             <div className="hotels-offers">
-                {console.log("here here here",this.props.filterItems)}
                 {this.props.filterItems.map((p, index) => {
-                    // console.log(p.wi_fi);
-                        return <ItemOfCatalog key={p.id} description={p.description} destination={p.destination} 
-
-                        smoking={p.smoking} WiFi={p.wi_fi} rating={p.rating} whatIsIt={p.whatIsIt} name={p.name}
-                        mobilePhone={p.mobile_phone} img={p.image} price={p.price} handle={() => this.handleClick(p.id)} classBtn="fa fa-plus"/>
-
-                    }
+                    return <ItemOfCatalog key={p.id} description={p.description} destination={p.destination} 
+                    smoking={p.smoking} WiFi={p.wi_fi} rating={p.rating} whatIsIt={p.whatIsIt} name={p.name}
+                    mobilePhone={p.mobile_phone} img={p.image} price={p.price} handle={() => this.handleClick(p.id)} classBtn="fa fa-plus"/>}
                 )}
             </div>
         )
@@ -61,7 +56,7 @@ const mapStateToProps = state => ({
     checkMotel: state.filter.checkMotel,
     checkHostel: state.filter.checkHostel,
     checkFlat: state.filter.checkFlat,
-    budget: state.form.budget,
+    budget: state.data.budget,
     price: state.data.price
 });
 

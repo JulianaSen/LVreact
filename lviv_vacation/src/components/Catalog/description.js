@@ -10,7 +10,6 @@ export default class Description extends React.Component {
         mobileField = "Phone number";
         iconOfPhone = <i className="fa fa-mobile"></i> 
       }
-      // console.log("----------------->>>>",this.props);
 
         return (
             <div className="description ">
