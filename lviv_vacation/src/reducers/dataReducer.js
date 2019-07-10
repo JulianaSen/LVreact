@@ -3,10 +3,9 @@ const initialState = {
     error: null,
     userItems: [],
     filterItems: [],
-    sum: 0
+    sum: 0,
+    budget: 0
 };
-
-
 
 export default function dataReducer(state=initialState, action) {
     switch(action.type) {
@@ -21,6 +20,12 @@ export default function dataReducer(state=initialState, action) {
             ...state,
             sum: state.sum - action.payload.sum
           };
+
+        case 'SHOW_BUDGET':
+            return {
+              ...state,
+              budget: action.payload.budget
+            };
 
         case 'FETCH_DATA_FAILURE':
           return {
@@ -53,11 +58,8 @@ export default function dataReducer(state=initialState, action) {
               ...state,
               userItems: state.userItems.filter(item => item.id !== action.payload.id)
             };
+
         case 'FILTER_ITEMS':
-          // console.log("------------------->>>>reducer", action.value.clickedRestaraunts,  action.value.clickedHotels, action.value.clickedEntertainment);
-          // clickedHotels: state.click.clickedHotels,
-          // clickedEntertainment: state.click.clickedEntertainment,
-          // clickedRestaraunts:
             return {
                 ...state,
                 filterItems: [ ...state.items.filter((item) => {
