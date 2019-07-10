@@ -11,7 +11,7 @@ export default class Description extends React.Component {
         iconOfPhone = <i className="fa fa-mobile"></i> 
       }
       // console.log("----------------->>>>",this.props);
-      let smoking =  <p><i class="fa fa-smoking"></i>Smoking rm.</p>
+      let smoking =  <p><i className="fa fa-smoking"></i>Smoking rm.</p>
         return (
             <div className="description ">
                 <div className="name-hotel">
