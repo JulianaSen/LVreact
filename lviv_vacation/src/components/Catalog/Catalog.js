@@ -1,28 +1,16 @@
 import React from 'react';
 import ItemOfCatalog from './itemOfCatalog';
 import {connect} from "react-redux";
-import { addUserChoice } from "../../actions/actionsData";
-import axios from 'axios';
+import { userService } from '../../services/userService'
 
 class Catalog extends React.Component {
 
-    // postChoice(route, data) {
-    //     axios
-    //         .post(route, data)
-    //         .then(res => {
-    //             console.log(res)
-    //             this.props.dispatch(addUserChoice(data));
-    //         })
-    //         .catch(error => {
-    //             console.log(error)
-    //         })
-    // }
 
     handleClick(id){
         let alreadyAdded = new Set(this.props.userItems.map(i => i.id));
         this.props.items.map(item => {
                     if(item.id === id && !alreadyAdded.has(id)){
-                        this.props.dispatch(addUserChoice(item));
+                        this.props.dispatch(userService.postChoice(item));
                     }
                 }
         )
@@ -37,7 +25,7 @@ class Catalog extends React.Component {
             <div className="hotels-offers">
                 {console.log("here here here",this.props)}
                 {this.props.filterItems.map((p, index) => {
-                        return <ItemOfCatalog key={p.id} description={p.description} destination={p.destination} 
+                        return <ItemOfCatalog key={p.id} id = {p.id} description={p.description} destination={p.destination} 
                         smoking={p.smoking} WiFi={p.WiFi} rating={p.rating} whatIsIt={p.whatIsIt} name={p.name}
                         mobilePhone={p.mobilePhone} img={p.image}  handle={() => this.handleClick(p.id)} classBtn="fa fa-plus"/>
                     }

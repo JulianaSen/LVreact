@@ -1,3 +1,5 @@
+import { authHeader } from "../helpers/authHelper";
+
 export function fetchHotels() {
     return dispatch => {
         return  fetch("http://127.0.0.1:5000/api/content/hotel")
@@ -35,15 +37,41 @@ export function fetchEntertainments() {
     };
 }
 
-export function fetchBasket(user_id) {
+//Get all items in user's basket
+export function fetchBasket() {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    }
+
     return dispatch => {
-        return  fetch("http://127.0.0.1:5000/api/basket/1")
+        return  fetch("http://127.0.0.1:5000/api/basket/items/all", requestOptions)
         .then(res => res.json())
         .then(json => {
             dispatch(fetchUserChoice(json.items));
             return json;
         })
         .catch(error => dispatch(fetchDataFailure(error)));
+    };
+}
+
+
+//Delete item from table basket in DB
+export function deleteChoice(contentID){
+
+    const requestOptions = {
+        method: 'DELETE',
+        headers: authHeader()
+    }
+    
+    return dispatch => {
+        fetch(`http://127.0.0.1:5000/api/basket/items/${contentID}`, requestOptions)
+        .then(() => {
+            dispatch(deleteUserChoice(contentID));
+        })
+        .catch(error => {
+            console.log(error);
+        })
     };
 }
 

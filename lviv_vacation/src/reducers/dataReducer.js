@@ -36,7 +36,7 @@ export default function dataReducer(state=initialState, action) {
         case 'ADD_USER_CHOICE':
           return {
             ...state,
-            userItems: [...state.userItems, action.payload.choce]
+            userItems: [...state.userItems, action.payload.choice]
           };
         
         case 'DELETE_USER_CHOICE':
