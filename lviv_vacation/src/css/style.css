@@ -284,7 +284,7 @@ a.changeLink:hover {
   width: 100%;
   height: 100vh;
   opacity: 0.5;
-  transition: transform 0.8s;
+  transition: transform 1.6s;
   backface-visibility: hidden;
   z-index: -3;
 }
@@ -1128,7 +1128,7 @@ i.fa-star:hover {
   transform: translateY(-68vh);
 }
 .is-inf-video {
-  display: none;
+  transform: translateY(-200vh);
 }
 .is-inf-images {
   padding: 20px;
