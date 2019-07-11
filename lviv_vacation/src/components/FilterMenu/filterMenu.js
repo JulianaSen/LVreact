@@ -5,28 +5,19 @@ import ButtonFilter from './buttonFilter';
 import { connect } from 'react-redux';
 import {changeCheckboxAll, changeCheckboxHotel, changeCheckboxMotel, changeCheckboxHostel, changeCheckboxFlat, changeCheckboxByIncrease, changeCheckboxByDecrease} from '../../actions/actionFilterMenu';
 
-
-
 export default class FilterMenu extends React.Component {
-
-  
-  //  
+ 
   render() {
 
     let firstField, secondField, thirdField, fourtField, fithField;
     const dispatch = this.props.dispatch;
-
     let smallScreenClass = `preferences`;
-    // if(this.props.smallscreen) {
-    //   smallScreenClass = `preferences ${this.props.smallscreen}`;
-    // }
 
     if(this.props.showModalClass) {
       smallScreenClass = `preferences ${this.props.smallscreen} ${this.props.showModalClass}`;
     }
 
     const {checkAll, checkFlat, checkHostel, checkHotel, checkMotel, checkByDecrease, checkByIncrease} = this.props;
-    // console.log(this.props);
 
 
     if(this.props.hotelClicked) {
@@ -50,7 +41,7 @@ export default class FilterMenu extends React.Component {
       fourtField = 'Active Rest';
       fithField = 'Passive Rest'
     }
-    console.log("------increase---->>>>>", this.props);
+
     return (
       <div className={smallScreenClass}>
         <div className="form-preferences">
@@ -94,8 +85,6 @@ const mapStateToProps = (state) => {
     checkByDecrease: state.filter.checkByDecrease
   }
 }
-
-
 
 const WrapperComponent = connect(mapStateToProps)(FilterMenu)
 export {WrapperComponent};

@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Satisfy&display=swap');
 
-// html {
-//     overflow: hidden;
-// }
+html {
+    overflow: hidden;
+}
 
 #root {
     font-family: 'Acme', sans-serif;
@@ -652,7 +652,7 @@ a.changeLink:hover {
     }
     
     .icons{
-        flex-direction: column;
+        flex-direction: row;
     }
     .textAct{
         line-height: 1.2;
@@ -1431,6 +1431,8 @@ i.fa-star:hover  {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    border: none;
+    box-shadow: 2px 2px 5px black;
 }
 
 .fa-plus:hover, .fa-close:hover{
@@ -1459,16 +1461,6 @@ i.fa-star:hover  {
     display: flex;
     align-items: center;
     justify-content: center;
-    // padding: 30px;
-    // opacity: 0.6;
-    // margin-left: 20px;
-
-    // img{
-    //     width: 45px;
-    //     height: 45px;
-    //     display: block;
-    //     position: absolute;
-    // }
 
     .counter{
         p {
@@ -1515,13 +1507,6 @@ input:focus, button:focus {
 	background: gray; 
 }
 
-.hide-scroll {
-    height: 120vh;
-}
-
-html {
-    overflow: hidden;
-}
 
 .modal-window-filter-menu {
    display: none;
@@ -1540,4 +1525,36 @@ html {
     right: 15px;
 }
 
-// 
+@media screen and (max-width: 480px) {
+    .images {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+    .images:nth-child(2) {
+        margin: 22px 0px;
+    }
+    .textAct {
+        font-size: 25px;
+    }
+
+    .textBudget {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        font-size: 20px;
+    }
+    .error_bdg {
+        font-size: 20px;
+    }
+}
+
+.fa-plus:active {
+    box-shadow: none;
+    
+}
