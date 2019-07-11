@@ -24,7 +24,6 @@ class FilterMenuModal extends React.Component {
     };
  
     this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
  
