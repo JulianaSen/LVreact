@@ -1,7 +1,5 @@
 import React from 'react';
-import FilterMenu from '../FilterMenu/filterMenu';
 import Catalog from '../Catalog/Catalog';
-// import { store } from '../../actions/actionFilterMenu';
 import { WrapperComponent } from '../FilterMenu/filterMenu';
 import BurgerContainer from './BurgerContainer';
 import basket from "../../img/basket.png";
@@ -70,19 +68,18 @@ class CatalogWithFilter extends React.Component {
             
           <main className={classNameFilterMenu}>
             <div className="wave-block">
+            {this.props.overBudget && <div className="budget-warning">You don't have enough money! Please change your budget</div>}
             <WrapperComponent />
               <Catalog />
-              
               {/* Basket button */}
                 {this.props.loggedIn && 
                 <div className="align-basket">
                   <div className="basket" onClick={this.handleOpenModal}>
-                    <img src={basket}/>
+                    <img src={basket} alt="basket"/>
                     <div className="counter"><p>{this.props.userItems.length}</p></div>
-                  </div>
+                  </div>  
                 </div>
                 }
-
             </div>
           </main>
           <Basket showModal={this.state.showModal} handleCloseModal={this.handleCloseModal}/>
@@ -93,7 +90,8 @@ class CatalogWithFilter extends React.Component {
 
 const mapStateToProps = state => ({
   userItems: state.data.userItems,
-  loggedIn : state.authentication.loggedIn
+  loggedIn : state.authentication.loggedIn,
+  overBudget: state.budget.overBudget
 });
 
 export default connect(mapStateToProps)(CatalogWithFilter);

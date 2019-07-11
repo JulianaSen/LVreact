@@ -10,9 +10,7 @@ import { history } from '../../helpers/history';
 import { alertActions } from '../../actions/alertActions';
 import { LoginPage } from '../LoginPage/LoginPage';
 import { RegisterPage } from '../RegisterPage/RegisterPage';
-import { HomePage } from '../HomePage/HomePage';
 import userCatalog from '../userChoice/userCatalog';
-import { fetchBasket } from '../../actions/actionsData';
 
 class App extends Component{
 
@@ -31,7 +29,6 @@ class App extends Component{
                     <Router history={history}>
                         <div>
                             <Route exact path="/" component={MainBlock} />
-                            <Route exact path="/home" component={HomePage} />
                             <Route exact path="/about" component={AboutBlock} />
                             <Route exact path='/sign_in' component={LoginPage} />
                             <Route exact path='/sign_up' component={RegisterPage}/>

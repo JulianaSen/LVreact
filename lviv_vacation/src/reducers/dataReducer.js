@@ -3,7 +3,7 @@ const initialState = {
     error: null,
     userItems: [],
     filterItems: [],
-    sum: 0,
+    price: 0,
     budget: 0
 };
 
@@ -12,13 +12,13 @@ export default function dataReducer(state=initialState, action) {
         case 'ADD_BASKET_PRICE':
           return {
             ...state,
-            sum: state.sum + action.payload.sum
+            price: state.price + action.payload.price
           };
 
         case 'MINUS_BASKET_PRICE':
           return {
             ...state,
-            sum: state.sum - action.payload.sum
+            price: state.price - action.payload.price
           };
 
         case 'SHOW_BUDGET':
@@ -31,7 +31,7 @@ export default function dataReducer(state=initialState, action) {
           return {
             ...state,
             error: action.payload.error,
-            items: [],
+            items: []
           };
 
         case 'FETCH_DATA_SUCCESS':
@@ -87,17 +87,17 @@ export default function dataReducer(state=initialState, action) {
                       }       
                     }
                                                                            
-                        if(ObjCheck[item.whatIsIt]) {
-                            return item;
-                        } else if(action.value.checkedItems.checkAll) {
-                          return item;
-                        } else if(!action.value.checkedItems.checkFlat 
-                          && !action.value.checkedItems.checkHostel
-                          && !action.value.checkedItems.checkHotel 
-                          && !action.value.checkedItems.checkMotel) {
-                            return item;
-                        }          
-                      
+                    if(ObjCheck[item.whatIsIt]) {
+                        return item;
+                    } else if(action.value.checkedItems.checkAll) {
+                        return item;
+                    } else if(!action.value.checkedItems.checkFlat 
+                        && !action.value.checkedItems.checkHostel
+                        && !action.value.checkedItems.checkHotel 
+                        && !action.value.checkedItems.checkMotel) {
+                      return item;
+                    }          
+                    return item;
                     })  ]
             };
           

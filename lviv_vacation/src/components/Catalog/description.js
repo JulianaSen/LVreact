@@ -23,14 +23,14 @@ export default class Description extends React.Component {
                   <div>
 
                     <p><i class="fas fa-map-marker-alt"></i> Destination</p>
-                    <p>{(this.props.whatIsIt == "Flat" || this.props.clickedEntertainment) ? null : smoking}</p>
+                    <p>{(this.props.whatIsIt === "Flat" || this.props.clickedEntertainment) ? null : smoking}</p>
                     <p><i className="fa fa-wifi"></i> Wi-fi</p>
                     <p>{iconOfPhone} {mobileField}</p>
                     <p><i class="fas fa-hand-holding-usd"></i>Average Price</p>
                   </div>
                   <div>
                     <p>{this.props.stName}</p>
-                    {(this.props.isSmoking) ? <p><i className="fa fa-check-circle"></i></p> : (this.props.whatIsIt == "Flat" || this.props.clickedEntertainment) ? null : <p><i className="fa fa-times-circle"></i></p>} 
+                    {(this.props.isSmoking) ? <p><i className="fa fa-check-circle"></i></p> : (this.props.whatIsIt === "Flat" || this.props.clickedEntertainment) ? null : <p><i className="fa fa-times-circle"></i></p>} 
                     {(this.props.isWiFi) ? <p><i className="fa fa-check-circle"></i></p> : <p><i className="fa fa-times-circle"></i></p>}
                     <p className="mobile">{mobilePhone}</p>
                     <p>{this.props.price} $</p>

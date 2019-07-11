@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import sleep from '../../img/sleep.svg';
 import food from '../../img/food.svg';
 import cinema from '../../img/cinema.svg';
-import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchHotels, fetchRestaraunts, fetchEntertainments } from '../../actions/actionsData';
 import {clickedEntertainments, clickedHotels, clickedRestaraunts, justClick} from '../../actions/actionClicked';
@@ -27,6 +26,7 @@ class MainIcons extends Component {
     }
 
 
+    
     //Function for enable animation and fetch restaurants
     handleRest(){
         if(this.props.restClicked || !this.props.clicked){

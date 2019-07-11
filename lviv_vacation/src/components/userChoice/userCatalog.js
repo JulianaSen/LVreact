@@ -11,11 +11,9 @@ class userCatalog extends React.Component {
             deleting: false
         };
 
-        this.handleDelete = this.handleDelete.bind(this);
     
     }
 
-    
     
     handleDelete(id){
         //set state for delete animation
@@ -42,7 +40,7 @@ class userCatalog extends React.Component {
                         <ItemOfCatalog key={i.id} id={i.id} description={i.description} destination={i.destination} smoking={i.smoking} WiFi={i.WiFi} 
 
                         rating={i.rating} whatIsIt={i.whatIsIt} name={i.name} mobilePhone={i.mobilePhone} img={i.image} 
-                        handle={() => this.handleDelete(i.id)} deleting={this.state.deleting} selected={[this.props.deleting && 'is-delete'].join(' ')} classBtn="fa fa-close"/>        
+                        handle={()=>this.handleDelete(i.id)} deleting={this.state.deleting} selected={[this.props.deleting && 'is-delete'].join(' ')} classBtn="fa fa-close"/>        
                     ))
                     }
                 </div>

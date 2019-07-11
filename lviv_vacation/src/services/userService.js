@@ -1,5 +1,5 @@
 import { authHeader } from '../helpers/authHelper';
-import { addUserChoice } from "../actions/actionsData";
+import { addUserChoice, addPrices } from "../actions/actionsData";
 
 export const userService = {
     login,
@@ -17,7 +17,10 @@ function  postChoice(data){
 
     return dispatch => {
         return fetch('http://127.0.0.1:5000/api/basket/items/new_item', requestOptions)
-            .then(res => dispatch(addUserChoice(data)))
+            .then(res => {
+                dispatch(addUserChoice(data));
+                dispatch(addPrices(data.price))
+            })
             .catch(error => console.log(error))
         };
 }  

@@ -7,7 +7,6 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import combineReducer from '../src/reducers/rootReducer';
 import { createLogger } from 'redux-logger';
-import Favicon from 'react-favicon';
 
 const loggerMiddleware = createLogger();
 const store = createStore(  
