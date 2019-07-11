@@ -13,16 +13,16 @@ export default class FilterMenu extends React.Component {
   //  
   render() {
 
-    // console.log("filter menu clickecd", this.props);
     let firstField, secondField, thirdField, fourtField, fithField;
     const dispatch = this.props.dispatch;
-    // console.log("Dispach --->", dispatch);
-    // console.log(this.props);
+
     let smallScreenClass = `preferences`;
+    // if(this.props.smallscreen) {
+    //   smallScreenClass = `preferences ${this.props.smallscreen}`;
+    // }
 
-
-    if(this.props.smallscreen) {
-      smallScreenClass = `preferences ${this.props.smallscreen}`;
+    if(this.props.showModalClass) {
+      smallScreenClass = `preferences ${this.props.smallscreen} ${this.props.showModalClass}`;
     }
 
     const {checkAll, checkFlat, checkHostel, checkHotel, checkMotel, checkByDecrease, checkByIncrease} = this.props;

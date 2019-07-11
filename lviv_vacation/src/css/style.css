@@ -26,9 +26,6 @@
   font-display: swap;
   src: local('Satisfy Regular'), local('Satisfy-Regular'), url(https://fonts.gstatic.com/s/satisfy/v9/rP2Hp2yn6lkG50LoCZOIGA.ttf) format('truetype');
 }
-html {
-  overflow: hidden;
-}
 #root {
   font-family: 'Acme', sans-serif;
   background-repeat: no-repeat;
@@ -711,7 +708,7 @@ a.changeLink:hover {
   overflow-y: scroll;
 }
 .wave-block .hotel-container:last-child {
-  margin-bottom: 50px;
+  margin-bottom: 150px;
 }
 .preferences {
   display: flex;
@@ -753,7 +750,6 @@ fieldset {
   justify-content: space-between;
   width: 100%;
 }
-/* styled checkbox */
 .check-item {
   display: flex;
   flex-direction: row-reverse;
@@ -784,7 +780,6 @@ input[type=checkbox] + .styled-checkbox:before {
 input[type=checkbox]:checked + .styled-checkbox:before {
   color: #000;
 }
-/* styled checkbox */
 fieldset {
   display: block;
 }
@@ -858,7 +853,7 @@ i.fa-star:hover {
   color: red;
 }
 .nav-container {
-  display: none;
+  display: block;
 }
 .Star {
   color: #cfd8dc;
@@ -943,6 +938,18 @@ i.fa-star:hover {
     padding: 0;
   }
 }
+.small-screen {
+  display: none;
+}
+.burger-cont button {
+  display: none;
+}
+.burger-cont {
+  display: flex;
+  justify-content: flex-end;
+  background-color: black;
+  width: 100%;
+}
 @media screen and (max-width: 600px) {
   .nav-container {
     display: block;
@@ -950,6 +957,13 @@ i.fa-star:hover {
   }
   .preferences {
     display: none;
+  }
+  .showModalClass {
+    display: block;
+    border: 1px solid black;
+  }
+  .modal-window-filter-menu {
+    display: block;
   }
   .hamburger {
     display: none;
@@ -961,7 +975,20 @@ i.fa-star:hover {
   }
   .burger-cont {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    background-color: black;
+    width: 100%;
+  }
+  .burger-cont button {
+    background-color: black;
+    border: none;
+    display: block;
+    cursor: pointer;
+  }
+  .burger-cont button i {
+    color: white;
+    font-size: 30px;
+    padding-right: 10px;
   }
   .nav-icon:after,
   .nav-icon:before,
@@ -974,15 +1001,6 @@ i.fa-star:hover {
     margin: 4px 0;
     transition: all 0.2s ease-in-out;
   }
-  .hamburger:checked + .nav-icon:before {
-    transform: translateY(7px) rotate(135deg);
-  }
-  .hamburger:checked + .nav-icon::after {
-    transform: translateY(-7px) rotate(-135deg);
-  }
-  .hamburger:checked + .nav-icon div {
-    transform: scale(0);
-  }
   .nav-container {
     position: fixed;
     width: 100%;
@@ -993,13 +1011,17 @@ i.fa-star:hover {
   .small-screen {
     display: block;
     width: 80%;
-    margin: 0 auto;
+    margin: 0 50%;
+    top: 80vh;
+    position: fixed;
+    z-index: 5;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
   .preferences.small-screen {
     max-width: 60%;
-  }
-  .main-container {
-    margin-top: 370px;
   }
   .hotels-offers {
     max-width: 500px;
@@ -1114,7 +1136,7 @@ i.fa-star:hover {
 }
 @media screen and (max-height: 720px) {
   .choice {
-    margin-top: 20px;
+    margin-top: 75px;
   }
   .textBudget {
     font-size: 30px;
@@ -1224,32 +1246,29 @@ i.fa-star:hover {
   padding: 0;
 }
 .basket {
+  color: white;
   position: sticky;
-  font-size: 40px;
+  font-size: 30px;
   top: 10px;
-  width: 30px;
-  height: 20px;
+  width: 50px;
+  height: 45px;
   border: 3px solid black;
   border-radius: 20px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 30px;
-  opacity: 0.6;
-  background-color: white;
-  margin-left: 20px;
-}
-.basket img {
-  width: 60px;
-  height: 60px;
-  display: block;
-  position: absolute;
 }
 .basket .counter p {
-  font-size: 30px;
-  margin-right: 60px;
-  margin-top: 80px;
+  font-size: 20px;
+  align-self: flex-end;
+  margin-right: 5px;
+  margin-right: 3px;
+  position: relative;
+  top: 15px;
+}
+.fa-shopping-basket {
+  display: block;
+  color: white;
 }
 .basket:hover {
   cursor: pointer;
@@ -1261,13 +1280,11 @@ button:focus {
 ::-webkit-scrollbar {
   width: 12px;
 }
-/* Track */
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-/* Handle */
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -1276,4 +1293,25 @@ button:focus {
 }
 ::-webkit-scrollbar-thumb:window-inactive {
   background: gray;
+}
+.hide-scroll {
+  height: 120vh;
+}
+html {
+  overflow: hidden;
+}
+.modal-window-filter-menu {
+  display: none;
+}
+.closeButtonFilterMenu {
+  border-radius: 25px;
+  background-color: #df1414;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  position: absolute;
+  top: 10px;
+  right: 15px;
 }

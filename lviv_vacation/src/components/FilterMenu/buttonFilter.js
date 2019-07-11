@@ -10,10 +10,6 @@ constructor(props) {
 
   clickButtonFilter(e) {
     e.preventDefault();
-    // console.log(this.props.filterCatalog());
-    // console.log(this.props);
-    // this.props.filterCatalog(this.pr);
-    // console.log(this.props.dispach);
     console.log( "---------------------button---->>>>>", this.props);
     this.props.filterCheck(this.props);
     this.props.filterByPrice(this.props);
@@ -21,8 +17,6 @@ constructor(props) {
 
 
   render() {
-    // console.log("update");
-    // console.log(this.props);
     return (
         <div className="check-item filter-button-container" >
             <input type="submit" value="Filter" className="filter-button" onClick={this.clickButtonFilter}/>
