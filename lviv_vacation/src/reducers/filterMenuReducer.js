@@ -16,7 +16,7 @@ function checkingItems(state, checkOne, checkTwo, checkThree, action, newCheck) 
             [newCheck]: action.payload,
             checkAll: action.payload
            }
-    } else if(checkOne && checkTwo && checkThree && action.payload != true) {
+    } else if(checkOne && checkTwo && checkThree && action.payload !== true) {
         return { ...state,
             [newCheck]: action.payload,
             checkAll: action.payload
@@ -36,20 +36,15 @@ const reducerFilterMenu = (state = initialState, action) => {
                         checkMotel: action.payload,
                         checkHostel: action.payload
                     }
-            break;
         case ACTION_CHECK_HOTEL:
             return checkingItems(state, state.checkMotel, state.checkHostel, state.checkFlat, action, 'checkHotel');
-            break;
         case ACTION_CHECK_MOTEL:
             return checkingItems(state, state.checkHotel, state.checkHostel, state.checkFlat, action, 'checkMotel');
-            break;
             
         case ACTION_CHECK_HOSTEL:
             return checkingItems(state, state.checkHotel, state.checkMotel, state.checkFlat, action, 'checkHostel');
-            break;
         case ACTION_CHECK_FLAT:
             return checkingItems(state, state.checkHotel, state.checkMotel, state.checkHostel, action, 'checkFlat');
-            break;
         case "ACTION_CHECK_BY_iNCREASE": 
         if(state.checkByDecrease) {
             return { ...state, checkByIncrease: !state.checkByIncrease,  checkByDecrease: !state.checkByDecrease}
@@ -62,9 +57,10 @@ const reducerFilterMenu = (state = initialState, action) => {
             }
                 return { ...state, checkByDecrease: !state.checkByDecrease }
         }
-    }
 
-    return state;
+        default:
+            return state;
+    }
 };
 
 export default reducerFilterMenu;

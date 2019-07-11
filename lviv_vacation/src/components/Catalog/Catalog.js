@@ -1,45 +1,43 @@
 import React from 'react';
 import ItemOfCatalog from './itemOfCatalog';
 import {connect} from "react-redux";
-import { addUserChoice } from "../../actions/actionsData";
-import axios from 'axios';
+import { userService } from '../../services/userService';
+import {isOverBudget} from '../../actions/userActions';
 
 class Catalog extends React.Component {
-    postChoice(data) {
-        let item = {'user_id': 1, 'content_id': data.id}
-        axios
-            .post("http://127.0.0.1:5000/api/basket/items", item)
-            .then(res => {
-                console.log(res)
-                this.props.dispatch(addUserChoice(data));
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
+
 
     handleClick(id){
         let alreadyAdded = new Set(this.props.userItems.map(i => i.id));
         this.props.items.map(item => {
-            if(this.props.budget - (this.props.price + item.price) >= 0)
-            {
-                if(item.id === id && !alreadyAdded.has(id)){
-                    this.postChoice(item);
-                    this.props.addPrices();
+                if(Number(this.props.budget)-Number(this.props.price)-Number(item.price) >= 0)
+                {
+                    if(item.id === id && !alreadyAdded.has(id)){
+                      this.props.dispatch(userService.postChoice(item));
+                    }
                 }
-            } else {
-                console.log("error");
-            } 
-        })
+                else{
+                    this.props.dispatch(isOverBudget(true));
+                    setTimeout(()=>this.setState(() => {
+                        this.props.dispatch(isOverBudget(false));
+                   }), 3000);
+
+                }
+
+                return false;
+            }
+        )
     }
 
     render() {
         return (
             <div className="hotels-offers">
+                {console.log("here here here",this.props)}
                 {this.props.filterItems.map((p, index) => {
-                    return <ItemOfCatalog key={p.id} description={p.description} destination={p.destination} 
-                    smoking={p.smoking} WiFi={p.wi_fi} rating={p.rating} whatIsIt={p.whatIsIt} name={p.name}
-                    mobilePhone={p.mobile_phone} img={p.image} price={p.price} handle={() => this.handleClick(p.id)} classBtn="fa fa-plus"/>}
+                        
+                        return <ItemOfCatalog key={p.id} description={p.description} destination={p.destination} 
+                        smoking={p.smoking} WiFi={p.wi_fi} rating={p.rating} whatIsIt={p.whatIsIt} name={p.name}
+                        mobilePhone={p.mobile_phone} img={p.image} price={p.price} handle={()=>this.handleClick(p.id)} classBtn="fa fa-plus"/>}
                 )}
             </div>
         )
@@ -48,6 +46,7 @@ class Catalog extends React.Component {
 
 // Map state to props for turning our items from db on props
 const mapStateToProps = state => ({
+
     userItems: state.data.userItems,
     filterItems: state.data.filterItems,
     items: state.data.items,
@@ -57,7 +56,8 @@ const mapStateToProps = state => ({
     checkHostel: state.filter.checkHostel,
     checkFlat: state.filter.checkFlat,
     budget: state.data.budget,
-    price: state.data.price
+    price: state.data.price,
 });
+
 
 export default connect(mapStateToProps)(Catalog);

@@ -7,16 +7,14 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import combineReducer from '../src/reducers/rootReducer';
 import { createLogger } from 'redux-logger';
-import { configureFakeBackend } from './helpers/fakeBackend';
-import Favicon from 'react-favicon';
 
 const loggerMiddleware = createLogger();
-const store = createStore(
+const store = createStore(  
     combineReducer,
     applyMiddleware(thunk, loggerMiddleware)
 );
 
-configureFakeBackend();
+// configureFakeBackend();
 ReactDOM.render(
     <Provider store = { store }>
         <BrowserRouter>

@@ -8,6 +8,7 @@ import { authentication } from './authenticationReducer';
 import { registration } from './registrationReducer';
 import { users } from './usersReducer';
 import { alert } from './alertReducer';
+import budget from './budgetReducer';
 
 export default combineReducers({
   form : formReducer,
@@ -17,5 +18,6 @@ export default combineReducers({
   authentication,
   registration,
   users,
-  alert
+  alert,
+  budget
 });

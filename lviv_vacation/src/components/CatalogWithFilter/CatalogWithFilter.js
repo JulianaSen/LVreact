@@ -1,7 +1,5 @@
 import React from 'react';
-import FilterMenu from '../FilterMenu/filterMenu';
 import Catalog from '../Catalog/Catalog';
-// import { store } from '../../actions/actionFilterMenu';
 import { WrapperComponent } from '../FilterMenu/filterMenu';
 import BurgerContainer from './BurgerContainer';
 import basket from "../../img/basket.png";
@@ -68,11 +66,7 @@ class CatalogWithFilter extends React.Component {
       
       return (
         <div className="mainContent">
-         
-          {/* <div className={navContainerClass}>
-            <BurgerContainer clickBurger={this.drawerToggleClickHandler}/>
-            
-          </div> */}
+          
           <BurgerContainer clickBurger={this.drawerToggleClickHandler} closeBurger={this.state.closeBurger} 
             loggedIn={this.props.loggedIn} handleOpenModal={this.handleOpenModal} amntUsers={this.props.userItems.length}
           />
@@ -83,18 +77,18 @@ class CatalogWithFilter extends React.Component {
           </div>
           <main className={classNameFilterMenu}>
             <div className="wave-block">
+            {this.props.overBudget && <div className="budget-warning">You don't have enough money! Please change your budget</div>}
             <WrapperComponent />
               <Catalog />
-              
-{/*             
+
                 {this.props.loggedIn && 
                 <div className="align-basket">
                   <div className="basket" onClick={this.handleOpenModal}>
                     <img src={basket} alt="basket"/>
                     <div className="counter"><p>{this.props.userItems.length}</p></div>
+
                   </div>
                 </div>} */}
-                
 
             </div>
           </main>
@@ -106,7 +100,8 @@ class CatalogWithFilter extends React.Component {
 
 const mapStateToProps = state => ({
   userItems: state.data.userItems,
-  loggedIn : state.authentication.loggedIn
+  loggedIn : state.authentication.loggedIn,
+  overBudget: state.budget.overBudget
 });
 
 export default connect(mapStateToProps)(CatalogWithFilter);

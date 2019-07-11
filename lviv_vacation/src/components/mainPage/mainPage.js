@@ -5,18 +5,17 @@ import MainIcons from '../mainPage/icons';
 import Navbar from '../Navbar/Navbar';
 import CatalogWithFilter from '../CatalogWithFilter/CatalogWithFilter';
 import { connect } from 'react-redux';
-import { userActions } from '../../actions/userActions';
 import { fetchBasket } from '../../actions/actionsData';
 
 class MainBlock extends Component {
 
     componentDidMount(){
-        this.props.dispatch(fetchBasket(1))
+        if(this.props.loggedIn){
+            this.props.dispatch(fetchBasket())
+        }
     }
 
     render() {
-        // console.log("------------->>>>>>------>>>", this.props);
-        const { user, users } = this.props;
         return (
             <>
             <div  className={['main_page', this.props.clicked && 'is-inf-open'].join(' ')}>
@@ -41,7 +40,8 @@ const mapStateToProps = state => ({
     clicked: state.click.clicked,
     hotelClicked: state.click.clickedHotels,
     restClicked: state.click.clickedRestaraunts,
-    entClicked: state.click.clickedEntertainment
+    entClicked: state.click.clickedEntertainment,
+    loggedIn: state.authentication.loggedIn
 });
 
 export default connect(mapStateToProps)(MainBlock);
