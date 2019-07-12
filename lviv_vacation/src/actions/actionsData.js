@@ -2,7 +2,7 @@ import { authHeader } from "../helpers/authHelper";
 
 export function fetchHotels(price) {
     return dispatch => {
-        return  fetch(`https://api.lviv-vacation.top/api/content/hotel/${price}`)
+        return  fetch(`http://127.0.0.1:5000/api/content/hotel/${price}`)
         .then(res => res.json())
         .then(json => {
             dispatch(fetchDataSuccess(json.items));
@@ -14,7 +14,7 @@ export function fetchHotels(price) {
 
 export function fetchRestaraunts(price) {
     return dispatch => {
-        return  fetch(`https://api.lviv-vacation.top/api/content/restaurant/${price}`)
+        return  fetch(`http://127.0.0.1:5000/api/content/restaurant/${price}`)
         .then(res => res.json())
         .then(json => {
             dispatch(fetchDataSuccess(json.items));
@@ -26,7 +26,7 @@ export function fetchRestaraunts(price) {
 
 export function fetchEntertainments(price) {
     return dispatch => {
-        return  fetch(`https://api.lviv-vacation.top/api/content/entertainment/${price}`)
+        return  fetch(`http://127.0.0.1:5000/api/content/entertainment/${price}`)
         .then(res => res.json())
         .then(json => {
             dispatch(fetchDataSuccess(json.items));
@@ -44,7 +44,7 @@ export function fetchBasket() {
     }
 
     return dispatch => {
-        return  fetch("https://api.lviv-vacation.top/api/basket/items/all", requestOptions)
+        return  fetch("http://127.0.0.1:5000/api/basket/items/all", requestOptions)
         .then(res => res.json())
         .then(json => {
             dispatch(fetchUserChoice(json.items));
@@ -64,7 +64,7 @@ export function deleteChoice(data){
     }
     
     return dispatch => {
-        fetch(`https://api.lviv-vacation.top/api/basket/items/${data.id}`, requestOptions)
+        fetch(`http://127.0.0.1:5000/api/basket/items/${data.id}`, requestOptions)
         .then(() => {
             dispatch(deleteUserChoice(data.id));
             dispatch(minusPrices(data.price));
