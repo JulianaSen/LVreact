@@ -45,7 +45,7 @@ class FilterMenuModal extends React.Component {
           style={customStyles}
           contentLabel="Example Modal">
             <WrapperComponent showModalClass="showModalClass"/>
-          <button onClick={this.props.closeFilterMenu} className="closeButtonFilterMenu"><i class="fas fa-times"></i></button>
+          <button onClick={this.props.closeFilterMenu} className="closeButtonFilterMenu"><i className="fas fa-times"></i></button>
         </Modal>
       </div>
     );
