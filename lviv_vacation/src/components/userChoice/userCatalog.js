@@ -15,12 +15,12 @@ class userCatalog extends React.Component {
     }
 
     
-    handleDelete(id){
+    handleDelete(data){
         //set state for delete animation
         this.setState(() => {
              return {deleting: true};
         });
-        this.props.dispatch(deleteChoice(id));
+        this.props.dispatch(deleteChoice(data));
 
         setTimeout(()=>this.setState(() => {
              return {deleting: false};
@@ -40,7 +40,7 @@ class userCatalog extends React.Component {
                         <ItemOfCatalog key={i.id} id={i.id} description={i.description} destination={i.destination} smoking={i.smoking} WiFi={i.WiFi} 
 
                         rating={i.rating} whatIsIt={i.whatIsIt} name={i.name} mobilePhone={i.mobilePhone} img={i.image} 
-                        handle={()=>this.handleDelete(i.id)} deleting={this.state.deleting} selected={[this.props.deleting && 'is-delete'].join(' ')} classBtn="fa fa-close"/>        
+                        handle={()=>this.handleDelete(i)} deleting={this.state.deleting} selected={[this.props.deleting && 'is-delete'].join(' ')} classBtn="fa fa-close"/>        
                     ))
                     }
                 </div>

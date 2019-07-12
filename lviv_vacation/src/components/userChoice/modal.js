@@ -27,7 +27,7 @@ class Basket extends React.Component {
               {this.props.userItems.map(i => (
                 <ItemOfCatalog key={i.id} id={i.id} description={i.description} destination={i.destination} smoking={i.smoking} WiFi={i.WiFi} 
                 rating={i.rating} whatIsIt={i.whatIsIt} name={i.name} mobilePhone={i.mobilePhone} img={i.image} 
-                handle={() => this.props.dispatch(deleteChoice(i.id))} deleting={this.state.deleting} selected={[this.props.deleting && 'is-delete'].join(' ')} classBtn="fa fa-close"/>     
+                handle={() => this.props.dispatch(deleteChoice(i))} deleting={this.state.deleting} selected={[this.props.deleting && 'is-delete'].join(' ')} classBtn="fa fa-close"/>     
                 ))
               }
             </div> 

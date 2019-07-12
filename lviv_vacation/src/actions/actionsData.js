@@ -1,8 +1,8 @@
 import { authHeader } from "../helpers/authHelper";
 
-export function fetchHotels() {
+export function fetchHotels(price) {
     return dispatch => {
-        return  fetch("http://127.0.0.1:5000/api/content/hotel")
+        return  fetch(`http://127.0.0.1:5000/api/content/hotel/${price}`)
         .then(res => res.json())
         .then(json => {
             dispatch(fetchDataSuccess(json.items));
@@ -12,9 +12,9 @@ export function fetchHotels() {
     };
 }
 
-export function fetchRestaraunts() {
+export function fetchRestaraunts(price) {
     return dispatch => {
-        return  fetch("http://127.0.0.1:5000/api/content/restaurant")
+        return  fetch(`http://127.0.0.1:5000/api/content/restaurant/${price}`)
         .then(res => res.json())
         .then(json => {
             dispatch(fetchDataSuccess(json.items));
@@ -24,9 +24,9 @@ export function fetchRestaraunts() {
     };
 }
 
-export function fetchEntertainments() {
+export function fetchEntertainments(price) {
     return dispatch => {
-        return  fetch("http://127.0.0.1:5000/api/content/entertainment")
+        return  fetch(`http://127.0.0.1:5000/api/content/entertainment/${price}`)
         .then(res => res.json())
         .then(json => {
             dispatch(fetchDataSuccess(json.items));
@@ -56,7 +56,7 @@ export function fetchBasket() {
 
 
 //Delete item from table basket in DB
-export function deleteChoice(contentID){
+export function deleteChoice(data){
 
     const requestOptions = {
         method: 'DELETE',
@@ -64,9 +64,11 @@ export function deleteChoice(contentID){
     }
     
     return dispatch => {
-        fetch(`http://127.0.0.1:5000/api/basket/items/${contentID}`, requestOptions)
+        fetch(`http://127.0.0.1:5000/api/basket/items/${data.id}`, requestOptions)
         .then(() => {
-            dispatch(deleteUserChoice(contentID));
+            dispatch(deleteUserChoice(data.id));
+            dispatch(minusPrices(data.price));
+
         })
         .catch(error => {
             console.log(error);

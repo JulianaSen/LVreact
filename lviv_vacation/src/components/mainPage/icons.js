@@ -22,7 +22,7 @@ class MainIcons extends Component {
             this.props.dispatch(clickedRestaraunts());
         }
         this.props.dispatch(clickedHotels());
-        this.props.dispatch(fetchHotels());
+        this.props.dispatch(fetchHotels(this.props.budget-this.props.price));
     }
 
 
@@ -42,7 +42,7 @@ class MainIcons extends Component {
         }
 
         this.props.dispatch(clickedRestaraunts())
-        this.props.dispatch(fetchRestaraunts());
+        this.props.dispatch(fetchRestaraunts(this.props.budget-this.props.price));
     }
 
 
@@ -60,7 +60,7 @@ class MainIcons extends Component {
         }
 
         this.props.dispatch(clickedEntertainments());
-        this.props.dispatch(fetchEntertainments());
+        this.props.dispatch(fetchEntertainments(this.props.budget-this.props.price));
     }
 
     render() {
