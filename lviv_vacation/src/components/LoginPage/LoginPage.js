@@ -46,16 +46,13 @@ class LoginPage extends React.Component {
                 <div className="input-rgt" >
                     <div>
                         <input type="text" placeholder="Username" name="username" value={username} onChange={this.handleChange} /><br />
-                        {submitted && !username &&
-                            <div style={{ backgroundColor: "white", borderRadius: "5px", padding: "3px"}} >Username is required</div>
-                        }
                     </div>
                     <div>
                         <input type="password" placeholder="Password" name="password" value={password} onChange={this.handleChange} /><br />
-                        {submitted && !password &&
-                            <div style={{ backgroundColor: "white", borderRadius: "5px", padding: "3px"}} >Password is required</div>
-                        }
                     </div>
+                    {submitted && (!username ||!password) &&
+                            <div style={{ backgroundColor: "white", borderRadius: "5px", padding: "3px", marginTop: "10px"}} >Please enter all fields!</div>
+                    }
                     <br />
                     <button id="btn" type="submit" >
                        Sign in

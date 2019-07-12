@@ -55,28 +55,20 @@ class RegisterPage extends React.Component {
                 <div className="input-rgt" >
                     <div>
                         <input type="text" placeholder="First name" name="firstName" value={user.firstName} onChange={this.handleChange} /><br />
-                        {submitted && !user.firstName &&
-                            <div style={{ backgroundColor: "white", borderRadius: "5px", padding: "3px"}} >First Name is required</div>
-                        }
+                       
                     </div>
                     <div>
                         <input type="text" placeholder="Last name" name="lastName" value={user.lastName} onChange={this.handleChange} /><br />
-                        {submitted && !user.lastName &&
-                            <div style={{ backgroundColor: "white", borderRadius: "5px", padding: "3px"}} >Last Name is required</div>
-                        }
                     </div>
                     <div>
                         <input type="text" placeholder="Username" name="username" value={user.username} onChange={this.handleChange} /><br />
-                        {submitted && !user.username &&
-                            <div style={{ backgroundColor: "white", borderRadius: "5px", padding: "3px"}} >Username is required</div>
-                        }
                     </div>
                     <div>
                         <input type="password" placeholder="Password" name="password" value={user.password} onChange={this.handleChange} /><br />
-                        {submitted && !user.password &&
-                            <div style={{ backgroundColor: "white", borderRadius: "5px", padding: "3px"}} >Password is required</div>
-                        }
                     </div>
+                    {submitted && (!user.firstName || !user.lastName || !user.username ||!user.password) &&
+                            <div style={{ backgroundColor: "white", borderRadius: "5px", padding: "3px", marginTop: "10px"}} >Please enter all fields!</div>
+                    }
                     <br />
                     <button id="btn" type="submit" >
                         Sign up
