@@ -12,11 +12,11 @@ const renderField = ({
         <input {...input} className={className} placeholder={placeholder} type={type} />
         {touched &&
           (error &&  
-            <div><br />
+            <div>
                 <span className="error_bdg">
                 {error}
                 </span>
-                <br /> <br /> 
+                <br /> 
             </div>) }
       </div>
     </div>

@@ -11,7 +11,7 @@ export default class Description extends React.Component {
         iconOfPhone = <i className="fa fa-mobile"></i> 
       }
 
-      let smoking =  <p><i className="fa fa-smoking"></i>Smoking rm.</p>
+      let smoking =  <span><i className="fa fa-smoking"></i>Smoking rm.</span>
 
         return (
             <div className="description ">
@@ -22,11 +22,11 @@ export default class Description extends React.Component {
                 <div className="servises">
                   <div>
 
-                    <p><i class="fas fa-map-marker-alt"></i> Destination</p>
+                    <p><i className="fas fa-map-marker-alt"></i> Destination</p>
                     <p>{(this.props.whatIsIt === "Flat" || this.props.clickedEntertainment) ? null : smoking}</p>
                     <p><i className="fa fa-wifi"></i> Wi-fi</p>
                     <p>{iconOfPhone} {mobileField}</p>
-                    <p><i class="fas fa-hand-holding-usd"></i>Average Price</p>
+                    <p><i className="fas fa-hand-holding-usd"></i>Average Price</p>
                   </div>
                   <div>
                     <p>{this.props.stName}</p>

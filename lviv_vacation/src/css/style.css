@@ -45,7 +45,6 @@ html {
   height: 100vh;
 }
 .userCatalog {
-  background-color: #f3f3f3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,6 +53,10 @@ html {
 }
 .userCatalog .nameOfBuilding {
   font-size: 30px;
+}
+.basketWindow {
+  overflow-y: scroll;
+  background-color: #f3f3f3;
 }
 .choice {
   width: 100%;
@@ -101,7 +104,8 @@ html {
   background-color: white;
   border-radius: 5px;
   padding: 5px;
-  font-size: 25px;
+  font-size: 20px;
+  margin-left: 15px;
 }
 .btn,
 .filter-button {
@@ -916,7 +920,7 @@ i.fa-star:hover {
   padding: 5px;
   font-family: 'Acme', sans-serif;
 }
-.hotels-offers {
+.hotelsOffers {
   z-index: 2;
   max-width: 800px;
   margin-bottom: 50px;
@@ -1026,7 +1030,7 @@ i.fa-star:hover {
   .preferences.small-screen {
     max-width: 60%;
   }
-  .hotels-offers {
+  .hotelsOffers {
     max-width: 500px;
   }
 }
@@ -1232,7 +1236,7 @@ i.fa-star:hover {
   justify-content: flex-end;
 }
 .fa-plus,
-.fa-close {
+.user {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -1240,7 +1244,7 @@ i.fa-star:hover {
   box-shadow: 2px 2px 5px black;
 }
 .fa-plus:hover,
-.fa-close:hover {
+.user:hover {
   background-color: #9da6b5;
   cursor: pointer;
 }
@@ -1298,6 +1302,9 @@ button:focus {
 }
 ::-webkit-scrollbar-thumb:window-inactive {
   background: gray;
+}
+.closeBtn {
+  margin-bottom: 60px;
 }
 .hide-scroll {
   height: 120vh;

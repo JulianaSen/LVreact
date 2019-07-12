@@ -55,13 +55,11 @@ class CatalogWithFilter extends React.Component {
     render() {
       let classNameFilterMenu = "delete-margin";
       let smallScreen = "small-screen";
-      // let navContainerClass = "nav-cont-without-filter-menu";
       let FilterModalWindowOpen = "";
       if(!this.state.drawerOpen) {
         classNameFilterMenu = "main-container";
         FilterModalWindowOpen = "modal-window-filter-menu";
         smallScreen = "small-screen";
-        
       }
       
       return (
@@ -80,16 +78,6 @@ class CatalogWithFilter extends React.Component {
             {this.props.overBudget && <div className="budget-warning">You don't have enough money! Please change your budget</div>}
             <WrapperComponent />
               <Catalog />
-
-                {this.props.loggedIn && 
-                <div className="align-basket">
-                  <div className="basket" onClick={this.handleOpenModal}>
-                    <img src={basket} alt="basket"/>
-                    <div className="counter"><p>{this.props.userItems.length}</p></div>
-
-                  </div>
-                </div>} */}
-
             </div>
           </main>
           <Basket showModal={this.state.showModal} handleCloseModal={this.handleCloseModal}/>

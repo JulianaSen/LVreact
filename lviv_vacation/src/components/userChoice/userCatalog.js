@@ -10,11 +10,8 @@ class userCatalog extends React.Component {
         this.state = {
             deleting: false
         };
-
-    
     }
 
-    
     handleDelete(data){
         //set state for delete animation
         this.setState(() => {
@@ -33,14 +30,13 @@ class userCatalog extends React.Component {
         return (
             <>
             <Navbar />
-            <div className="userCatalog">
+            <div className="userCatalog basketWindow">
             <p className="nameOfBuilding">Your choice:</p>
-                <div className="hotels-offers">
+                <div className="hotelsOffers">
                     {this.props.userItems.map(i => (
                         <ItemOfCatalog key={i.id} id={i.id} description={i.description} destination={i.destination} smoking={i.smoking} WiFi={i.WiFi} 
-
-                        rating={i.rating} whatIsIt={i.whatIsIt} name={i.name} mobilePhone={i.mobilePhone} img={i.image} 
-                        handle={()=>this.handleDelete(i)} deleting={this.state.deleting} selected={[this.props.deleting && 'is-delete'].join(' ')} classBtn="fa fa-close"/>        
+                        rating={i.rating} whatIsIt={i.whatIsIt} name={i.name} mobilePhone={i.mobilePhone} img={i.image} price={i.price}
+                        handle={()=>this.handleDelete(i)} deleting={this.state.deleting} selected={[this.props.deleting && 'is-delete'].join(' ')} classBtn="fa fa-times user"/>        
                     ))
                     }
                 </div>

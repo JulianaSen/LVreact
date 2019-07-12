@@ -31,10 +31,9 @@ class Catalog extends React.Component {
 
     render() {
         return (
-            <div className="hotels-offers">
+            <div className="hotelsOffers">
                 {console.log("here here here",this.props)}
                 {this.props.filterItems.map((p, index) => {
-                        
                         return <ItemOfCatalog key={p.id} description={p.description} destination={p.destination} 
                         smoking={p.smoking} WiFi={p.wi_fi} rating={p.rating} whatIsIt={p.whatIsIt} name={p.name}
                         mobilePhone={p.mobile_phone} img={p.image} price={p.price} handle={()=>this.handleClick(p.id)} classBtn="fa fa-plus"/>}
