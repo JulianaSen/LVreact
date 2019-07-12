@@ -25,7 +25,7 @@ class App extends Component{
 
     render() {
         return (
-                <div >
+                <div className="hide-scroll">
                     <Router history={history}>
                         <div>
                             <Route exact path="/" component={MainBlock} />
